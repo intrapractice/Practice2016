@@ -22,22 +22,21 @@ public class UserDaoImpl implements UserDao {
     @Override
     public List<User> getAllUsers() {
         System.out.println("Entering the dao");
-        String sql = "SELECT * FROM user";
-        List<User> listContact = new ArrayList<User>();/*jdbcTemplate.query(sql, new RowMapper<User>() {
+        String sql = "SELECT * FROM USERS_";
+        List<User> listContact = jdbcTemplate.query(sql, new RowMapper<User>() {
      
             @Override
             public User mapRow(ResultSet rs, int rowNum) throws SQLException {
                 User aContact = new User();
      
-                aContact.setName(rs.getString("name"));
-                aContact.setEmail(rs.getString("email"));
-                aContact.setToken(rs.getString("token"));
+                aContact.setName(rs.getString("USER_NAME"));
+                aContact.setEmail(rs.getString("USER_EMAIL"));
+                aContact.setToken(rs.getString("USER_TOKEN"));
      
                 return aContact;
             }
 
-        });*/
-        listContact.add(new User("asd@asd.asd","martin test",null));
+        });
         return listContact;
     }
     
