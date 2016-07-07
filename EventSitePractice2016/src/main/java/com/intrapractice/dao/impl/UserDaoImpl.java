@@ -2,10 +2,7 @@ package com.intrapractice.dao.impl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
-
-import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -21,23 +18,41 @@ public class UserDaoImpl implements UserDao {
     
     @Override
     public List<User> getAllUsers() {
-        System.out.println("Entering the dao");
         String sql = "SELECT * FROM USERS_";
         List<User> listContact = jdbcTemplate.query(sql, new RowMapper<User>() {
      
             @Override
             public User mapRow(ResultSet rs, int rowNum) throws SQLException {
-                User aContact = new User();
+                User user = new User();
+
+                user.setId(rs.getInt("ID"));
+                user.setName(rs.getString("USER_NAME"));
+                user.setEmail(rs.getString("USER_EMAIL"));
+                user.setToken(rs.getString("USER_TOKEN"));
      
-                aContact.setName(rs.getString("USER_NAME"));
-                aContact.setEmail(rs.getString("USER_EMAIL"));
-                aContact.setToken(rs.getString("USER_TOKEN"));
-     
-                return aContact;
+                return user;
             }
 
         });
         return listContact;
+    }
+
+    @Override
+    public void createUser(String name, String email, String token) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public User getUser(String email) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public User getUserByName(String name) {
+        // TODO Auto-generated method stub
+        return null;
     }
     
     

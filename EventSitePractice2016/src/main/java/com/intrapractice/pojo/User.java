@@ -1,7 +1,10 @@
 package com.intrapractice.pojo;
 
+import java.util.List;
+
 public class User {
     
+    private int id;
     
     private String email;
     
@@ -9,14 +12,18 @@ public class User {
     
     private String token;
     
+    private List<Integer> likedEvents;
+
     public User(){
         
     }
-    
-    public User(String email, String name, String token){
-        this.email = email;
-        this.name = name;
-        this.token = token;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getEmail() {
@@ -41,6 +48,14 @@ public class User {
 
     public void setToken(String token) {
         this.token = token;
+    }
+
+    public List<Integer> getLikedEvents() {
+        return likedEvents;
+    }
+
+    public void setLikedEvents(List<Integer> likedEvents) {
+        this.likedEvents = likedEvents;
     }
 
 }

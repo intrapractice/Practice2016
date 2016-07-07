@@ -14,8 +14,8 @@ import com.intrapractice.dao.UserDao;
 import com.intrapractice.pojo.User;
 
 @Controller
-public class HomeController {
-    
+public class HomePageController {
+
     @Autowired
     private UserDao userDao;
 

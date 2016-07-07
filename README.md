@@ -15,7 +15,7 @@
 * Event page
 * Create event page
 * Create event request
-* Profile page (My events page)
+* My events page (created/joined)
 
 #### EventRESTController.java
 * Event like

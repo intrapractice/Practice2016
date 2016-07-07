@@ -2,11 +2,15 @@ package com.intrapractice.dao;
 
 import java.util.List;
 
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
-
 import com.intrapractice.pojo.User;
 
 public interface UserDao {
     public List<User> getAllUsers();
+
+    public boolean createUser(String name, String email, String token);
+
+    public User getUser(String email);
+
+    public User getUserByName(String name);
+
 }
