@@ -38,12 +38,6 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public void createUser(String name, String email, String token) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
     public User getUser(String email) {
         // TODO Auto-generated method stub
         return null;
@@ -53,6 +47,12 @@ public class UserDaoImpl implements UserDao {
     public User getUserByName(String name) {
         // TODO Auto-generated method stub
         return null;
+    }
+
+    @Override
+    public boolean createUser(String name, String email, String token) {
+        // TODO Auto-generated method stub
+        return false;
     }
     
     
