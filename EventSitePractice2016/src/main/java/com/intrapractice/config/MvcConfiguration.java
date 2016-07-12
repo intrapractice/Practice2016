@@ -2,8 +2,11 @@ package com.intrapractice.config;
 
 import javax.sql.DataSource;
 
+import com.intrapractice.dao.EventsDao;
 import com.intrapractice.dao.UserDao;
+import com.intrapractice.dao.impl.EventDaoImpl;
 import com.intrapractice.dao.impl.UserDaoImpl;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -44,6 +47,7 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
         return dataSource;
     }
 	
+	
 	@Bean
     public JdbcTemplate jdbcTemplate() {    
         final JdbcTemplate jdbcTemplate = new JdbcTemplate();
@@ -54,8 +58,17 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
         return jdbcTemplate;
     }
 
-    @Bean
+	@Bean
     public UserDao getUserDAO() {
         return new UserDaoImpl();
     }
+    
+    @Bean
+    public EventsDao getEventsDAO(){
+    	return new EventDaoImpl();
+    
+    }
+    
+    
+    
 }
