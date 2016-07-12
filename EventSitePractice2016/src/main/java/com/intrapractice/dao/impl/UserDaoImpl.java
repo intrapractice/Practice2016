@@ -74,9 +74,9 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public User getUserID(int id) {
+    public User getUserByID(int id) {
 
-        String sql = "SELECT * FROM USERS_ WHERE ID = " + 1;
+        String sql = "SELECT * FROM USERS_ WHERE ID = " + id;
 
         return jdbcTemplate.query(sql, new ResultSetExtractor<User>() {
 

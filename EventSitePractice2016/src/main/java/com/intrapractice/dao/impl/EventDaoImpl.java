@@ -36,7 +36,7 @@ public class EventDaoImpl implements EventsDao {
 				event.setId(rs.getInt("ID"));
 				event.setTitle(rs.getString("EVENT_TITLE"));
 				event.setLocation(rs.getString("EVENT_LOCATION"));
-				event.setOwner(userDaoImpl.getUserID(rs.getInt("EVENT_OWNER")));
+				event.setOwner(userDaoImpl.getUserByID(rs.getInt("EVENT_OWNER")));
 				event.setDescription(rs.getString("EVENT_DESCRIPTION"));
 				event.setTimestamp(rs.getTimestamp("EVENT_DATE"));
 

@@ -13,6 +13,6 @@ public interface UserDao {
 
     public User getUserByName(String name);
     
-    public User getUserID(int id);
+    public User getUserByID(int id);
 
 }
