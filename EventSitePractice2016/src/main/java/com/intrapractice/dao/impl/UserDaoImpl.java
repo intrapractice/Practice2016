@@ -15,76 +15,92 @@ import com.intrapractice.pojo.User;
 
 public class UserDaoImpl implements UserDao {
 
-	@Autowired
-	private JdbcTemplate jdbcTemplate;
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
 
-	@Override
-	public List<User> getAllUsers() {
-		String sql = "SELECT * FROM USERS_";
-		List<User> listContact = jdbcTemplate.query(sql, new RowMapper<User>() {
+    @Override
+    public List<User> getAllUsers() {
+        String sql = "SELECT * FROM USERS_";
+        List<User> listContact = jdbcTemplate.query(sql, new RowMapper<User>() {
 
-			@Override
-			public User mapRow(ResultSet rs, int rowNum) throws SQLException {
-				User user = new User();
+            @Override
+            public User mapRow(ResultSet rs, int rowNum) throws SQLException {
+                User user = new User();
 
-				user.setId(rs.getInt("ID"));
-				user.setName(rs.getString("USER_NAME"));
-				user.setEmail(rs.getString("USER_EMAIL"));
-				user.setToken(rs.getString("USER_TOKEN"));
+                user.setId(rs.getInt("ID"));
+                user.setName(rs.getString("USER_NAME"));
+                user.setEmail(rs.getString("USER_EMAIL"));
+                user.setToken(rs.getString("USER_TOKEN"));
 
-				return user;
-			}
+                return user;
+            }
 
-		});
-		return listContact;
-	}
+        });
+        return listContact;
+    }
 
-	@Override
-	public User getUser(String email) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public User getUser(String email) {
+        List<User> userEmail = this.jdbcTemplate.query("SELECT * FROM USERS_ WHERE USER_EMAIL=?",
+                new Object[] { email }, new RowMapper<User>() {
+                    @Override
+                    public User mapRow(ResultSet rs, int rowNum) throws SQLException {
+                        User user = new User();
+                        user.setName(rs.getString("USER_NAME"));
+                        user.setEmail(rs.getString("USER_EMAIL"));
+                        user.setToken(rs.getString("USER_TOKEN"));
+                        return user;
+                    }
+                });
+        if (userEmail.size() != 1) {
+            return null;
+        } else {
+            return userEmail.get(0);
+        }
+    }
 
-	@Override
-	public User getUserByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public User getUserByName(String name) {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-	@Override
-	public boolean createUser(String name, String email, String token) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+    @Override
+    public boolean createUser(String name, String email, String token) {
+        String sql = "INSERT INTO USERS_(USER_NAME,USER_EMAIL,USER_TOKEN) VALUES (?,?,?)";
+        Object[] values = new Object[] { name, email, token };
+        jdbcTemplate.update(sql, values);
+        return true;
+    }
 
-	@Override
-	public User getUserID(int id) {
+    @Override
+    public User getUserID(int id) {
 
-		String sql = "SELECT * FROM USERS_ WHERE ID = " + 1;
+        String sql = "SELECT * FROM USERS_ WHERE ID = " + 1;
 
-		return jdbcTemplate.query(sql, new ResultSetExtractor<User>() {
+        return jdbcTemplate.query(sql, new ResultSetExtractor<User>() {
 
-			@Override
-			public User extractData(ResultSet rs) throws SQLException, DataAccessException {
+            @Override
+            public User extractData(ResultSet rs) throws SQLException, DataAccessException {
 
-				if (rs.next()) {
+                if (rs.next()) {
 
-					User user = new User();
+                    User user = new User();
 
-					user.setId(rs.getInt("ID"));
-					user.setName(rs.getString("USER_NAME"));
-					user.setEmail(rs.getString("USER_EMAIL"));
-					user.setToken(rs.getString("USER_TOKEN"));
+                    user.setId(rs.getInt("ID"));
+                    user.setName(rs.getString("USER_NAME"));
+                    user.setEmail(rs.getString("USER_EMAIL"));
+                    user.setToken(rs.getString("USER_TOKEN"));
 
-					return user;
+                    return user;
 
-				}
+                }
 
-				return null;
-			}
+                return null;
+            }
 
-		});
+        });
 
-	}
+    }
 
 }
