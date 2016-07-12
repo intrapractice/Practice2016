@@ -26,4 +26,9 @@ public class HomePageController {
 	    mav.addObject("users", users);
 		return mav;
 	}
+	@RequestMapping(value="/login")
+	public ModelAndView login(HttpServletResponse response) throws IOException{
+	    ModelAndView mav = new ModelAndView("login");
+		return mav;
+	}
 }
