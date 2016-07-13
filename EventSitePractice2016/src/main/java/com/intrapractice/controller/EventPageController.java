@@ -33,7 +33,7 @@ public class EventPageController {
 			System.out.println("Error with parse the date format!");
 
 		}
-		//OwnerId is 6 , because login is not ready
+		// OwnerId is 6 , because login is not ready
 		boolean result = eventsDao.createEvent(events.getTitle(), events.getDescription(), eventsDate,
 				events.getLocation(), 6);
 
