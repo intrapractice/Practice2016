@@ -6,12 +6,15 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 
 import com.intrapractice.dao.EventsDao;
 import com.intrapractice.dao.UserDao;
 import com.intrapractice.pojo.Event;
+import com.intrapractice.pojo.User;
 
 
 public class EventDaoImpl implements EventsDao {
@@ -50,8 +53,34 @@ public class EventDaoImpl implements EventsDao {
 
 	@Override
 	public Event getEventById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		String sql = "SELECT * FROM EVENTS_ WHERE ID = " + id;
+
+        return jdbcTemplate.query(sql, new ResultSetExtractor<Event>() {
+
+            @Override
+            public Event extractData(ResultSet rs) throws SQLException, DataAccessException {
+
+                if (rs.next()) {
+
+                    Event event = new Event();
+
+                    event.setId(rs.getInt("ID"));
+    				event.setTitle(rs.getString("EVENT_TITLE"));
+    				event.setLocation(rs.getString("EVENT_LOCATION"));
+    				event.setOwner(userDaoImpl.getUserByID(rs.getInt("EVENT_OWNER")));
+    				event.setDescription(rs.getString("EVENT_DESCRIPTION"));
+    				event.setTimestamp(rs.getTimestamp("EVENT_DATE"));
+
+                    return event;
+
+                }
+
+                return null;
+            }
+
+        });
+
 	}
 
 	@Override
