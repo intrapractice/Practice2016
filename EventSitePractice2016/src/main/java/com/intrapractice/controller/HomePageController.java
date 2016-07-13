@@ -31,21 +31,17 @@ public class HomePageController {
 
 		List<User> users = userDao.getAllUsers();
 		mav.addObject("users", users);
-		
-		System.out.println(users.size());
-		
-		
+
 		List<Event> events = eventsDao.getAllEvents();
 		mav.addObject("events", events);
 
-		System.out.println(events.size());
-		
 		return mav;
 
 	}
-	@RequestMapping(value="/login")
-	public ModelAndView login(HttpServletResponse response) throws IOException{
-	    ModelAndView mav = new ModelAndView("login");
+
+	@RequestMapping(value = "/login")
+	public ModelAndView login(HttpServletResponse response) throws IOException {
+		ModelAndView mav = new ModelAndView("login");
 		return mav;
 	}
 }

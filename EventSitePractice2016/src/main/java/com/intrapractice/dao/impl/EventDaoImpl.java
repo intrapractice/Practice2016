@@ -52,39 +52,47 @@ public class EventDaoImpl implements EventsDao {
 
 	@Override
 	public Event getEventById(int id) {
-		
+
 		String sql = "SELECT * FROM EVENTS_ WHERE ID = " + id;
 
-        return jdbcTemplate.query(sql, new ResultSetExtractor<Event>() {
+		return jdbcTemplate.query(sql, new ResultSetExtractor<Event>() {
 
-            @Override
-            public Event extractData(ResultSet rs) throws SQLException, DataAccessException {
+			@Override
+			public Event extractData(ResultSet rs) throws SQLException, DataAccessException {
 
-                if (rs.next()) {
+				if (rs.next()) {
 
-                    Event event = new Event();
+					Event event = new Event();
 
-                    event.setId(rs.getInt("ID"));
-    				event.setTitle(rs.getString("EVENT_TITLE"));
-    				event.setLocation(rs.getString("EVENT_LOCATION"));
-    				event.setOwner(userDaoImpl.getUserByID(rs.getInt("EVENT_OWNER")));
-    				event.setDescription(rs.getString("EVENT_DESCRIPTION"));
-    				event.setTimestamp(rs.getTimestamp("EVENT_DATE"));
+					event.setId(rs.getInt("ID"));
+					event.setTitle(rs.getString("EVENT_TITLE"));
+					event.setLocation(rs.getString("EVENT_LOCATION"));
+					event.setOwner(userDaoImpl.getUserByID(rs.getInt("EVENT_OWNER")));
+					event.setDescription(rs.getString("EVENT_DESCRIPTION"));
+					event.setTimestamp(rs.getTimestamp("EVENT_DATE"));
 
-                    return event;
+					return event;
 
-                }
+				}
 
-                return null;
-            }
+				return null;
+			}
 
-        });
+		});
 
 	}
 
 	@Override
 	public boolean createEvent(String title, String description, Date eventDate, String location, int ownerId) {
-		// TODO Auto-generated method stub
+
+		String sql = "INSERT INTO EVENTS_ (EVENT_TITLE,EVENT_DESCRIPTION,EVENT_DATE,EVENT_LOCATION,EVENT_OWNER) VALUES (?,?,?,?,?)";
+
+		int numberOfRows = jdbcTemplate.update(sql, title, description, eventDate, location, ownerId);
+
+		if (numberOfRows > 0) {
+			return true;
+
+		}
 		return false;
 	}
 
