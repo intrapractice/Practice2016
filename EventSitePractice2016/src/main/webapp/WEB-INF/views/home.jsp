@@ -3,11 +3,14 @@
    "http://www.w3.org/TR/html4/loose.dtd">
 <%@ page import="com.intrapractice.pojo.Event" %>
 <%@ page import="java.util.List" %>
+
+<!DOCTYPE html>
 <html>
     <head>
         <title>Home</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<link rel="stylesheet" type="text/css" href="resources/homePageStyle.css">
+		<link rel="stylesheet" type="text/css" href="resources/css/homePageStyle.css">
+		<script src="resources/js/sdkScript.js"></script>
     </head>
     <body background="resources/images/ocean.jpg">
         <ul>
