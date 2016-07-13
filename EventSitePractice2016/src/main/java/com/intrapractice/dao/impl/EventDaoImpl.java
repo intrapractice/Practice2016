@@ -95,6 +95,21 @@ public class EventDaoImpl implements EventsDao {
 		}
 		return false;
 	}
+	
+	@Override
+	public boolean updateEvent(String title, String description, Date eventDate, String location, int eventId) {
+		
+		String sql = "UPDATE EVENTS_ SET EVENT_TITLE=?, EVENT_DESCRIPTION=?, EVENT_DATE=?, "
+                + "EVENT_LOCATION=? WHERE ID=?";
+		
+		int numberOfRows = jdbcTemplate.update(sql, title, description, eventDate, location, eventId);
+		
+		if (numberOfRows > 0) {
+			return true;
+
+		}
+		return false;
+	}
 
 	@Override
 	public List<Event> getEventsByOwnerId(int ownerId) {

@@ -4,7 +4,6 @@
 <%@ page import="com.intrapractice.pojo.Event" %>
 <%@ page import="java.util.List" %>
 
-<!DOCTYPE html>
 <html>
     <head>
         <title>Home</title>
