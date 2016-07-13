@@ -13,7 +13,7 @@
         <ul>
 			<li><a  href="#home" id="logo"><img src="resources/images/logoButton.jpg"></a></li>
 			<li><a href="#home"><font style="font-family:Buxton Sketch">Home</font></a></li>
-			<li><a href="#createEvent"><font style="font-family:Buxton Sketch">Create Event</font></a></li>
+			<li><a href="CreateEvent"><font style="font-family:Buxton Sketch">Create Event</font></a></li>
 		</ul>
 		<br><br><br>
         <% List<Event> events = (List) request.getAttribute("events"); %>
