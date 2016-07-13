@@ -8,8 +8,11 @@ window.fbAsyncInit = function() {
 	
 	FB.getLoginStatus(function(response) {
 		if (response.status === 'connected') {
-			document.getElementById('status').innerHTML = 'We are connected.';
-			document.getElementById('login').style.visibility = 'hidden';
+			FB.api('/me', 'GET', {fields: 'email,first_name,last_name,name,id'}, function(response) {
+				var fbName = response.name;
+				$('.navigation #user').html(fbName);
+				
+			});
 		} else {
 			document.location = "/EventSitePractice2016/login/";
 		}
