@@ -13,6 +13,7 @@ import com.intrapractice.dao.EventsDao;
 import com.intrapractice.dao.UserDao;
 import com.intrapractice.pojo.Event;
 
+
 public class EventDaoImpl implements EventsDao {
 
 	@Autowired
@@ -55,7 +56,18 @@ public class EventDaoImpl implements EventsDao {
 
 	@Override
 	public boolean createEvent(String title, String description, Date eventDate, String location, int ownerId) {
-		// TODO Auto-generated method stub
+		
+		
+
+		String sql = "INSERT INTO EVENTS_ (EVENT_TITLE,EVENT_DESCRIPTION,EVENT_DATE,EVENT_LOCATION,EVENT_OWNER) VALUES (?,?,?,?,?)";
+				
+
+		int numberOfRows = jdbcTemplate.update(sql, title, description, eventDate, location, ownerId);
+
+		if (numberOfRows > 0) {
+			return true;
+
+		}
 		return false;
 	}
 
