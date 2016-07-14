@@ -15,7 +15,6 @@ import org.springframework.jdbc.core.RowMapper;
 import com.intrapractice.dao.EventsDao;
 import com.intrapractice.dao.UserDao;
 import com.intrapractice.pojo.Event;
-import com.intrapractice.pojo.User;
 
 public class EventDaoImpl implements EventsDao {
 
@@ -166,7 +165,12 @@ public class EventDaoImpl implements EventsDao {
 	@Override
 	public boolean deleteEventById(int eventId){
 		String sql = "DELETE FROM EVENTS_ WHERE ID=" + eventId;
+		String sqlDeleteFromLikes = "DELETE FROM EVENT_LIKES WHERE EVENT_ID=" + eventId;
+		String sqlDeleteFromParticipants = "DELETE FROM EVENT_PARTICIPANTS WHERE EVENT_ID=" + eventId;
 		try {
+			
+			jdbcTemplate.update(sqlDeleteFromLikes);
+			jdbcTemplate.update(sqlDeleteFromParticipants);
 			int rowsAffected = jdbcTemplate.update(sql);
 			
 			if(rowsAffected == 1) {
