@@ -11,9 +11,9 @@ public interface EventsDao {
 
     public Event getEventById(int id);
 
-    public boolean createEvent(String title, String description, Date eventDate, String location, int ownerId);
+    public boolean createEvent(String title, String description, Date eventDate, Date eventEndDate, String location, int ownerId);
 
-    public boolean updateEvent(String title, String description, Date eventDate, String location, int eventId);
+    public boolean updateEvent(String title, String description, Date eventDate, Date eventEndDate, String location, int eventId);
     
     public List<Event> getEventsByOwnerId(int ownerId);
 
