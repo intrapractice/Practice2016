@@ -109,8 +109,6 @@ public class Event {
 	public String getEventStatus() {
 		Date eventDate = new Date(date.getTime());
 		Date currentDate = new Date(System.currentTimeMillis());
-		System.out.println(eventDate.toString());
-		System.out.println(currentDate.toString());
 		if (endDate == null) {
 			if (currentDate.before(eventDate))
 				return "Coming soon";
@@ -120,7 +118,6 @@ public class Event {
 				return "In progress";
 		} else {
 			Date eventEndDate = new Date(endDate.getTime());
-			System.out.println(eventEndDate.toString());
 			if (currentDate.before(eventDate))
 				return "Coming soon";
 			else if (currentDate.after(eventEndDate))

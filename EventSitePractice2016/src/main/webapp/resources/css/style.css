@@ -30,3 +30,30 @@
 	width: 100%;
 	height: 100%;
 }
+
+
+.error{
+    color: red;
+    
+}
+input#title:invalid{
+  border: 1px solid red;
+}
+input#title:valid{
+  border: 1px solid green;
+}
+input#description{
+	border: 1px solid green;
+}
+input#date:invalid{
+  border: 1px solid red;
+}
+input#date:valid{
+  border: 1px solid green;
+}
+input#endDate:valid{
+  border: 1px solid green;
+}
+input#endDate:invalid{
+  border: 1px solid red;
+}

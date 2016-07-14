@@ -1,4 +1,5 @@
 package com.intrapractice.controller;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -12,9 +13,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.intrapractice.dao.EventsDao;
 import com.intrapractice.pojo.EventPojo;
-
-
-
 
 @Controller
 public class EventPageController {
@@ -38,7 +36,7 @@ public class EventPageController {
 			System.out.println("Error with parse the date format!");
 
 		}
-		// OwnerId is 6 , because login is not ready
+		// OwnerId is hardcoded , because login is not ready
 		boolean result = eventsDao.createEvent(events.getTitle(), events.getDescription(), eventsDate, eventsEndDate,
 				events.getLocation(), 6);
 
@@ -101,14 +99,14 @@ public class EventPageController {
 	@RequestMapping(value = "/UpdateEvent", method = RequestMethod.GET)
 	public ModelAndView newEvent2(
 			@RequestParam(required = false, name = "error", defaultValue = "false") boolean error) {
-		
+
 		ModelAndView model = new ModelAndView("createEvent");
 		EventPojo newEvent = new EventPojo();
 		model.addObject("events", newEvent);
 
 		model.addObject("error", error);
-		model.addObject("formURL" , "/EventSitePractice2016/CreateEvent");
-		
+		model.addObject("formURL", "/EventSitePractice2016/CreateEvent");
+
 		return model;
 	}
 
