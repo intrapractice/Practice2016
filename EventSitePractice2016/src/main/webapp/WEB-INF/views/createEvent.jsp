@@ -7,31 +7,31 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>New/Edit Event</title>
-<link rel="stylesheet" type="text/css" href="resources/style.css">
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
 </head>
 <body>
 <div align="center">
     <% if((boolean) request.getAttribute("error")){ %>
-    <div class="error">Error Creating Event!</div>
+    <div class="error">Error Creating or Updating Event!</div>
     <% } %>
 
-  <form:form action="/EventSitePractice2016/CreateEvent" method="post" modelAttribute="events">
+  <form:form action="<%=(String) request.getAttribute("formURL")%>" method="post" modelAttribute="events">
     <table>
 	<tr>	
           <td>Event name:</td>
-	  <td> <form:input type="text" id="title" name="title" placeholder="Add short, clear name"  path="title"/> </td>
+	  <td> <form:input type="text" id="title" name="title" placeholder="Add short, clear name" pattern="[0-9a-zA-Z][a-zA-Z0-9.,!\-\"?_&@+*#%\s]{1,100}" path="title"/> </td>
 	</tr>
 	<tr>
     <td>Description: </td>
-	 <td><form:input type="text" placeholder="Add description"  path="description"/></td>
+	 <td><form:input type="text" id="description" placeholder="Add description"  path="description"/></td>
 	</tr>	
 	<tr>
     <td>Data: </td>
-	 <td><form:input type="text" name="calendar" placeholder="yyyy/mm/dd"  path="date"/></td>
+	 <td><form:input type="text" id="date" name="calendar" placeholder="YYYY-MM-DD" pattern= "(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))" path="date"/></td>
 	</tr>
 	<tr>
 	 <td>Location: </td>
-	 <td><form:input type="text" name="place" placeholder="Add a location"  path="location"/> </td>
+	 <td><form:input type="text" id="location" name="place" placeholder="Add a location"  path="location"/> </td>
 	</tr>
 	<tr> 
 	 <td><input type = "submit" value="Save"></td>

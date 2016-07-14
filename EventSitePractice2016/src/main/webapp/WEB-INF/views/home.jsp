@@ -3,17 +3,19 @@
    "http://www.w3.org/TR/html4/loose.dtd">
 <%@ page import="com.intrapractice.pojo.Event" %>
 <%@ page import="java.util.List" %>
+
 <html>
     <head>
         <title>Home</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<link rel="stylesheet" type="text/css" href="resources/homePageStyle.css">
+		<link rel="stylesheet" type="text/css" href="resources/css/homePageStyle.css">
+		<script src="resources/js/sdkScript.js"></script>
     </head>
     <body background="resources/images/ocean.jpg">
         <ul>
 			<li><a  href="#home" id="logo"><img src="resources/images/logoButton.jpg"></a></li>
 			<li><a href="#home"><font style="font-family:Buxton Sketch">Home</font></a></li>
-			<li><a href="CreateEvent"><font style="font-family:Buxton Sketch">Create Event</font></a></li>
+			<li><a href="/EventSitePractice2016/CreateEvent"><font style="font-family:Buxton Sketch">Create Event</font></a></li>
 		</ul>
 		<br><br><br>
         <% List<Event> events = (List) request.getAttribute("events"); %>
@@ -26,8 +28,5 @@
 					<br><br>
 					<%count=0;} %>
 		<%}%>
-		
-		
-		
     </body>
 </html>
