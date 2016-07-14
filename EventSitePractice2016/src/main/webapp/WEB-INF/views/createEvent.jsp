@@ -15,7 +15,7 @@
     <div class="error">Error Creating or Updating Event!</div>
     <% } %>
 
-  <form:form action="<%=(String) request.getAttribute("formURL")%>" method="post" modelAttribute="events">
+  <form:form action='<%=(String) request.getAttribute("formURL")%>' method="post" modelAttribute="events">
     <table>
 	<tr>	
           <td>Event name:</td>
@@ -26,8 +26,12 @@
 	 <td><form:input type="text" id="description" placeholder="Add description"  path="description"/></td>
 	</tr>	
 	<tr>
-    <td>Data: </td>
+    <td>Date: </td>
 	 <td><form:input type="text" id="date" name="calendar" placeholder="YYYY-MM-DD" pattern= "(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))" path="date"/></td>
+	</tr>
+	<tr>
+    <td>End date: </td>
+	 <td><form:input type="text" id="endDate" name="calendar" placeholder="YYYY-MM-DD" pattern= "(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))" path="endDate"/></td>
 	</tr>
 	<tr>
 	 <td>Location: </td>

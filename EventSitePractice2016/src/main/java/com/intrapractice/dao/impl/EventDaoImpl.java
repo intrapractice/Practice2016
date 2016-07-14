@@ -41,7 +41,8 @@ public class EventDaoImpl implements EventsDao {
 				event.setLocation(rs.getString("EVENT_LOCATION"));
 				event.setOwner(userDaoImpl.getUserByID(rs.getInt("EVENT_OWNER")));
 				event.setDescription(rs.getString("EVENT_DESCRIPTION"));
-				event.setTimestamp(rs.getTimestamp("EVENT_DATE"));
+				event.setDate(rs.getTimestamp("EVENT_DATE"));
+				event.setEndDate(rs.getTimestamp("EVENT_END_DATE"));
 
 				return event;
 			}
@@ -69,7 +70,8 @@ public class EventDaoImpl implements EventsDao {
 					event.setLocation(rs.getString("EVENT_LOCATION"));
 					event.setOwner(userDaoImpl.getUserByID(rs.getInt("EVENT_OWNER")));
 					event.setDescription(rs.getString("EVENT_DESCRIPTION"));
-					event.setTimestamp(rs.getTimestamp("EVENT_DATE"));
+					event.setDate(rs.getTimestamp("EVENT_DATE"));
+					event.setEndDate(rs.getTimestamp("EVENT_END_DATE"));
 
 					return event;
 
@@ -83,11 +85,12 @@ public class EventDaoImpl implements EventsDao {
 	}
 
 	@Override
-	public boolean createEvent(String title, String description, Date eventDate, String location, int ownerId) {
+	public boolean createEvent(String title, String description, Date eventDate, Date eventEndDate, String location, int ownerId) {
 
-		String sql = "INSERT INTO EVENTS_ (EVENT_TITLE,EVENT_DESCRIPTION,EVENT_DATE,EVENT_LOCATION,EVENT_OWNER) VALUES (?,?,?,?,?)";
+		String sql = "INSERT INTO EVENTS_ (EVENT_TITLE,EVENT_DESCRIPTION,EVENT_DATE,EVENT_END_DATE,EVENT_LOCATION,EVENT_OWNER)"
+				+ "VALUES (?,?,?,?,?,?)";
 
-		int numberOfRows = jdbcTemplate.update(sql, title, description, eventDate, location, ownerId);
+		int numberOfRows = jdbcTemplate.update(sql, title, description, eventDate, eventEndDate, location, ownerId);
 
 		if (numberOfRows > 0) {
 			return true;
@@ -97,12 +100,12 @@ public class EventDaoImpl implements EventsDao {
 	}
 	
 	@Override
-	public boolean updateEvent(String title, String description, Date eventDate, String location, int eventId) {
+	public boolean updateEvent(String title, String description, Date eventDate, Date eventEndDate, String location, int eventId) {
 		
 		String sql = "UPDATE EVENTS_ SET EVENT_TITLE=?, EVENT_DESCRIPTION=?, EVENT_DATE=?, "
-                + "EVENT_LOCATION=? WHERE ID=?";
+                + "EVENT_END_DATE=?, EVENT_LOCATION=? WHERE ID=?";
 		
-		int numberOfRows = jdbcTemplate.update(sql, title, description, eventDate, location, eventId);
+		int numberOfRows = jdbcTemplate.update(sql, title, description, eventDate, eventEndDate, location, eventId);
 		
 		if (numberOfRows > 0) {
 			return true;

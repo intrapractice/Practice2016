@@ -28,8 +28,10 @@ public class EventPageController {
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
 
 		Date eventsDate = null;
+		Date eventsEndDate = null;
 		try {
 			eventsDate = dateFormat.parse(events.getDate());
+			eventsEndDate = dateFormat.parse(events.getEndDate());
 
 		} catch (java.text.ParseException e) {
 
@@ -37,7 +39,7 @@ public class EventPageController {
 
 		}
 		// OwnerId is 6 , because login is not ready
-		boolean result = eventsDao.createEvent(events.getTitle(), events.getDescription(), eventsDate,
+		boolean result = eventsDao.createEvent(events.getTitle(), events.getDescription(), eventsDate, eventsEndDate,
 				events.getLocation(), 6);
 
 		if (result) {
@@ -71,8 +73,10 @@ public class EventPageController {
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
 
 		Date eventsDate = null;
+		Date eventsEndDate = null;
 		try {
 			eventsDate = dateFormat.parse(events.getDate());
+			eventsEndDate = dateFormat.parse(events.getEndDate());
 
 		} catch (java.text.ParseException e) {
 
@@ -80,7 +84,7 @@ public class EventPageController {
 
 		}
 		// Id of event is 6 , because login is not ready
-		boolean result = eventsDao.createEvent(events.getTitle(), events.getDescription(), eventsDate,
+		boolean result = eventsDao.createEvent(events.getTitle(), events.getDescription(), eventsDate, eventsEndDate,
 				events.getLocation(), 6);
 
 		if (result) {

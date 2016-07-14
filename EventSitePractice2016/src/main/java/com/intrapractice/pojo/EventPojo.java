@@ -7,6 +7,8 @@ public class EventPojo {
 	private String description;
 
 	private String date;
+	
+	private String endDate;
 
 	private String location;
 
@@ -32,6 +34,14 @@ public class EventPojo {
 
 	public void setDate(String date) {
 		this.date = date;
+	}
+	
+	public String getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(String endDate) {
+		this.endDate = endDate;
 	}
 
 	public String getLocation() {

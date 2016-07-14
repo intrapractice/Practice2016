@@ -11,7 +11,9 @@ public class Event {
 
     private String description;
 
-    private Timestamp timestamp;
+    private Timestamp date;
+    
+    private Timestamp endDate;
 
     private String location;
 
@@ -47,12 +49,20 @@ public class Event {
         this.description = description;
     }
 
-    public Timestamp getTimestamp() {
-        return timestamp;
+    public Timestamp getDate() {
+        return date;
     }
 
-    public void setTimestamp(Timestamp timestamp) {
-        this.timestamp = timestamp;
+    public void setDate(Timestamp date) {
+        this.date = date;
+    }
+    
+    public Timestamp getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(Timestamp endDate) {
+        this.endDate = endDate;
     }
 
     public String getLocation() {
