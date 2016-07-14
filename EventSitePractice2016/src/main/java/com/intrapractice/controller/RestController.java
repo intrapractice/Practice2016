@@ -19,7 +19,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.intrapractice.dao.EventLikesDao;
 import com.intrapractice.dao.EventParticipantsDao;
+import com.intrapractice.dao.EventsDao;
 import com.intrapractice.dao.UserDao;
+import com.intrapractice.pojo.Event;
 import com.intrapractice.pojo.User;
 
 @Controller
@@ -36,6 +38,9 @@ public class RestController {
 	
 	@Autowired
 	private EventLikesDao eventLikeDao;
+	
+	@Autowired 
+	private EventsDao eventsDao;
 	
 	@RequestMapping(value="/createUser", method=RequestMethod.POST)
 	public boolean createUser(HttpServletResponse response, @RequestParam String name, @RequestParam String email, @RequestParam String token) throws IOException{
@@ -98,4 +103,42 @@ public class RestController {
 	public int eventParticipantsCount(HttpServletResponse response, @RequestParam int eventId) {
 		return participantsDao.getEventParticipantsCount(eventId);
 	}
+	
+	@RequestMapping(value = "/eventsByOwner", method=RequestMethod.POST)
+	public @ResponseBody String eventsByOwner(HttpServletResponse response, @RequestParam int ownerId){
+		ObjectMapper mapper = new ObjectMapper();
+		List<Event> listOfEvents = eventsDao.getEventsByOwnerId(ownerId);
+		String list = null;
+		try {
+			File temp = File.createTempFile("temp-file-name", ".tmp"); 
+			mapper.writeValue(temp, listOfEvents);
+			list = mapper.writeValueAsString(listOfEvents);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+		
+	}
+	
+	@RequestMapping(value = "/joinedEvents", method=RequestMethod.POST)
+	public @ResponseBody String joinedEvents(HttpServletResponse response, @RequestParam int userId){
+		ObjectMapper mapper = new ObjectMapper();
+		List<Event> listOfEvents = eventsDao.getJoinedEventsByUserId(userId);
+		String joinedEvents = null;
+		try {
+			File temp = File.createTempFile("temp-file-name", ".tmp"); 
+			mapper.writeValue(temp, listOfEvents);
+			joinedEvents = mapper.writeValueAsString(listOfEvents);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return joinedEvents;
+		
+	}
+	
+	@RequestMapping(value ="/deleteEvent", method = RequestMethod.POST)
+	public @ResponseBody boolean deleteEvent(HttpServletResponse response, @RequestParam int eventId) {
+		return eventsDao.deleteEventById(eventId);
+	}
+	
 }

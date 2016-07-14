@@ -18,4 +18,6 @@ public interface EventsDao {
     public List<Event> getEventsByOwnerId(int ownerId);
 
     public List<Event> getJoinedEventsByUserId(int userId);
+    
+    public boolean deleteEventById(int eventId);
 }
