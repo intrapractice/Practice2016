@@ -104,7 +104,7 @@ public class RestController {
 		return participantsDao.getEventParticipantsCount(eventId);
 	}
 	
-	@RequestMapping(value = "/EventsByOwner", method=RequestMethod.POST)
+	@RequestMapping(value = "/eventsByOwner", method=RequestMethod.POST)
 	public @ResponseBody String eventsByOwner(HttpServletResponse response, @RequestParam int ownerId){
 		ObjectMapper mapper = new ObjectMapper();
 		List<Event> listOfEvents = eventsDao.getEventsByOwnerId(ownerId);

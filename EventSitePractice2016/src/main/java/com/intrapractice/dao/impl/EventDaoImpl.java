@@ -125,7 +125,9 @@ public class EventDaoImpl implements EventsDao {
 	           Event event = new Event();
 	           event.setTitle(rs.getString("EVENT_TITLE"));
 	           event.setDescription(rs.getString("EVENT_DESCRIPTION"));
-	           event.setTimestamp(rs.getTimestamp("EVENT_TIMESTAMP"));
+	           event.setOwner(userDaoImpl.getUserByID(rs.getInt("EVENT_OWNER")));
+	           event.setDate(rs.getTimestamp("EVENT_DATE"));
+	           event.setEndDate(rs.getTimestamp("EVENT_END_DATE"));
 	           event.setLocation(rs.getString("EVENT_LOCATION"));
 	            return event;
 	        }
@@ -137,6 +139,7 @@ public class EventDaoImpl implements EventsDao {
 	@Override
 	public List<Event> getJoinedEventsByUserId(int userId) {
 		String sql = "SELECT EVENTS_.EVENT_TITLE, EVENTS_.EVENT_DESCRIPTION, EVENTS_.EVENT_DATE, "
+				+ "EVENTS_.EVENT_END_DATE, EVENTS_.EVENT_OWNER, "
 				+ "EVENTS_.EVENT_LOCATION"
 				+ " FROM EVENTS_ JOIN EVENT_PARTICIPANTS "
 				+ "ON EVENTS_.ID = EVENT_PARTICIPANTS.EVENT_ID"
@@ -149,7 +152,9 @@ public class EventDaoImpl implements EventsDao {
 	           Event event = new Event();
 	           event.setTitle(rs.getString("EVENT_TITLE"));
 	           event.setDescription(rs.getString("EVENT_DESCRIPTION"));
-	           event.setTimestamp(rs.getTimestamp("EVENT_DATE"));
+	           event.setOwner(userDaoImpl.getUserByID(rs.getInt("EVENT_OWNER")));
+	           event.setDate(rs.getTimestamp("EVENT_DATE"));
+	           event.setEndDate(rs.getTimestamp("EVENT_END_DATE"));
 	           event.setLocation(rs.getString("EVENT_LOCATION"));
 	            return event;
 	        }
