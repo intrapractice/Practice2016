@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
@@ -113,14 +114,64 @@ public class EventDaoImpl implements EventsDao {
 
 	@Override
 	public List<Event> getEventsByOwnerId(int ownerId) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "SELECT * FROM EVENTS_ WHERE EVENT_OWNER=" + ownerId;
+		List<Event> listOfEvents = jdbcTemplate.query(sql, new RowMapper<Event>() {
+			 
+	        @Override
+	        public Event mapRow(ResultSet rs, int rowNum) throws SQLException {
+	           Event event = new Event();
+	           event.setTitle(rs.getString("EVENT_TITLE"));
+	           event.setDescription(rs.getString("EVENT_DESCRIPTION"));
+	           event.setTimestamp(rs.getTimestamp("EVENT_TIMESTAMP"));
+	           event.setLocation(rs.getString("EVENT_LOCATION"));
+	            return event;
+	        }
+	 
+	    });
+		return listOfEvents;
 	}
 
 	@Override
 	public List<Event> getJoinedEventsByUserId(int userId) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "SELECT EVENTS_.EVENT_TITLE, EVENTS_.EVENT_DESCRIPTION, EVENTS_.EVENT_DATE, "
+				+ "EVENTS_.EVENT_LOCATION"
+				+ " FROM EVENTS_ JOIN EVENT_PARTICIPANTS "
+				+ "ON EVENTS_.ID = EVENT_PARTICIPANTS.EVENT_ID"
+				+ " WHERE EVENT_PARTICIPANTS.USER_ID =" + userId;
+				
+		List<Event> listOfJoinedEvents = jdbcTemplate.query(sql, new RowMapper<Event>() {
+			 
+	        @Override
+	        public Event mapRow(ResultSet rs, int rowNum) throws SQLException {
+	           Event event = new Event();
+	           event.setTitle(rs.getString("EVENT_TITLE"));
+	           event.setDescription(rs.getString("EVENT_DESCRIPTION"));
+	           event.setTimestamp(rs.getTimestamp("EVENT_DATE"));
+	           event.setLocation(rs.getString("EVENT_LOCATION"));
+	            return event;
+	        }
+	 
+	    });
+		return listOfJoinedEvents;
+	}
+	
+	@Override
+	public boolean deleteEventById(int eventId){
+		String sql = "DELETE FROM EVENTS_ WHERE ID=" + eventId;
+		try {
+			int rowsAffected = jdbcTemplate.update(sql);
+			
+			if(rowsAffected == 1) {
+				return true;
+			}
+			
+			return false;
+		}catch(DataIntegrityViolationException exception) {
+			exception.printStackTrace();
+			return false;
+			
+		}
+		
 	}
 
 }
