@@ -2,9 +2,13 @@ package com.intrapractice.config;
 
 import javax.sql.DataSource;
 
+import com.intrapractice.dao.EventLikesDao;
+import com.intrapractice.dao.EventParticipantsDao;
 import com.intrapractice.dao.EventsDao;
 import com.intrapractice.dao.UserDao;
 import com.intrapractice.dao.impl.EventDaoImpl;
+import com.intrapractice.dao.impl.EventLikesDaoImpl;
+import com.intrapractice.dao.impl.EventParticipantsDaoImpl;
 import com.intrapractice.dao.impl.UserDaoImpl;
 
 import org.springframework.context.annotation.Bean;
@@ -69,6 +73,13 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
     
     }
     
+    @Bean
+    public EventParticipantsDao getEventsParticipantsDao() {
+    	return new EventParticipantsDaoImpl();
+    }
     
+    @Bean EventLikesDao getEventLikesDao() {
+    	return new EventLikesDaoImpl();
+    }
     
 }

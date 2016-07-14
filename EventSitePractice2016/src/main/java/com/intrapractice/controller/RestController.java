@@ -1,11 +1,15 @@
 package com.intrapractice.controller;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
+import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.intrapractice.dao.EventLikesDao;
+import com.intrapractice.dao.EventParticipantsDao;
 import com.intrapractice.dao.UserDao;
 import com.intrapractice.pojo.User;
 
@@ -22,6 +28,15 @@ public class RestController {
 	@Autowired
     private UserDao userDao;
 	
+	@Autowired 
+	private EventParticipantsDao participantsDao;
+	
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+	
+	@Autowired
+	private EventLikesDao eventLikeDao;
+	
 	@RequestMapping(value="/createUser", method=RequestMethod.POST)
 	public boolean createUser(HttpServletResponse response, @RequestParam String name, @RequestParam String email, @RequestParam String token) throws IOException{
 		User existingUser = userDao.getUser(email);
@@ -30,5 +45,57 @@ public class RestController {
 		} else {
 			return false;
 		}
+	}
+	
+	@RequestMapping(value = "/join", method=RequestMethod.POST)
+	public boolean joinEvent(HttpServletResponse response, @RequestParam int eventId, @RequestParam int userId) {
+		
+		return	participantsDao.addParticipantForEvent(eventId, userId);
+	}
+	
+	@RequestMapping(value = "/like", method=RequestMethod.POST)
+	public boolean likeEvent(HttpServletResponse response, @RequestParam int eventId, @RequestParam int userId) {
+		return eventLikeDao.likeEvent(eventId, userId);
+	}
+	
+	@RequestMapping(value = "/likesCount", method=RequestMethod.POST)
+	public int likesCount(HttpServletResponse response, @RequestParam int eventId) {
+		return eventLikeDao.getEventLikesCount(eventId);
+	}
+	
+	@RequestMapping(value = "/eventsLikedByUser", method = RequestMethod.POST)
+	public String eventsLikedByUser(HttpServletResponse response, @RequestParam int userId) {
+		ObjectMapper mapper = new ObjectMapper();
+		List<Integer> listOfLikedEvents = eventLikeDao.getEventsLikedByUser(userId);
+		String likes = null;
+		try {
+			File temp = File.createTempFile("temp-file-name1", ".tmp"); 
+			mapper.writeValue(temp, listOfLikedEvents);
+			likes = mapper.writeValueAsString(listOfLikedEvents);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return	likes;
+	}
+	
+	@RequestMapping(value = "/eventParticipants", method=RequestMethod.POST)
+	public @ResponseBody String eventParticipants(HttpServletResponse response, @RequestParam int eventId){
+		ObjectMapper mapper = new ObjectMapper();
+		List<User> listOfParticipants = participantsDao.getParticipantsForEvent(eventId);
+		String jsonInString = null;
+		try {
+			File temp = File.createTempFile("temp-file-name", ".tmp"); 
+			mapper.writeValue(temp, listOfParticipants);
+			jsonInString = mapper.writeValueAsString(listOfParticipants);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return jsonInString;
+		
+	}
+	
+	@RequestMapping(value = "/eventParticipantsCount", method=RequestMethod.POST)
+	public int eventParticipantsCount(HttpServletResponse response, @RequestParam int eventId) {
+		return participantsDao.getEventParticipantsCount(eventId);
 	}
 }
