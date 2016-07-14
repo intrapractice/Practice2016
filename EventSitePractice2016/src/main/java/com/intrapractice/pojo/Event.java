@@ -1,6 +1,7 @@
 package com.intrapractice.pojo;
 
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 public class Event {
@@ -24,7 +25,7 @@ public class Event {
     private int likeCount;
 
     private int participantsCount;
-
+    
     public int getId() {
         return id;
     }
@@ -104,5 +105,29 @@ public class Event {
     public void setParticipantsCount(int participantsCount) {
         this.participantsCount = participantsCount;
     }
-
+    
+	public String getEventStatus() {
+		Date eventDate = new Date(date.getTime());
+		Date currentDate = new Date(System.currentTimeMillis());
+		System.out.println(eventDate.toString());
+		System.out.println(currentDate.toString());
+		if (endDate == null) {
+			if (currentDate.before(eventDate))
+				return "Coming soon";
+			else if (currentDate.after(eventDate))
+				return "Ended";
+			else
+				return "In progress";
+		} else {
+			Date eventEndDate = new Date(endDate.getTime());
+			System.out.println(eventEndDate.toString());
+			if (currentDate.before(eventDate))
+				return "Coming soon";
+			else if (currentDate.after(eventEndDate))
+				return "Ended";
+			else
+				return "In progress";
+		}
+	}
+	
 }

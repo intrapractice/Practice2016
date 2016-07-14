@@ -22,7 +22,10 @@
         <%int count=0; %>
         <% for (Event event: events) {%>
 				<section>
-					<code><span style="background-color: rgba(0,0,0,0.5)"><h3 style="font-weight: bold;"><%=event.getTitle() %></h3></span></code>
+					<code>
+					<%= event.getEventStatus() %>
+					<span style="background-color: rgba(0,0,0,0.5)"><h3 style="font-weight: bold;"><%=event.getTitle() %></h3></span>
+					</code>
 				</section>
 				<% if(count==2) {%>
 					<br><br>

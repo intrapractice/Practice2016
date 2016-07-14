@@ -25,7 +25,7 @@ public class EventPageController {
 	@RequestMapping(value = "/CreateEvent", method = RequestMethod.POST)
 	public ModelAndView saveEvent(@ModelAttribute EventPojo events) {
 
-		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
 		Date eventsDate = null;
 		Date eventsEndDate = null;
@@ -70,7 +70,7 @@ public class EventPageController {
 	@RequestMapping(value = "/UpdateEvent", method = RequestMethod.POST)
 	public ModelAndView updateEvent(@ModelAttribute EventPojo events) {
 
-		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
 		Date eventsDate = null;
 		Date eventsEndDate = null;

@@ -1,5 +1,9 @@
 package com.intrapractice.pojo;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class EventPojo {
 
 	private String title;
@@ -11,6 +15,8 @@ public class EventPojo {
 	private String endDate;
 
 	private String location;
+	
+	private String status;
 
 	public String getTitle() {
 		return title;
@@ -51,5 +57,13 @@ public class EventPojo {
 	public void setLocation(String location) {
 		this.location = location;
 	}
+	
+	public String getStatus() {
+		return status;
+	}
 
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	
 }
