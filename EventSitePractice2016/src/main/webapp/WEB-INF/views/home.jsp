@@ -9,6 +9,7 @@
         <title>Home</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link rel="stylesheet" type="text/css" href="resources/css/homePageStyle.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 		<script src="resources/js/sdkScript.js"></script>
     </head>
     <body background="resources/images/ocean.jpg">

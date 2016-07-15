@@ -215,5 +215,10 @@ public class RestController {
 		return categoryDao.createCategory(categoryTitle);
 	}
 	
+	/*@RequestMapping(value="/getCurrentUser", method=RequestMethod.GET)
+	public User getCurrentUser(HttpServletResponse response, @RequestParam String name, @RequestParam String email, @RequestParam String token) throws IOException{
+			return userDao.getUser(email) ;
+		}
+	}*/
 	
 }

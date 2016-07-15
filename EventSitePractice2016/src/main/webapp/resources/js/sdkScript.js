@@ -1,4 +1,6 @@
 // initialize and setup facebook js sdk
+var email;
+var user;
 window.fbAsyncInit = function() {
 	FB.init({
 	  appId      : '139441019816215',
@@ -11,7 +13,13 @@ window.fbAsyncInit = function() {
 			FB.api('/me', 'GET', {fields: 'email,first_name,last_name,name,id'}, function(response) {
 				var fbName = response.name;
 				$('.navigation #user').html(fbName);
-				
+				email = response.email;
+				$.get("/EventSitePractice2016/getCurrentUser", function(data){
+					user = data;
+					console.log(user);
+				});
+				//TODO: jquery get call to get user object
+				//if event id in user eventlikes red heart otherwise white heart
 			});
 		} else {
 			document.location = "/EventSitePractice2016/login/";

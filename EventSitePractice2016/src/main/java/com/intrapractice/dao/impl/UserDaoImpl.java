@@ -10,10 +10,14 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 
+import com.intrapractice.dao.EventLikesDao;
 import com.intrapractice.dao.UserDao;
 import com.intrapractice.pojo.User;
 
 public class UserDaoImpl implements UserDao {
+
+//	@Autowired
+//    private EventLikesDao eventLikeDao;
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
@@ -49,6 +53,7 @@ public class UserDaoImpl implements UserDao {
                         user.setName(rs.getString("USER_NAME"));
                         user.setEmail(rs.getString("USER_EMAIL"));
                         user.setToken(rs.getString("USER_TOKEN"));
+						//user.setLikedEvents(eventLikeDao.getEventsLikedByUser(rs.getInt("ID")));
                         return user;
                     }
                 });
@@ -77,8 +82,7 @@ public class UserDaoImpl implements UserDao {
     public User getUserByID(int id) {
 
         String sql = "SELECT * FROM USERS_ WHERE ID = " + id;
-
-        return jdbcTemplate.query(sql, new ResultSetExtractor<User>() {
+        User user = jdbcTemplate.query(sql, new ResultSetExtractor<User>() {
 
             @Override
             public User extractData(ResultSet rs) throws SQLException, DataAccessException {
@@ -98,8 +102,9 @@ public class UserDaoImpl implements UserDao {
 
                 return null;
             }
-
         });
+        return user;
+
 
     }
 
