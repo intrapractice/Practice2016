@@ -12,15 +12,17 @@ window.fbAsyncInit = function() {
 		if (response.status === 'connected') {
 			FB.api('/me', 'GET', {fields: 'email,first_name,last_name,name,id'}, function(response) {
 				var fbName = response.name;
-				$('.navigation #user').html(fbName);
-				email = response.email;
-				$.get("/EventSitePractice2016/getCurrentUser", function(data){
-					user = data;
-					console.log(user);
-				});
-				//TODO: jquery get call to get user object
-				//if event id in user eventlikes red heart otherwise white heart
-			});
+				$('.navbar #user').html(fbName);
+				var userId = response.id;
+				FB.api(
+				"/"+userId+"/picture",
+				function (response) {
+				  if (response && !response.error) {
+					var pictureURL = response.data.url;
+					$('.navbar #userPicture').attr("src", pictureURL);
+				  }
+				}
+			});	
 		} else {
 			document.location = "/EventSitePractice2016/login/";
 		}
