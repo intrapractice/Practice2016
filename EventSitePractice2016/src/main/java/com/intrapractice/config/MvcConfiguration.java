@@ -2,10 +2,14 @@ package com.intrapractice.config;
 
 import javax.sql.DataSource;
 
+import com.intrapractice.dao.CategoryDao;
+import com.intrapractice.dao.CategoryLikesDao;
 import com.intrapractice.dao.EventLikesDao;
 import com.intrapractice.dao.EventParticipantsDao;
 import com.intrapractice.dao.EventsDao;
 import com.intrapractice.dao.UserDao;
+import com.intrapractice.dao.impl.CategoryDaoImpl;
+import com.intrapractice.dao.impl.CategoryLikesDaoImpl;
 import com.intrapractice.dao.impl.EventDaoImpl;
 import com.intrapractice.dao.impl.EventLikesDaoImpl;
 import com.intrapractice.dao.impl.EventParticipantsDaoImpl;
@@ -78,8 +82,20 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
     	return new EventParticipantsDaoImpl();
     }
     
-    @Bean EventLikesDao getEventLikesDao() {
+    @Bean 
+    public EventLikesDao getEventLikesDao() {
     	return new EventLikesDaoImpl();
     }
+    
+    @Bean
+    public CategoryDao getCategoryDao() {
+    	return new CategoryDaoImpl();
+    } 
+    
+    @Bean
+    public CategoryLikesDao getCategoryLikesDao() {
+    	return new CategoryLikesDaoImpl();
+    }
+    
     
 }
