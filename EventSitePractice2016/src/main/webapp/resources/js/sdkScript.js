@@ -21,7 +21,7 @@ window.fbAsyncInit = function() {
 					var pictureURL = response.data.url;
 					$('.navbar #userPicture').attr("src", pictureURL);
 				  }
-				}
+				});
 			});	
 		} else {
 			document.location = "/EventSitePractice2016/login/";
