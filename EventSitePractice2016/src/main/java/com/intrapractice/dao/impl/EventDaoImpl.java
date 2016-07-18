@@ -12,6 +12,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 
+import com.intrapractice.dao.EventParticipantsDao;
 import com.intrapractice.dao.EventsDao;
 import com.intrapractice.dao.UserDao;
 import com.intrapractice.pojo.Event;
@@ -23,6 +24,9 @@ public class EventDaoImpl implements EventsDao {
 
 	@Autowired
 	private UserDao userDaoImpl;
+	
+	@Autowired
+    private EventParticipantsDao eventParticipantsDao;
 
 	@Override
 	public List<Event> getAllEvents() {
@@ -65,13 +69,15 @@ public class EventDaoImpl implements EventsDao {
 
 					Event event = new Event();
 
-					event.setId(rs.getInt("ID"));
+					int eventId = rs.getInt("ID");
+                    event.setId(eventId);
 					event.setTitle(rs.getString("EVENT_TITLE"));
+					event.setDescription(rs.getString("EVENT_DESCRIPTION"));
 					event.setLocation(rs.getString("EVENT_LOCATION"));
 					event.setOwner(userDaoImpl.getUserByID(rs.getInt("EVENT_OWNER")));
-					event.setDescription(rs.getString("EVENT_DESCRIPTION"));
 					event.setDate(rs.getTimestamp("EVENT_DATE"));
 					event.setEndDate(rs.getTimestamp("EVENT_END_DATE"));
+					event.setParticipants(eventParticipantsDao.getParticipantsForEvent(eventId));
 
 					return event;
 

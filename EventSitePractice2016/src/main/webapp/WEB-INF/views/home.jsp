@@ -19,9 +19,9 @@
 			<li><a href="/EventSitePractice2016/CreateEvent"><font style="font-family:Buxton Sketch">Create Event</font></a></li>
 		</ul>
 		<br><br><br>
-        <% List<Event> events = (List) request.getAttribute("events"); %>
-        <%int count=0; %>
-        <% for (Event event: events) {%>
+        <% List<Event> events = (List) request.getAttribute("events");
+        int count=0;
+        for (Event event: events) {%>
 				<section>
 					<code>
 					<%= event.getEventStatus() %>

@@ -3,9 +3,11 @@ package com.intrapractice.controller;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -109,5 +111,16 @@ public class EventPageController {
 
 		return model;
 	}
+	
+	@RequestMapping(value = "/EventDetails/{eventId}", method = RequestMethod.GET)
+    public ModelAndView getEventDetails(
+            @PathVariable int eventId) {
+
+        ModelAndView model = new ModelAndView("eventDetail");
+        
+        model.addObject("event", eventsDao.getEventById(eventId));
+
+        return model;
+    }
 
 }
