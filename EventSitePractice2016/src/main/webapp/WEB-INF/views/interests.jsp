@@ -1,16 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-   "http://www.w3.org/TR/html4/loose.dtd">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="resources/css/style.css">
-<link rel="stylesheet" type="text/css" href="resources/css/interests.css">
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="com.intrapractice.pojo.Category"%>
 <%@ page import="com.intrapractice.pojo.User"%>
 <%@ page import="java.util.List"%>
-<html>
-<head>
-<script src="resources/js/jquery.js"></script>
-<script src="resources/js/sdkScript.js"></script>
-
+<jsp:include page="header.jsp" />
 <script>
     var currentUser;
 	$(document).ready(function() {
@@ -30,58 +22,6 @@
 	});
 </script>
 
-
-
-</head>
-<body bgcolor="#ebf3f6">
-
-	<div class="head">
-		<ul class="list">
-			<li><div id="logo">
-					<img src="resources/images/logo.png">
-				</div></li>
-			<li><a class="li" href="#home"><div
-						style="transform: skew(15deg)">EVENTS</div></a></li>
-			<li><a class="li" href="#signin"><div
-						style="transform: skew(15deg)">SIGN IN</div></a></li>
-		</ul>
-	</div>
-
-	<img id="hero" src="resources/images/hero_img.jpg">
-	<div class="container">
-		<h1 id="create">CREATE & DISCOVER</h1>
-		<h2 id="events">Events based on your interests</h2>
-
-
-		<div class="box">
-
-			<div id="searchbox">
-				<img class="lupa" src="resources/images/lupa.png"> <input type="text"
-					name="search" placeholder="Search">
-			</div>
-			<nav>
-			<ul class="menu">
-				<li><a class="limenu" href="#myplaces"><div
-							style="transform: skew(15deg)">MY PLACES</div></a></li>
-				<li><a class="limenu" href="#interest"><div
-							style="transform: skew(15deg)">INTERESTS</div></a></li>
-				<li><a class="limenu" href="#location"><div
-							style="transform: skew(15deg)">LOCATIONS</div></a></li>
-				<li><a class="limenu" href="#calendar"><div
-							style="transform: skew(15deg)">CALENDAR</div></a></li>
-			</ul>
-			</nav>
-
-		</div>
-
-	</div>
-	<div id="background"></div>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
 	<div class="mainContainer">
 	
 		<%
@@ -127,7 +67,4 @@
 
 	</div>
 
-</body>
-
-
-</html>
+<jsp:include page="footer.jsp" />

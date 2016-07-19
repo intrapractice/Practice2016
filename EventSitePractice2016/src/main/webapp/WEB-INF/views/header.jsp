@@ -7,11 +7,12 @@
     <title>Event Harbor</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" type="text/css" href="/resources/css/homePageStyle.css">
-    <link rel="stylesheet" type="text/css" href="/resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/EventSitePractice2016/resources/css/homePageStyle.css">
+    <link rel="stylesheet" type="text/css" href="/EventSitePractice2016/resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/EventSitePractice2016/resources/css/interests.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="/resources/js/sdkScript.js"></script>
-    <script src="/resources/js/maps.js"></script>
+    <script src="/EventSitePractice2016/resources/js/sdkScript.js"></script>
+    <script src="/EventSitePractice2016/resources/js/maps.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBWf1meYriYFQVot9hYrBggczlMcgk9_o&v=3.exp&sensor=false&libraries=places"></script>
   <!--TODO: Put here any style and CSS imports -->
   </head>
