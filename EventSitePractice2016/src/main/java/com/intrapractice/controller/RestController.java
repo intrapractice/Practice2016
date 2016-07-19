@@ -220,8 +220,8 @@ public class RestController {
         User currentUser = userDao.getUser(email);
         String jsonInString = null;
         try {
-//            File temp = File.createTempFile("temp-file-name3", ".tmp"); 
-//            mapper.writeValue(temp, listOfParticipants);
+            File temp = File.createTempFile("temp-file-name8", ".tmp"); 
+            mapper.writeValue(temp, currentUser);
             jsonInString = mapper.writeValueAsString(currentUser);
         }catch(Exception e) {
             e.printStackTrace();
