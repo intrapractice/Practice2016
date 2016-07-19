@@ -3,9 +3,8 @@
 <%@ page import="com.intrapractice.pojo.Event" %>
 <%@ page import="com.intrapractice.pojo.User" %>
 <%@ page import="java.util.List" %>
-<%@taglib prefix="template" tagdir="/WEB-INF/tags" %>
 
-<template:main>
+<jsp:include page="header.jsp" />
 
 <% Event event = (Event) request.getAttribute("event");
 //TODO: populate the page using event object
@@ -20,4 +19,4 @@ for(User participant: event.getParticipants()){
 
 <%}%>
 
-</template:main>
+<jsp:include page="footer.jsp" />

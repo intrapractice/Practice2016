@@ -1,0 +1,60 @@
+	.mainContainer {
+		margin-left: auto;
+		margin-right: auto;
+		width: 70em;
+	}
+	
+	.otherContainer {
+		margin-right: 0.5em;
+		margin-left: 0.5em;
+		float: left;
+		width:16.5em;
+		margin-bottom: 1em;
+	}
+	
+	.categoryImage {
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+		background-color: none;
+		width: 16.5em;
+		height: 149px;
+		
+	}
+	
+	.categoryName {
+		margin-left:auto;
+		margin-right:auto;
+		display: block;
+		background-color: white;
+		width: 16.5em;
+		margin-bottom: 0.5em;
+		padding: 0.7em 0em;
+	}
+	
+	.heartImage {
+		background-color: transparent;
+		border: none;
+		margin-left:0;
+		width: 1.7em;
+		height: 1.4em;
+		z-index: 99999;
+	}
+	
+	#relativePosition{
+		position: relative;
+		top:0em;
+		right: 0em;
+	}
+	
+	#absolutePosition {
+		position: absolute;
+		top: 0.2em;
+		right: 0.8em;
+	}
+	
+	.heartImage  : hover {
+		color: green;
+	}
+	
+

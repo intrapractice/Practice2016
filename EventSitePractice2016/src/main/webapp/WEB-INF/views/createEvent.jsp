@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@taglib prefix="template" tagdir="/WEB-INF/tags" %>
 
-<template:main>
+<jsp:include page="header.jsp" />
 <div align="center">
     <% if((boolean) request.getAttribute("error")){ %>
     <div class="error">Error Creating or Updating Event!</div>
@@ -39,4 +38,4 @@
     </table>
   </form:form>
 </div>
-</template:main>
+<jsp:include page="footer.jsp" />

@@ -1,9 +1,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="com.intrapractice.pojo.Event" %>
 <%@ page import="java.util.List" %>
-<%@taglib prefix="template" tagdir="/WEB-INF/tags" %>
 
-<template:main>
+<jsp:include page="header.jsp" />
         <% List<Event> events = (List) request.getAttribute("events");
         int count=0;
         for (Event event: events) {%>
@@ -17,4 +16,5 @@
 					<br><br>
 					<%count=0;} %>
 		<%}%>
-</template:main>
+<jsp:include page="footer.jsp" />
+   
