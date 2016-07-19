@@ -2,7 +2,6 @@ package com.intrapractice.controller;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.intrapractice.dao.CategoryDao;
 import com.intrapractice.dao.CategoryLikesDao;
@@ -215,10 +213,20 @@ public class RestController {
 		return categoryDao.createCategory(categoryTitle);
 	}
 	
-	/*@RequestMapping(value="/getCurrentUser", method=RequestMethod.GET)
-	public User getCurrentUser(HttpServletResponse response, @RequestParam String name, @RequestParam String email, @RequestParam String token) throws IOException{
-			return userDao.getUser(email) ;
-		}
-	}*/
+	@RequestMapping(value="/getCurrentUser", method=RequestMethod.GET)
+	public String getCurrentUser(HttpServletResponse response, @RequestParam String email) throws IOException{
+	    //TODO: test without writing to file, should return User JSON
+	    ObjectMapper mapper = new ObjectMapper();
+        User currentUser = userDao.getUser(email);
+        String jsonInString = null;
+        try {
+//            File temp = File.createTempFile("temp-file-name3", ".tmp"); 
+//            mapper.writeValue(temp, listOfParticipants);
+            jsonInString = mapper.writeValueAsString(currentUser);
+        }catch(Exception e) {
+            e.printStackTrace();
+        }
+        return jsonInString;	
+	}
 	
 }

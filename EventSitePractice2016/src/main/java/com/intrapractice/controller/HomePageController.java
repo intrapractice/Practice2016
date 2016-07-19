@@ -32,7 +32,8 @@ public class HomePageController {
 		List<User> users = userDao.getAllUsers();
 		mav.addObject("users", users);
 
-		List<Event> events = eventsDao.getAllEvents();
+		//TODO: replace hardcoded strings with request params
+		List<Event> events = eventsDao.getEventsInDateRange("2016/01/01", "2016/12/31");
 		mav.addObject("events", events);
 
 		return mav;

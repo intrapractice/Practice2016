@@ -192,4 +192,30 @@ public class EventDaoImpl implements EventsDao {
 		
 	}
 
+    @Override
+    public List<Event> getEventsInDateRange(String beginDate, String endDate) {
+        //date format should be in format '2016/07/20'
+        String sql = "SELECT * FROM EVENTS_ WHERE EVENT_DATE BETWEEN '"+beginDate+"' AND '"+endDate+"'";
+        List<Event> listEvents = jdbcTemplate.query(sql, new RowMapper<Event>() {
+
+            @Override
+            public Event mapRow(ResultSet rs, int numOfRow) throws SQLException {
+
+                Event event = new Event();
+
+                event.setId(rs.getInt("ID"));
+                event.setTitle(rs.getString("EVENT_TITLE"));
+                event.setLocation(rs.getString("EVENT_LOCATION"));
+                event.setOwner(userDaoImpl.getUserByID(rs.getInt("EVENT_OWNER")));
+                event.setDescription(rs.getString("EVENT_DESCRIPTION"));
+                event.setDate(rs.getTimestamp("EVENT_DATE"));
+                event.setEndDate(rs.getTimestamp("EVENT_END_DATE"));
+
+                return event;
+            }
+
+        });
+        return listEvents;
+    }
+
 }

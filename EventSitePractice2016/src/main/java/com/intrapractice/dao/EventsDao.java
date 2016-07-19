@@ -20,4 +20,6 @@ public interface EventsDao {
     public List<Event> getJoinedEventsByUserId(int userId);
     
     public boolean deleteEventById(int eventId);
+    
+    public List<Event> getEventsInDateRange(String beginDate, String endDate);
 }
