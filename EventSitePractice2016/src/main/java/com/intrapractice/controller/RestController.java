@@ -144,6 +144,11 @@ public class RestController {
 		return eventLikeDao.likeEvent(eventId, userId);
 	}
 	
+	@RequestMapping(value = "/unlikeEvent", method = RequestMethod.POST)
+    public boolean unlikeEvent(HttpServletResponse response, @RequestParam int eventId, @RequestParam int userId) {
+        return eventLikeDao.unlikeEvent(eventId, userId);
+    }
+	
 	@RequestMapping(value = "/eventLikesCount", method=RequestMethod.POST)
 	public int eventLikesCount(HttpServletResponse response, @RequestParam int eventId) {
 		return eventLikeDao.getEventLikesCount(eventId);

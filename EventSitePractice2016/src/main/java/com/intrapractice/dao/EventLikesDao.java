@@ -10,5 +10,7 @@ public interface EventLikesDao {
     public int getEventLikesCount(int eventId);
 
     public List<Integer> getEventsLikedByUser(int userId);
+    
+    public boolean unlikeEvent(int eventId, int userId);
 
 }
