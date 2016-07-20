@@ -1,3 +1,4 @@
+  	<div class="eventDetailsPageV">
     <div id="pagefooter">
     <footer>
 		    <div class="footer">
@@ -13,6 +14,7 @@
 				</div>
 			</div>
 	</footer>
+    </div>
     </div>
   </body>
 </html>

@@ -15,28 +15,28 @@
    src: url(fonts/open-sans.extrabold.ttf);
   }
 
-body{
+body .eventDetailsPageV{
 	background-color: #ebf3f6;
 	font-size: 16px;
 	font-family: "Open Sans Regular"
 } 
-.container-fluid {
-    height: 100%;
-    line-height: 10vh;
-    text-align: center;
+.eventDetailsPageV .container-fluid {
+	height: 100%;
+	line-height: 10vh;
+	text-align: center;
 	background-color: white;
 	width: 61em;
 }
-#logoSize{
+.eventDetailsPageV #logoSize{
    width: auto;
    height: 4em;
 }
-.navbar{
+.eventDetailsPageV .navbar{
 	margin-bottom: 0;
 	background: white;
 	height: 6.5em;
 }
-.navbar-nav>li {
+.eventDetailsPageV .navbar-nav>li {
    color: black;
    text-align: center;
    font-family: "Open Sans Bold";
@@ -48,73 +48,74 @@ body{
    height: 4.65em;
 }
 
-.navbar-nav>li#bute  {
-    transform: skew(0deg);
-    padding-right: 0.1em;
-    padding-left: 0.5em;
+.eventDetailsPageV .navbar-nav>li#bute  {
+	transform: skew(0deg);
+	padding-right: 0.1em;
+	padding-left: 0.5em;
 }
-.navbar-nav>li#bute div{
+.eventDetailsPageV .navbar-nav>li#bute div{
    transform: skew(15deg);
    padding-top: 0.7em;
    text-align: left;
    line-height: 0.6em;
 }
-.navbar-nav>li#bute a{
+.eventDetailsPageV .navbar-nav>li#bute a{
    transform: skew(-15deg);
 }
 
-.navbar-nav>li a{
+.eventDetailsPageV .navbar-nav>li a{
    display: block;
    text-align: center;
-   font-family: "Open Sans Bold";
+   font-family: "Open Sans Extrabold";
    padding: 0.5em 0.5em;
    padding-top: 1em;
    }
    
-.navbar-nav>li a div {
+.eventDetailsPageV .navbar-nav>li a div {
 	transform: skew(15deg);
+	color: black;
 }
 
-.navbar-nav>li:hover:not(.active) {
+.eventDetailsPageV .navbar-nav>li:hover:not(.active) {
    background-color: #48d0bc;
   }
   
-.navbar-brand{
+.eventDetailsPageV .navbar-brand{
 	height: 90%;
 }
-.navbar-nav{
-    height: 100%;
+.eventDetailsPageV .navbar-nav{
+	height: 100%;
 	float: right;
 }
-.active {
+.eventDetailsPageV .active {
    background-color: #48d0bc;
    color: white;
 }
 
-#bute{
+.eventDetailsPageV #bute{
 	width: 10em;
 }
-span#user{
+.eventDetailsPageV span#user{
 	font-size: 0.675em;
 }
 
-.navbar-nav>#bute:hover, .navbar-nav>#bute.hovered{
+.eventDetailsPageV .navbar-nav>#bute:hover,.eventDetailsPageV .navbar-nav>#bute.hovered{
 	background-color: #ae6ee8;
 	color: white;
 	cursor: default;
 }
 
-.navbar-nav>#bute:hover div,
-.navbar-nav>#bute.hovered div,
-.navbar-nav>#bute:hover i,
-.navbar-nav>#bute.hovered i,
-.navbar-nav>#bute:hover img,
-.navbar-nav>#bute.hovered img{
+.eventDetailsPageV .navbar-nav>#bute:hover div,
+.eventDetailsPageV .navbar-nav>#bute.hovered div,
+.eventDetailsPageV .navbar-nav>#bute:hover i,
+.eventDetailsPageV .navbar-nav>#bute.hovered i,
+.eventDetailsPageV .navbar-nav>#bute:hover img,
+.eventDetailsPageV .navbar-nav>#bute.hovered img{
 	border-color: white;
 	color: white;
 }
 
-#photo{
+.eventDetailsPageV #photo{
 	background: url('images/event_img.jpg') no-repeat;
 	width: 100%;
 	position: relative;
@@ -124,66 +125,66 @@ span#user{
 	background-position-y: -5em;
 }
 
-h1{
+.eventDetailsPageV h1{
 	z-index:100;
-    position:absolute; 
+	position:absolute; 
 	color: white;
 	font-family: "Open Sans Bold";
 	font-size: 2.5em;
-    top: -5em;
+	top: -5em;
 	width: 17em;
 }
 
-h2{
+.eventDetailsPageV h2{
 	font-family: "Open Sans Bold";
 	font-size: 1.4em;
 	text-transform: uppercase;
 }
 
-h4{
+.eventDetailsPageV h4{
 	font-family: "Open Sans Bold";
 	font-size: 1.5em;
 }
-.container{
+.eventDetailsPageV .container{
 	width: 63em;
-    margin-right: auto;
-    margin-left: auto;
+	margin-right: auto;
+	margin-left: auto;
 	position: relative;
 	top: -11em;
 }
 
-#gtitle{
+.eventDetailsPageV #gtitle{
 	text-align: center;
 	border-bottom: 0.1em solid #ebf3f6;
 	padding-bottom: 0.5em;
 }
 
-.button {
+.eventDetailsPageV .button {
 	width: 100%;
-    background-color: #ff3da0;
-    color: white;
-    padding: 1em 6.5em;
+	background-color: #ff3da0;
+	color: white;
+	padding: 1em 6.5em;
 	margin-top: 2em;
-    text-align: center;
-    display: inline-block;
-    font-size: 0.8em;
+	text-align: center;
+	display: inline-block;
+	font-size: 0.8em;
 	text-transform: uppercase;
 	border: 0.2em;
-    border-radius: 0.5em;
-    right: 0;
+	border-radius: 0.5em;
+	right: 0;
 	font-family: "Open Sans Bold";
 }
 
-.footer {
+.eventDetailsPageV .footer {
 	margin: 0 auto;
-    width: 61em;
+	width: 61em;
 	height: 2.5em;
-    background-color: white;
-    text-align: center;
-    position: relative;
+	background-color: white;
+	text-align: center;
+	position: relative;
 }
 
-footer {
+.eventDetailsPageV footer {
 	background: white;
 }
 
@@ -195,119 +196,119 @@ footer {
 	border-left: 0.1em solid #ebf3f6;
 }*/
 
-.fb, .gp, .tw{
-    color: grey;
-    border-left: 0.1em solid #ebf3f6;
-    padding: 0.8em 0.5em 0.4em 0.5em;
-    display: block;
-    float: left;
+.eventDetailsPageV .fb,.eventDetailsPageV .gp,.eventDetailsPageV .tw{
+	color: grey;
+	border-left: 0.1em solid #ebf3f6;
+	padding: 0.8em 0.5em 0.4em 0.5em;
+	display: block;
+	float: left;
 }
-.pi{
+.eventDetailsPageV .pi{
 	float: right;
-    width: 2em;
-    display: block;
+	width: 2em;
+	display: block;
 	color: grey;
 	border-left: 0.1em solid #ebf3f6;
 	border-right: 0.1em solid #ebf3f6;
-    padding: 0.9em 0.5em 0.3em 0.7em;
+	padding: 0.9em 0.5em 0.3em 0.7em;
 }
 
-.fb:hover, .gp:hover, .tw:hover, .pi:hover{
+.eventDetailsPageV .fb:hover,.eventDetailsPageV .gp:hover,.eventDetailsPageV .tw:hover,.eventDetailsPageV .pi:hover{
 	color: white;
 	cursor: pointer;
 }
 
-.fb:hover{
+.eventDetailsPageV .fb:hover{
 	background-color: #3b5896;
 }
 
-.gp:hover{
+.eventDetailsPageV .gp:hover{
 	background-color: #dd4f45;
 }
 
-.tw:hover{
+.eventDetailsPageV .tw:hover{
 	background-color: #00abf1;
 }
 
-.pi:hover{
+.eventDetailsPageV .pi:hover{
 	background-color: #ca2128;
 }
 
-#intracol, #bulpros{
+.eventDetailsPageV #intracol,.eventDetailsPageV #bulpros{
 	height: 2em;
 	margin-top: 0.25em;
 }
 
-#tu{
+.eventDetailsPageV #tu{
 	height: 1em;
 }
 
-#arr{
+.eventDetailsPageV #arr{
 	width: 18em;
-    float: left;
+	float: left;
 	margin-top: 1em;
 }
 
-#social {
+.eventDetailsPageV #social {
 	float: right;
 }
 
 @media (min-width: 992px){
-	.container .col-md-4 {
+	.eventDetailsPageV .container .col-md-4 {
 		padding-left: 0;
 		padding-right: 0;
 		width: 31.333333%;
 		padding-bottom: 0em;
 	}
-	.ml2{
+	.eventDetailsPageV .ml2{
 		margin-left: 2%;
 	}
 }
-.participants{
+.eventDetailsPageV .participants{
 	float: right;
 	background: white;
 	margin-top: 2em;
 }
-.col-md-4.rightcol{
-    background-color: white;
+.eventDetailsPageV .col-md-4.rightcol{
+	background-color: white;
 	padding-bottom: 0;
 	top: 0em;
 }
 
-.leftcol{
+.eventDetailsPageV .leftcol{
 	background-color: white;
 	padding-left: 0;
-    padding-right: 0;
+	padding-right: 0;
 }
 
-.host{
-    border-bottom: 0.15em solid #ebf3f6;
-    padding: 0em 0.5em 2.5em 0.5em;
+.eventDetailsPageV .host{
+	border-bottom: 0.15em solid #ebf3f6;
+	padding: 0em 0.5em 2.5em 0.5em;
 }
 
-#dtitle{
-    border-bottom: 0.1em solid #ebf3f6;
-    padding: 0em 0.5em 0.5em 0.5em;
+.eventDetailsPageV #dtitle{
+	border-bottom: 0.1em solid #ebf3f6;
+	padding: 0em 0.5em 0.5em 0.5em;
 }
 
-.col-md-4, .col-md-8{
+.eventDetailsPageV .col-md-4,.eventDetailsPageV .col-md-8{
 	padding-bottom: 2em;
 }
 
-.upleftcol{
+.eventDetailsPageV .upleftcol{
 	padding-bottom: 1em;
 }
 
-.fa-pencil{
-    color: #48d0bc;
-    width: 1em;
-    height: 1em;
-    position: relative;
-    top: -0.5em;
-    left: 1em;
+.eventDetailsPageV .fa-pencil{
+	color: #48d0bc;
+	width: 1em;
+	height: 1em;
+	position: relative;
+	top: -0.5em;
+	left: 1em;
 }
 
-.dropbtn {
+.eventDetailsPageV .dropbtn {
    padding: 16px;
    font-size: 16px;
    border: none;
@@ -315,12 +316,12 @@ footer {
    background-color:transparent;
   }
 
-  .dropdown {
+ .eventDetailsPageV .dropdown {
    position: relative;
    display: none;
   }  
 
-  .dropdown-content {
+.eventDetailsPageV .dropdown-content {
    display: none;
    position: absolute;
    right: 0;
@@ -330,161 +331,172 @@ footer {
    box-shadow: 0 0.25em 0.25em grey;
 }
 
-  .dropdown-content a {
+.eventDetailsPageV .dropdown-content a {
    color: black;
    display: block;
    margin-left: 3em;
   }
 
-  #dr2, #dr3, #dr4{
-    border-top: 0.1em solid lightgrey;
+.eventDetailsPageV #dr2,.eventDetailsPageV #dr3,.eventDetailsPageV #dr4{
+	border-top: 0.1em solid lightgrey;
   }
 
-  .dropdown-content a:hover {background-color: #AE6EE8}
+.eventDetailsPageV .dropdown-content a:hover {background-color: #AE6EE8}
   
-  .dropdown-content a:hover:nth-last-child(-n+3){
+.eventDetailsPageV .dropdown-content a:hover:nth-last-child(-n+3){
 	background-color: white;
   }
 
-  .dropdown:hover .dropdown-content {
+.eventDetailsPageV .dropdown:hover .dropdown-content {
    display: block;
   } 
 
-  .dropdown:hover .dropbtn {
+.eventDetailsPageV .dropdown:hover .dropbtn {
    background-color: #AE6EE8;
   }
 @media (max-width: 992px){
-	body{
+	.eventDetailsPageV body{
 		font-size:14px;
 	}
 }
-@media (max-width: 766px){
-	.container {
-    top: -14.7em;
+@media (max-width: 850px){
+.eventDetailsPageV .container {
+	top: -14.7em;
 	width: 100%;
 	padding-left: 0;
 	padding-right: 0;
 	}
-	#logoSize{
-    width: 9.1em;
-    height: 3.2em;
-    margin-left: 1vw;
+.eventDetailsPageV #logoSize{
+	width: 9.1em;
+	height: 3.2em;
+	margin-left: 1vw;
    }
-   .container-fluid {
-    height: 6.4em;
+.eventDetailsPageV .container-fluid {
+	height: 6.4em;
 	line-height: 10vh;
 	text-align: center;
 	background-color: white;
 	width: 60em;
 	}
-    #events, #create, #bute {
-    display: none;
+.eventDetailsPageV #events,.eventDetailsPageV #create,.eventDetailsPageV #bute {
+	display: none;
    }
-   #dr3{
-    height: 5em;
-    margin-left: 0;
-    border-top: 0.2em solid grey;
-    padding-left: 3em;
+.eventDetailsPageV #dr3{
+	height: 5em;
+	margin-left: 0;
+	border-top: 0.2em solid grey;
+	padding-left: 3em;
    }
-   #dr1, #dr2, #dr4, #dr5{
+.eventDetailsPageV #dr1,.eventDetailsPageV #dr2,.eventDetailsPageV #dr4,.eventDetailsPageV #dr5{
 	padding-bottom: 1em;
 	padding-top: 1em;
 	padding-right: 15em;
    }
-    #dr5{
+.eventDetailsPageV #dr5{
 	border-top: 0.1em solid lightgrey;
-    border-bottom: 0.1em solid lightgrey;
-    margin-bottom: 3em;
+	border-bottom: 0.1em solid lightgrey;
+	margin-bottom: 3em;
    }
-   footer, .footer{
+.eventDetailsPageV footer,.eventDetailsPageV .footer{
 	width: 100%;
    }
-   #intracol, #bulpros, #tu{
+.eventDetailsPageV #intracol,.eventDetailsPageV #bulpros,.eventDetailsPageV #tu{
 	display: none;
    }
-   #arr{
-    font-size: small;
+.eventDetailsPageV #arr{
+	font-size: small;
    }
-   .fb, .gp, .tw, .pi{font-size: x-small;}
-   h1{
+.eventDetailsPageV .fb,.eventDetailsPageV .gp,.eventDetailsPageV .tw,.eventDetailsPageV .pi{font-size: x-small;}
+.eventDetailsPageV h1{
 	width: 100%;
 	font-size: 1.5em;
-    top: -4em;
-    padding-left: 1em;
-    padding-right: 0;
+	top: -4em;
+	padding-left: 1em;
+	padding-right: 0;
    }
-   #photo{
+.eventDetailsPageV #photo{
 	margin-bottom: -3em;
    }
-   button.dropbtn{
+.eventDetailsPageV button.dropbtn{
 	padding: 1.72em 1.6em;
    }
-    .dropdown {
+.eventDetailsPageV .dropdown {
 	position: absolute;
-    right: 0;
+	right: 0;
 	top: 0;
-    float:right;
-    display: inline-block;
+	float:right;
+	display: inline-block;
 	z-index:1000;
 	}
-   .dropdown-content{
+.eventDetailsPageV .dropdown-content{
 	background-color: white;
 	width: 28.5em;
 	border-top: 0.2em solid grey;
    }
-   .container-fluid{
+.eventDetailsPageV .container-fluid{
 	width: 100%;
    }
-   body > div.container > div.col-xs-12.col-md-4.rightcol.ml2{
+.eventDetailsPageV body > div.container > div.col-xs-12.col-md-4.rightcol.ml2{
 	background-color: white;
    }
-   div.col-xs-12.col-md-4.ml2{
-    margin-top: -2em;
+.eventDetailsPageV div.col-xs-12.col-md-8.upleftcol{
+	width: 65%;		
+	}
+.eventDetailsPageV div.col-xs-12.col-md-8.leftcol{
+	width: 65%;
+	border-right: 0.15em solid #ebf3f6;
+	}
+.eventDetailsPageV div.col-xs-12.col-md-4.ml2{
+	width: 35%;
    }
-   div.col-xs-12.col-md-4.rightcol.ml2{
-    margin-top: 0.3em;
+.eventDetailsPageV div.col-xs-12.col-md-4.rightcol.ml2{
+	margin-top: 0em;
    }
-   div.col-xs-12.col-md-4.participants{
-    margin-top: 0.3em;
+.eventDetailsPageV div.col-xs-12.col-md-4.participants{
+	margin-top: 0.3em;
+	width: 35%;
    }
-   img#userDrop{
-    height: 3.5em;
-    margin: 0.75em 0em;
+.eventDetailsPageV .datetimes{
+	width: initial;
    }
-   #intra, #bul{
+.eventDetailsPageV img#userDrop{
+	height: 3.5em;
+	margin: 0.75em 0em;
+   }
+.eventDetailsPageV #intra,.eventDetailsPageV #bul{
 	width: 9em;
-    margin-left: -1em;
+	margin-left: -1em;
    }
-   #tus{
+.eventDetailsPageV #tus{
 	width: 1.5em;
 	margin-bottom: 1.5em;
    }
-   i.fa.fa-pencil{
-    float: right;
-    display: block;
-    width: 1em;
-    height: 1em;
+.eventDetailsPageV i.fa.fa-pencil{
+	float: right;
+	display: block;
+	width: 1em;
+	height: 1em;
 	top: 0.3em;
-    left: 0em;
+	left: 0em;
    }
-   #user{
+.eventDetailsPageV #user{
 	width: 7em;
-    float: left;
-    display: block;
+	float: left;
+	display: block;
 	font-size: 0.875em;
-    font-family: "Open Sans Extrabold"
+	font-family: "Open Sans Extrabold"
    }
-   #usercontainer{
+.eventDetailsPageV #usercontainer{
 	margin: 1.5em 0.5em;
-    width: 8em;
-    font-weight: 800;
-    float: left;
-    line-height: 0.9em;
+	width: 8em;
+	font-weight: 800;
+	float: left;
+	line-height: 0.9em;
    }
 }  
-#userPicture{
-    border: 0.2em solid;
-    border-radius: 3em;
+.eventDetailsPageV #userPicture{
+	border: 0.2em solid;
+	border-radius: 3em;
 	border-color: #48d0bc;
 	float: left;
 	transform: skew(15deg);
@@ -492,128 +504,131 @@ footer {
 	margin-right: 0.3em;
 }
 
-#userDrop{
+.eventDetailsPageV #userDrop{
 	border: 0.2em solid;
-    border-radius: 3em;
+	border-radius: 3em;
 	border-color: #48d0bc;
 	float: left;
 	margin: 0.3em 0.3em 0.3em 0.3em;
 	text-align: left; 
 	line-height: 0.6em;
 }
-.navbar-nav>li a.no-padding{
+.eventDetailsPageV .navbar-nav>li a.no-padding{
 	padding: 0;
 }
 
-.userdropdown {
-    position: absolute;
-    right: 13.6em;
-    top: 5em;
-    display: none;
-    z-index: 1;
-    width: 12.5em;
+.eventDetailsPageV .userdropdown {
+	position: absolute;
+	right: 13.6em;
+	top: 5em;
+	display: none;
+	z-index: 1;
+	width: 12.5em;
 }
 
-.userdropdown-content {
-    display: block;
-    position: relative;
-    background-color: #ae6ee8;
-    padding-left: 1em;
-    width: 12.5em;
+.eventDetailsPageV .userdropdown-content {
+	display: block;
+	position: relative;
+	background-color: #ae6ee8;
+	padding-left: 1em;
+	width: 12.5em;
 }
 
-.userdropdown-content a {
-    color: white;
-    padding: 0.7em 0em;
-    display: block;
-    cursor: default;
+.eventDetailsPageV .userdropdown-content a {
+	color: white;
+	padding: 0.7em 0em;
+	display: block;
+	cursor: default;
 }
 
-.userdropdown-content a:hover{
+.eventDetailsPageV .userdropdown-content a:hover{
 	background-color: #ae6ee8;
 	text-decoration: none;
 	font-weight: bold;
 }
 
-.userdropdown:hover .userdropdown-content {
-    display: block;
+.eventDetailsPageV .userdropdown:hover .userdropdown-content {
+	display: block;
 }
 
-#userdropsettings{
+.eventDetailsPageV #userdropsettings{
 	border-bottom: 0.1em solid white;
 }
-p{
+.eventDetailsPageV p{
 	margin: 1em 0.5em -0.8em 0.5em;
-    padding-left: 0.3em;
+	padding-left: 0.3em;
 }
 
-#pin{
+.eventDetailsPageV #pin{
 	height: 1em;
-    margin: 0em 0.5em 0em 0.5em;
+	margin: 0em 0.5em 0em 0.5em;
 }
 
-#googleMap{
-    height: 13em;
-    margin: 1.5em 0.8em 1em;
-    border: 0.1em solid lightgrey;
+.eventDetailsPageV #googleMap{
+	height: 13em;
+	margin: 1.5em 0.8em 1em;
+	border: 0.1em solid lightgrey;
 }
-h6{
+.eventDetailsPageV h6{
 	font-size: 1.5em;
-    font-family: "Open Sans Bold";
-    margin-left: 0.5em;
+	font-family: "Open Sans Bold";
+	margin-left: 0.5em;
 }
-.datetimes{
+.eventDetailsPageV .datetimes{
 	padding-bottom: 9em;
 }
-.dates-l{
+.eventDetailsPageV .dates-l{
 	width: 9em;
 	float: left;
 	color: #949d9d;
 }
-.times-r{
+.eventDetailsPageV .times-r{
 	width: 9em;
 	float: right;
-    color: #949d9d;	
+	color: #949d9d;	
 }
 
-ul#participants{
+.eventDetailsPageV ul#participants{
 	list-style-type: none;
-    padding-left: 1em;
+	padding-left: 1em;
 }
 
-.duration{
+.eventDetailsPageV .duration{
 	color: white;
-    width: 12em;
+	width: 12em;
 	text-transform: uppercase;
 	text-align: center;
 	border-right: 0.1em solid white;
 }
 
-.se-dates{
+.eventDetailsPageV .se-dates{
 	font-size: 3em;
-    font-family: "Open Sans Bold";
+	font-family: "Open Sans Bold";
 	line-height: 1em;
 }
 
-.month{
+.eventDetailsPageV .month{
 	word-spacing: 4em;
 }
-.start-end{
+.eventDetailsPageV .start-end{
 	word-spacing: 3.2em;
 }
-.heartImage{
+.eventDetailsPageV .heartImage{
 	margin-left: 2em;
 }
-.fa-heart{
+.eventDetailsPageV .fa-heart:before {
+	font-size: 1.5em;
+}
+.eventDetailsPageV .fa-heart{
 	background-color: transparent;
 	border: black;
 	position: relative;
-    bottom: 3.5em;
-    left: 11em;
+	bottom: 3.5em;
+	left: 11em;
 	color: #d8d6d7;
 }
-#favmsg{
+.eventDetailsPageV #favmsg{
 	font-family: "Open Sans Regular";
-    text-transform: none;
-    padding-left: 0.5em;
+	text-transform: none;
+	padding-left: 0.5em;
 }
