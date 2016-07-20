@@ -1,19 +1,4 @@
-@font-face {
-   font-family: "Open Sans Light";
-   src: url("/EventSitePractice2016/resources/fonts/open-sans.light.ttf");
-  }
-  @font-face {
-   font-family: "Open Sans Regular";
-   src: url("/EventSitePractice2016/resources/fonts/open-sans.regular.ttf");
-  }
-  @font-face {
-   font-family: "Open Sans Bold";
-   src: url("/EventSitePractice2016/resources/fonts/open-sans.bold.ttf");
-  }
-  @font-face {
-   font-family: "Open Sans Extrabold";
-   src: url("/EventSitePractice2016/resources/fonts/open-sans.extrabold.ttf");
-}
+
 body {
     font-size: 16px;
 }
