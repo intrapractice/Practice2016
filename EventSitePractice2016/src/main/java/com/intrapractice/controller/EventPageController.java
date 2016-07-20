@@ -3,6 +3,9 @@ package com.intrapractice.controller;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.intrapractice.dao.CategoryDao;
 import com.intrapractice.dao.EventsDao;
+import com.intrapractice.pojo.Category;
 import com.intrapractice.pojo.EventPojo;
 
 @Controller
@@ -20,11 +25,14 @@ public class EventPageController {
 
 	@Autowired
 	private EventsDao eventsDao;
+	
+	@Autowired
+	private CategoryDao categoryDao;
 
 	@RequestMapping(value = "/CreateEvent", method = RequestMethod.POST)
 	public ModelAndView saveEvent(@ModelAttribute EventPojo events) {
 
-		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
 		Date eventsDate = null;
 		Date eventsEndDate = null;
@@ -35,11 +43,14 @@ public class EventPageController {
 		} catch (java.text.ParseException e) {
 
 			System.out.println("Error with parse the date format!");
-
+			
 		}
-		// OwnerId is hardcoded , because login is not ready
+
+		System.out.println(events.toString());
+		System.out.println("User id : " + events.getUserId());
+		
 		boolean result = eventsDao.createEvent(events.getTitle(), events.getDescription(), eventsDate, eventsEndDate,
-				events.getLocation(), 6);
+				events.getLocation(), events.getUserId() ,events.getCategoryId());
 
 		if (result) {
 
@@ -54,12 +65,19 @@ public class EventPageController {
 
 	@RequestMapping(value = "/CreateEvent", method = RequestMethod.GET)
 	public ModelAndView newEvent(
-			@RequestParam(required = false, name = "error", defaultValue = "false") boolean error) {
+			@RequestParam(required = false, name = "error", defaultValue = "false") boolean error,
+			HttpServletResponse response) {
 
 		ModelAndView model = new ModelAndView("createEvent");
 		EventPojo newEvent = new EventPojo();
 		model.addObject("events", newEvent);
 
+		List<Category> listCategory =  categoryDao.getAllCategories();
+		for(Category cat: listCategory){
+			System.out.println(cat.getTitle());
+		}
+		model.addObject("categories",listCategory);
+		
 		model.addObject("error", error);
 		model.addObject("formURL", "/EventSitePractice2016/CreateEvent");
 
@@ -82,9 +100,10 @@ public class EventPageController {
 			System.out.println("Error with parse the date format!");
 
 		}
+		
 		// Id of event is 6 , because login is not ready
 		boolean result = eventsDao.createEvent(events.getTitle(), events.getDescription(), eventsDate, eventsEndDate,
-				events.getLocation(), 6);
+				events.getLocation(), 6 , events.getCategoryId());
 
 		if (result) {
 
@@ -104,6 +123,12 @@ public class EventPageController {
 		ModelAndView model = new ModelAndView("createEvent");
 		EventPojo newEvent = new EventPojo();
 		model.addObject("events", newEvent);
+		
+		List<Category> listCategory =  categoryDao.getAllCategories();
+		for(Category cat: listCategory){
+			System.out.println("Second " + cat.getTitle());
+		}
+		model.addObject("categories",listCategory);
 
 		model.addObject("error", error);
 		model.addObject("formURL", "/EventSitePractice2016/CreateEvent");

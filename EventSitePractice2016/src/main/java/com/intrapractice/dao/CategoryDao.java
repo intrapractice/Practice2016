@@ -1,6 +1,7 @@
 package com.intrapractice.dao;
 
 import java.util.List;
+
 import com.intrapractice.pojo.Category;
 
 public interface CategoryDao {
@@ -15,4 +16,5 @@ public interface CategoryDao {
 	
 	public boolean deleteCategoryById(int categoryId);
 	
+	public Category getCategoryByName(String categoryTitle);
 }

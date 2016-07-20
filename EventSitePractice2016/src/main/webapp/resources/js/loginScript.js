@@ -30,8 +30,8 @@ function login() {
 function getInfo() {
 	FB.api('/me', 'GET', {fields: 'email,first_name,last_name,name,id'}, function(response) {
 		$.post("/EventSitePractice2016/createUser?email=" + 
-		response.email + "&name=" + response.name + "&token=123", function(data){
-			if (data) {
+		response.email + "&name=" + response.name + "&token="+response.id, function(data){
+			if (data==="true") {
 				var successImage = "<img id='success' class='centered' src='../resources/images/successTick.jpg'>";
 				$("#content").append(successImage);
 			}

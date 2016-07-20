@@ -15,4 +15,6 @@ public interface UserDao {
     
     public User getUserByID(int id);
 
+	public User getUserByToken(String token);
+
 }
