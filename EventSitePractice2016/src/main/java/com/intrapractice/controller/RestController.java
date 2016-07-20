@@ -62,6 +62,8 @@ public class RestController {
 		}
 	}
 	
+
+	
 	@RequestMapping(value = "/join", method=RequestMethod.POST)
 	public boolean joinEvent(HttpServletResponse response, @RequestParam int eventId, @RequestParam int userId) {
 		
@@ -220,13 +222,18 @@ public class RestController {
         User currentUser = userDao.getUser(email);
         String jsonInString = null;
         try {
-//            File temp = File.createTempFile("temp-file-name3", ".tmp"); 
-//            mapper.writeValue(temp, listOfParticipants);
+            File temp = File.createTempFile("temp-file-name8", ".tmp");
+            mapper.writeValue(temp, currentUser);
             jsonInString = mapper.writeValueAsString(currentUser);
         }catch(Exception e) {
             e.printStackTrace();
         }
         return jsonInString;	
+	}
+
+	@RequestMapping(value = "/updateCategory", method = RequestMethod.POST)
+	public boolean updateCategory(HttpServletResponse response, @RequestParam String categoryTitle, int categoryId) {
+		return categoryDao.updateCategory(categoryTitle, categoryId);
 	}
 	
 }
