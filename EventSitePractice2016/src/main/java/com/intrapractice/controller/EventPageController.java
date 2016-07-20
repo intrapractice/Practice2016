@@ -119,7 +119,17 @@ public class EventPageController {
 		Event eventById = eventsDao.getEventById(eventId);
 		EventPojo event = new EventPojo();
 		event.setDescription(eventById.getDescription());
-		model.addObject("events", eventById);
+		event.setTitle(eventById.getTitle());
+		event.setUserId(eventById.getOwner().getId());
+		event.setLocation(eventById.getLocation());
+		event.setStatus(eventById.getEventStatus());
+		event.setCategoryId(eventById.getCategory().getId());
+		
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		event.setDate(dateFormat.format(eventById.getDate()));
+		event.setEndDate(dateFormat.format(eventById.getEndDate()));
+		
+		model.addObject("events", event);
 		
 		List<Category> listCategory =  categoryDao.getAllCategories();
 		model.addObject("categories",listCategory);
@@ -127,6 +137,14 @@ public class EventPageController {
 		model.addObject("error", error);
 		model.addObject("formURL", "/EventSitePractice2016/UpdateEvent");
 
+		return model;
+	}
+	
+	@RequestMapping(value = "/Event/{eventId}", method = RequestMethod.GET)
+	public ModelAndView newEvent2(@PathVariable int eventId) {
+		ModelAndView model = new ModelAndView("eventDetail");
+		Event eventById = eventsDao.getEventById(eventId);
+		model.addObject("event", eventById);
 		return model;
 	}
 
