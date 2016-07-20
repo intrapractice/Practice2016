@@ -28,6 +28,7 @@
   <!--TODO: Put here any style and CSS imports -->
   </head>
   <body>
+  <div class="eventDetailsPageV">
   <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -92,3 +93,4 @@
 		  </a>
 		</div>
 	</div>
+</div>
