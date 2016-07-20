@@ -5,25 +5,59 @@
 <jsp:include page="header.jsp" />
 <link rel="stylesheet" type="text/css" href="/EventSitePractice2016/resources/css/interests.css">
 <script>
-    var currentUser;
+function likeCategory(categoryId) {
+    var userId = window.user;
+    this.categoryId = categoryId; 
+    $.ajax({
+        type:"POST",
+        cache:false,
+        url:"/EventSitePractice2016/likeCategory?categoryId="+ categoryId+"&userId="+userId,
+        success: function (html) {
+        }
+      });
+}
+
+function unlikeCategory(categoryId) {
+	var userId = window.user;
+	this.categoryId = categoryId;
+	 $.ajax({
+	        type:"POST",
+	        cache:false,
+	        url:"/EventSitePractice2016/unlikeCategory?categoryId="+ categoryId+"&userId="+userId,
+	        success: function (html) {
+	        }
+   });
+}
+
+</script>
+<script>
+function setLikedCategories(){
+	var liked = window.userJSON.likedCategories;
+    for(index in liked){
+        var categoryLength = $(".category"+liked[index]).length;
+        if(categoryLength > 0){
+            $(".category"+liked[index]).attr('src', "resources/images/redHeart.png")
+        }
+    }
+}
 	$(document).ready(function() {
-		 
 		$("button").click(function() {
 			var src = $(this).find("img").attr('src');
 			if (src.indexOf("greyHeart") > 0) {
 				$(this).find("img").attr('src', 'resources/images/redHeart.png');
 				var categoryId = $(this).find("input").val();
-				console.log(categoryId);
-				console.log(window.user);
+				likeCategory(categoryId);
 			} else {
+				var categoryId = $(this).find("input").val();
 				$(this).find("img").attr('src', 'resources/images/greyHeart.png');
+				unlikeCategory(categoryId);
 			}
 		});
 
 	});
 </script>
 
-	<div class="mainContainer">
+	<div class="mainContainerHristiyan">
 	
 		<%
 			List<Category> categories = (List) request.getAttribute("categories");
@@ -56,7 +90,7 @@
 				<button name="button" class="heartImage" id="absolutePosition"
 					onClick="">
 					<input type="hidden" value="<%=category.getId()%>"/>
-					<img class="heartImage" src="resources/images/greyHeart.png" />
+					<img class="heartImage category<%=category.getId()%>" src="resources/images/greyHeart.png" />
 				</button>
 				<img class="categoryImage" src=<%=image %> id="relativePosition" />
 			</div>

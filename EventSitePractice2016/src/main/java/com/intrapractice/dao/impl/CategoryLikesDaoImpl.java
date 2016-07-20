@@ -34,6 +34,27 @@ public class CategoryLikesDaoImpl implements CategoryLikesDao {
 		}
 	}
 	
+	
+	public boolean unlikeCategory(int categoryId, int userId) {
+		
+		String sql = "DELETE FROM CATEGORIES_LIKES WHERE CATEGORY_ID=? AND USER_ID=?";
+		
+		try {
+			int rowsAffected = jdbcTemplate.update(sql, categoryId, userId);
+			
+			if(rowsAffected == 1) {
+				return true;
+			}
+			
+			return false;
+		}catch(DataIntegrityViolationException exception) {
+			exception.printStackTrace();
+			return false;
+			
+		}
+		
+	}
+	
 	public int getCategoryLikesCount(int categoryId) {
 		
 		String sql = "SELECT COUNT(CATEGORY_ID) FROM CATEGORIES_LIKES WHERE CATEGORY_ID=" + categoryId;
