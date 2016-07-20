@@ -16,8 +16,10 @@ window.fbAsyncInit = function() {
 				  .done(function( json ) {
 				    	window.userJSON = json;
 				    	window.user=json.id;
-				    	console.log("Windol var " + window.user + " JSON " + json.id);
 				    	$("#hiddenForm").val(window.user);
+				    	if(window.location.pathname.indexOf("interests")>-1){
+				    		setLikedCategories();
+				    	}
 				  })
 				  .fail(function( jqxhr, textStatus, error ) {
 					  console.log("error occured");

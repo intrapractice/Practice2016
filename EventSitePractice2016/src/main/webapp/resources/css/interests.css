@@ -1,10 +1,9 @@
-	.mainContainer {
-		margin-left: auto;
-		margin-right: auto;
-		width: 70em;
-	}
-	
-	.otherContainer {
+.mainContainerHristiyan {
+	margin-left: auto;
+	margin-right: auto;
+	width: 70em;
+}
+	.mainContainerHristiyan .otherContainer {
 		margin-right: 0.5em;
 		margin-left: 0.5em;
 		float: left;
@@ -12,7 +11,7 @@
 		margin-bottom: 1em;
 	}
 	
-	.categoryImage {
+	.mainContainerHristiyan .categoryImage {
 		margin-left: auto;
 		margin-right: auto;
 		display: block;
@@ -22,7 +21,7 @@
 		
 	}
 	
-	.categoryName {
+	.mainContainerHristiyan .categoryName {
 		margin-left:auto;
 		margin-right:auto;
 		display: block;
@@ -32,7 +31,7 @@
 		padding: 0.7em 0em;
 	}
 	
-	.heartImage {
+	.mainContainerHristiyan .heartImage {
 		background-color: transparent;
 		border: none;
 		margin-left:0;
@@ -41,19 +40,19 @@
 		z-index: 99999;
 	}
 	
-	#relativePosition{
+	.mainContainerHristiyan #relativePosition{
 		position: relative;
 		top:0em;
 		right: 0em;
 	}
 	
-	#absolutePosition {
+	.mainContainerHristiyan #absolutePosition {
 		position: absolute;
 		top: 0.2em;
 		right: 0.8em;
 	}
 	
-	.heartImage  : hover {
+	.mainContainerHristiyan .heartImage  : hover {
 		color: green;
 	}
 	

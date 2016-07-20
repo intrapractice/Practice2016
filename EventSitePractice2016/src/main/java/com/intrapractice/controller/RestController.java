@@ -194,6 +194,11 @@ public class RestController {
 		return categoryLikeDao.likeCategory(categoryId, userId);
 	}
 	
+	@RequestMapping(value = "/unlikeCategory", method = RequestMethod.POST)
+	public boolean unlikeCategory(HttpServletResponse response, @RequestParam int categoryId, @RequestParam int userId) {
+		return categoryLikeDao.unlikeCategory(categoryId, userId);
+	}
+	
 	@RequestMapping(value = "/categoryLikesCount", method=RequestMethod.POST)
 	public int categorylikesCount(HttpServletResponse response, @RequestParam int categoryId) {
 		return categoryLikeDao.getCategoryLikesCount(categoryId);
