@@ -222,6 +222,15 @@
 		.facebook img:active{
 			content: url("../images/fbbuttonactive.png");
 		}
+		.loginPage .footer {
+    		height: 2.5em;
+    		background-color: white;
+    		text-align: center;
+		    margin: 0 auto;
+		    bottom: 0;
+    		width: 100%;
+    		position: absolute;
+		}
 		@media only screen and (max-width: 1600px){
 			body{
 				width: 100%;

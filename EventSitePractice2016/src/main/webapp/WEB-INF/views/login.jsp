@@ -3,10 +3,18 @@
 <html>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0,  minimum-scale=1.0">
-	<title>Login</title>
-	<link rel="stylesheet" type="text/css" href="../resources/css/LoginPageStyle.css">
+	<title>Login</title>	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	<script src="../resources/js/loginScript.js"></script>
+	<!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/EventSitePractice2016/resources/css/headerFooterEventDetailsPage.css">
+  	<link rel="stylesheet" type="text/css" href="../resources/css/LoginPageStyle.css">
 </head>
 <body id="background">
 	<div class="head">
@@ -37,6 +45,7 @@
 				<button class="facebook" style="max-width: 100%" onclick="login()"><img style="max-width: 100%" src="../resources/images/fbbutton.png"/></button>
 			</div>
 		</div>
-
+<jsp:include page="footer.jsp"/>
 </body>
+
 </html>
