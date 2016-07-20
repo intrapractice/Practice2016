@@ -8,10 +8,12 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.intrapractice.dao.EventsDao;
 import com.intrapractice.pojo.Event;
+
 
 @Controller
 public class MyEventsPageController {
@@ -20,11 +22,12 @@ public class MyEventsPageController {
 	private EventsDao eventsDao;
 
 	@RequestMapping(value = "/myEvents")
-	public ModelAndView test(HttpServletResponse response) throws IOException {
+	public ModelAndView test(@RequestParam(required = false, name="userId") int userId,
+			HttpServletResponse response) throws IOException {
 
 		ModelAndView mav = new ModelAndView("myEvents");
 		
-		List<Event> events = eventsDao.getAllEvents();
+		List<Event> events = eventsDao.getEventsByOwnerId(userId);
 		mav.addObject("events", events);
 
 		return mav;
