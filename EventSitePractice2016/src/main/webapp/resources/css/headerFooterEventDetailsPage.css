@@ -1,18 +1,18 @@
 @font-face {
    font-family: "Open Sans Light";
-   src: url(fonts/open-sans.light.ttf);
+   src: url(../fonts/open-sans.light.ttf);
   }
   @font-face {
    font-family: "Open Sans Regular";
-   src: url(fonts/open-sans.regular.ttf);
+   src: url(../fonts/open-sans.regular.ttf);
   }
   @font-face {
    font-family: "Open Sans Bold";
-   src: url(fonts/open-sans.bold.ttf);
+   src: url(../fonts/open-sans.bold.ttf);
   }
   @font-face {
    font-family: "Open Sans Extrabold";
-   src: url(fonts/open-sans.extrabold.ttf);
+   src: url(../fonts/open-sans.extrabold.ttf);
   }
 
 body .eventDetailsPageV{
@@ -75,7 +75,7 @@ body .eventDetailsPageV{
    
 .eventDetailsPageV .navbar-nav>li a div {
 	transform: skew(15deg);
-	color: black;
+	color: #20384C;
 }
 
 .eventDetailsPageV .navbar-nav>li:hover:not(.active) {
