@@ -13,6 +13,8 @@ public class User {
     private String token;
     
     private List<Integer> likedEvents;
+    
+    private List<Integer> likedCategories;
 
     public User(){
         
@@ -57,5 +59,13 @@ public class User {
     public void setLikedEvents(List<Integer> likedEvents) {
         this.likedEvents = likedEvents;
     }
+
+	public List<Integer> getLikedCategories() {
+		return likedCategories;
+	}
+
+	public void setLikedCategories(List<Integer> likedCategories) {
+		this.likedCategories = likedCategories;
+	}
 
 }

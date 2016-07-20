@@ -2,9 +2,9 @@
 <%@ page import="com.intrapractice.pojo.Event" %>
 <%@ page import="java.util.List" %>
 
-<jsp:include page="header.jsp" />
 <link rel="stylesheet" type="text/css" href="/EventSitePractice2016/resources/css/homePageStyle.css">
 <link rel="stylesheet" type="text/css" href="/EventSitePractice2016/resources/css/style.css">
+<jsp:include page="header.jsp" />
         <% List<Event> events = (List) request.getAttribute("events");
         int count=0;
         for (Event event: events) {%>
