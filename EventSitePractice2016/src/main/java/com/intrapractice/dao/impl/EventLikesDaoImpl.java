@@ -1,18 +1,14 @@
 package com.intrapractice.dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.ResultSetExtractor;
 
 import com.intrapractice.dao.EventLikesDao;
-import org.springframework.jdbc.core.RowMapper;
 public class EventLikesDaoImpl implements EventLikesDao{
 	
 	@Autowired
@@ -38,6 +34,26 @@ public class EventLikesDaoImpl implements EventLikesDao{
 		}
 		
 	}
+	
+	public boolean unlikeEvent(int eventId, int userId) {
+        
+        String sql = "DELETE FROM EVENT_LIKES WHERE EVENT_ID=? AND USER_ID=?";
+        
+        try {
+            int rowsAffected = jdbcTemplate.update(sql, eventId, userId);
+            
+            if(rowsAffected == 1) {
+                return true;
+            }
+            
+            return false;
+        }catch(DataIntegrityViolationException exception) {
+            exception.printStackTrace();
+            return false;
+            
+        }
+        
+    }
 	
 	@Override
 	public int getEventLikesCount(int eventId) {
