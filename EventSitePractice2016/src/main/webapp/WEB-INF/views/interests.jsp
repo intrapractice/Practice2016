@@ -2,8 +2,9 @@
 <%@ page import="com.intrapractice.pojo.Category"%>
 <%@ page import="com.intrapractice.pojo.User"%>
 <%@ page import="java.util.List"%>
-<jsp:include page="header.jsp" />
 <link rel="stylesheet" type="text/css" href="/EventSitePractice2016/resources/css/interests.css">
+<jsp:include page="header.jsp" />
+
 <script>
 function likeCategory(categoryId) {
     var userId = window.user;
