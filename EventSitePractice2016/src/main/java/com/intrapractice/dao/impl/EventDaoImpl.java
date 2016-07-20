@@ -78,7 +78,7 @@ public class EventDaoImpl implements EventsDao {
 					event.setDescription(rs.getString("EVENT_DESCRIPTION"));
 					event.setDate(rs.getTimestamp("EVENT_DATE"));
 					event.setEndDate(rs.getTimestamp("EVENT_END_DATE"));
-
+					event.setCategory(catedoryDao.getCategoryById(rs.getInt("CATEGORY_ID")));
 					return event;
 
 				}

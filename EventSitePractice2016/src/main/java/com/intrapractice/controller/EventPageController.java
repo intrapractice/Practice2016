@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.intrapractice.dao.CategoryDao;
 import com.intrapractice.dao.EventsDao;
 import com.intrapractice.pojo.Category;
+import com.intrapractice.pojo.Event;
 import com.intrapractice.pojo.EventPojo;
 
 @Controller
@@ -46,9 +48,6 @@ public class EventPageController {
 			
 		}
 
-		System.out.println(events.toString());
-		System.out.println("User id : " + events.getUserId());
-		
 		boolean result = eventsDao.createEvent(events.getTitle(), events.getDescription(), eventsDate, eventsEndDate,
 				events.getLocation(), events.getUserId() ,events.getCategoryId());
 
@@ -73,9 +72,6 @@ public class EventPageController {
 		model.addObject("events", newEvent);
 
 		List<Category> listCategory =  categoryDao.getAllCategories();
-		for(Category cat: listCategory){
-			System.out.println(cat.getTitle());
-		}
 		model.addObject("categories",listCategory);
 		
 		model.addObject("error", error);
@@ -101,9 +97,8 @@ public class EventPageController {
 
 		}
 		
-		// Id of event is 6 , because login is not ready
 		boolean result = eventsDao.createEvent(events.getTitle(), events.getDescription(), eventsDate, eventsEndDate,
-				events.getLocation(), 6 , events.getCategoryId());
+				events.getLocation(), events.getUserId() , events.getCategoryId());
 
 		if (result) {
 
@@ -116,22 +111,21 @@ public class EventPageController {
 
 	}
 
-	@RequestMapping(value = "/UpdateEvent", method = RequestMethod.GET)
-	public ModelAndView newEvent2(
+	@RequestMapping(value = "/UpdateEvent/{eventId}", method = RequestMethod.GET)
+	public ModelAndView newEvent2(@PathVariable int eventId,
 			@RequestParam(required = false, name = "error", defaultValue = "false") boolean error) {
 
 		ModelAndView model = new ModelAndView("createEvent");
-		EventPojo newEvent = new EventPojo();
-		model.addObject("events", newEvent);
+		Event eventById = eventsDao.getEventById(eventId);
+		EventPojo event = new EventPojo();
+		event.setDescription(eventById.getDescription());
+		model.addObject("events", eventById);
 		
 		List<Category> listCategory =  categoryDao.getAllCategories();
-		for(Category cat: listCategory){
-			System.out.println("Second " + cat.getTitle());
-		}
 		model.addObject("categories",listCategory);
 
 		model.addObject("error", error);
-		model.addObject("formURL", "/EventSitePractice2016/CreateEvent");
+		model.addObject("formURL", "/EventSitePractice2016/UpdateEvent");
 
 		return model;
 	}

@@ -13,64 +13,20 @@
   @font-face {
    font-family: "Open Sans Extrabold";
    src: url("/EventSitePractice2016/resources/fonts/open-sans.extrabold.ttf");
-  }
-  
-h1{
-    z-index:100;
-    position:absolute; 
-    color: white;
-    font-family: "Open Sans Bold";
-    font-size: 40x;
-    left: 5.1em;
-    top: 4em;
 }
-
-.container{
-    width: 75%;
-    margin-right: auto;
-    margin-left: auto;
-    position: relative;
-    top: -9em;
-}
-
-#gtitle{
-    text-align: center;
-    border-bottom: 0.1em solid #ebf3f6;
-    padding-bottom: 0.5em;
-}
-
-.button {
-    background-color: #ff3da0;
-    color: white;
-    padding: 1em 7em;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 0.8em;
-    margin: 0.4em 0.2em;
-    text-transform: uppercase;
-    border: 0.2em;
-    border-radius: 0.5em;
-    right: 0;
-    font-family: "Open Sans Bold";
-}
- 
- head{
-     background-color:blue;
-  }
-  html {
-      background-color:blue;
-      }
 body {
     font-size: 16px;
 }
-.error{
+.createEventClass{
+	background-color: #EBF3F6;
+}
+.createEventClass .error{
        color: #1F3040;
        font-size: 2.5em;
        text-align: center; 
        font-family: 'Open Sans Bold';
 }
-#textbox{
+.createEventClass #textbox{
    width: 100%;
    height: 3em;
    font-size: 1em;
@@ -79,7 +35,7 @@ body {
    border-bottom-color: black;
   }
   
-#pac-input{
+.createEventClass #pac-input{
 	width: 21em;
     margin-top: 0.5em;
     height: 2em;
@@ -89,7 +45,7 @@ body {
     border-bottom-color: black;
     padding-left:1em;
 }
-  #textboxCat{
+  .createEventClass #textboxCat{
    width: 100%;
    height: 3em;
    font-size: 1em;
@@ -99,7 +55,7 @@ body {
    margin-top:0.3em;
   }
   
- #textarea {
+ .createEventClass #textarea {
     width: 100%;
     height: 15em;
    border-width: 0px 0px 3px;
@@ -110,50 +66,51 @@ body {
    margin-top: 1.5em;
     }
   
-  #map-canvas{
+  .createEventClass #map-canvas{
     margin-top:1em;
     width:100%;
     height:18em;
 }
-#span{
+.createEventClass #span{
     color: #B4BEC0;
     font-size: 0.75em;
 }
-#spanLoc{
+.createEventClass #spanLoc{
     color: #1F3040;
     font-size: 1.5em;
     font-family: "Open Sans Bold";
 }
 
-.mainCont{
+.createEventClass .mainCont{
     margin-right:auto;
     margin-left:auto;
     width: 51em;
     margin-bottom:2em; 
 }
-.headPic{
+.createEventClass .headPic{
 }
-.title{
+.createEventClass .title{
 	padding-left: 9em;
     font-size: 2em;
     font-family: "Open Sans Bold";
     margin-bottom: 0.5em;
     color:#20384C;
 }
-.firstCont{
+.createEventClass .firstCont{
     width: 29em;
     margin-right : 2em;
     float: left;
 }
-.secondCont{
+.createEventClass .secondCont{
+	margin-top:3em;
     width: 20em;
     float: right;
 }
-#headCont{
+.createEventClass #headCont{
     width:100%;
     border-bottom: 2px none 
 }
-#firstDate{
+.createEventClass #firstDate{
    border-top-left-radius: 0.5em;
    border-top-right-radius: 0.5em;
    border-bottom-left-radius: 0.5em;
@@ -164,11 +121,11 @@ body {
    font-family: "Open Sans Bold";
    margin-bottom: 1em;
    border-width: 0px 0px 3px;
-   margin-top: 1.1em;
+   margin-top: 0.45em;
    color: #A8AEAC;
    padding-left:1em;
 }
-#secondDate{
+.createEventClass #secondDate{
    border-top-left-radius: 0.5em;
    border-top-right-radius: 0.5em;
    border-bottom-left-radius: 0.5em;
@@ -180,15 +137,16 @@ body {
    border-width: 0px 0px 3px;   
    color: #A8AEAC;
    padding-left:1em;
+   margin-top:0.45em;
 }
-#chooseDate{
+.createEventClass #chooseDate{
     display: block;
     margin-top: 0em;
     color: #1F3040;
     font-size: 1.5em;
     font-family: "Open Sans Bold";
 }
-#catEvent,#addCat,#delCat{
+.createEventClass #catEvent,.createEventClass #addCat,.createEventClass #delCat{
     color: #1F3040;
     font-size: 1.5em;
     font-family: "Open Sans Bold";
@@ -196,23 +154,23 @@ body {
     margin-top: 0.60em;
     margin-bottom: 0.50em;
     }
-.flatpickr-calendar{
+.createEventClass .flatpickr-calendar{
     font-family: "Open Sans Regular";
     font-size: 100%;
     width: 20em;
     color:#B4BEC0
 }
-#checkDiv{
+.createEventClass #checkDiv{
     color: #A8AEAC;
     font-size: 1em;
     font-family: "Open Sans Bold";
 }
-#smallText{
+.createEventClass #smallText{
     margin-left:2.1em;
     color: #B4BEC0;
     font-size: 0.75em;
 }
-.selectpicker{
+.createEventClass .selectpicker{
    margin-top: 0.7em;
    width: 100%;
    height: 3em;
@@ -222,7 +180,7 @@ body {
    border-bottom-color: black;
    color:#BCBEBD;
 }
-#bottomText{
+.createEventClass #bottomText{
     padding-top: 1.5em;
     display:table;
     text-align:center;
@@ -232,18 +190,18 @@ body {
     color: #B4BEC0;
     font-size: 1em;
 }
-#line{
+.createEventClass #line{
     width:51em;
     border-color: #48D0BC;
     
 }
-#buttons{
+.createEventClass #buttons{
 	text-align: right;
     margin: 0em auto 2em auto;
     width: 51em;
     height: 3em;
    }
-#cancel,#preview,#button{
+.createEventClass #cancel,.createEventClass #preview,.createEventClass #button{
     margin-left:1.2em;
     border:none;
     background-color: transparent;
@@ -255,7 +213,7 @@ body {
     padding-left:0.4em;
     padding-right:0.4em;
 }
-#cancel:hover,#preview:hover,#button:hover{
+.createEventClass #cancel:hover,.createEventClass #preview:hover,.createEventClass #button:hover{
     background-color:#48D0BC;
     margin-left:1.2em;
     border:none;
@@ -267,7 +225,7 @@ body {
     padding-left:0.4em;
     padding-right:0.4em;
 }
-.buttonRemove{
+.createEventClass #buttonRemove{
     background-color: transparent;
     border:none;
     color: #939B9E;
@@ -280,7 +238,7 @@ body {
     padding-left:0.4em;
     padding-right:0.4em;
 }
-.buttonRemove:hover{
+.createEventClass #buttonRemove:hover{
     background-color: #48D0BC;
     border:none;
     color: #939B9E;
@@ -293,5 +251,5 @@ body {
     padding-left:0.4em;
     padding-right:0.4em;
 }
-    
+
     

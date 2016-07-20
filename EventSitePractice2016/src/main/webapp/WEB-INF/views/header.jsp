@@ -11,8 +11,8 @@
     <link rel="stylesheet" type="text/css" href="/EventSitePractice2016/resources/css/headerFooterEventDetailsPage.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="/EventSitePractice2016/resources/js/sdkScript.js"></script>
-    <script src="/EventSitePractice2016/resources/js/maps.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBWf1meYriYFQVot9hYrBggczlMcgk9_o&v=3.exp&libraries=places"></script>
+    <script src="/EventSitePractice2016/resources/js/maps.js"></script>
     <script src="/EventSitePractice2016/resources/js/calendar/flatpickr.min.js"></script>
     <script type="text/javascript" src="/EventSitePractice2016/resources/js/selectPicker.js"></script>
     <script type="text/javascript" src="/EventSitePractice2016/resources/js/header.js"></script>
