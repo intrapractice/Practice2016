@@ -1,6 +1,8 @@
 package com.intrapractice.controller;
 
 import java.io.IOException;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -29,11 +31,14 @@ public class HomePageController {
 
 		ModelAndView mav = new ModelAndView("home");
 
-		List<User> users = userDao.getAllUsers();
-		mav.addObject("users", users);
-
-		//TODO: replace hardcoded strings with request params
-		List<Event> events = eventsDao.getEventsInDateRange("2016/01/01", "2016/12/31");
+		Date date= new Date();
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date);
+		int year = cal.get(Calendar.YEAR);
+		int month = cal.get(Calendar.MONTH)+1;
+		int nextMonth = month + 1;
+		
+		List<Event> events = eventsDao.getEventsInDateRange(year+"/"+month+"/01", year+"/"+nextMonth+"/01");
 		mav.addObject("events", events);
 
 		return mav;

@@ -2,6 +2,8 @@ package com.intrapractice.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -263,6 +265,31 @@ public class RestController {
 	@RequestMapping(value = "/updateCategory", method = RequestMethod.POST)
 	public boolean updateCategory(HttpServletResponse response, @RequestParam String categoryTitle, int categoryId) {
 		return categoryDao.updateCategory(categoryTitle, categoryId);
+	}
+	
+	@RequestMapping(value = "/getEventsForMonth", method = RequestMethod.GET)
+	public String eventsForMonth(HttpServletResponse response, @RequestParam String date) {
+		 
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM");
+	    try {
+	        dateFormat.parse(date); 
+	    }
+	    catch(ParseException ex) {
+	        return "Wrong date format";
+	    }
+		
+		 ObjectMapper mapper = new ObjectMapper();
+	        List<Event> eventsForMonth = eventsDao.getEventsInDateRange(date+"/01", date+"/31");
+	        String jsonInString = null;
+	        try {
+	            File temp = File.createTempFile("temp-file-name9", ".tmp");
+	            mapper.writeValue(temp, eventsForMonth);
+	            jsonInString = mapper.writeValueAsString(eventsForMonth);
+	            System.out.println(jsonInString);
+	        }catch(Exception e) {
+	            e.printStackTrace();
+	        }
+	        return jsonInString;
 	}
 	
 }
