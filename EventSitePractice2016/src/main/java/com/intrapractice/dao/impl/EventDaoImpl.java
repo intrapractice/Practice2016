@@ -8,11 +8,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 
-import com.intrapractice.dao.EventParticipantsDao;
+import com.intrapractice.dao.CategoryDao;
 import com.intrapractice.dao.EventsDao;
 import com.intrapractice.dao.UserDao;
 import com.intrapractice.pojo.Event;
@@ -26,7 +27,7 @@ public class EventDaoImpl implements EventsDao {
 	private UserDao userDaoImpl;
 	
 	@Autowired
-    private EventParticipantsDao eventParticipantsDao;
+	private CategoryDao catedoryDao;
 
 	@Override
 	public List<Event> getAllEvents() {
@@ -47,6 +48,7 @@ public class EventDaoImpl implements EventsDao {
 				event.setDescription(rs.getString("EVENT_DESCRIPTION"));
 				event.setDate(rs.getTimestamp("EVENT_DATE"));
 				event.setEndDate(rs.getTimestamp("EVENT_END_DATE"));
+				event.setCategory(catedoryDao.getCategoryById(rs.getInt("CATEGORY_ID")));
 
 				return event;
 			}
@@ -69,15 +71,13 @@ public class EventDaoImpl implements EventsDao {
 
 					Event event = new Event();
 
-					int eventId = rs.getInt("ID");
-                    event.setId(eventId);
+					event.setId(rs.getInt("ID"));
 					event.setTitle(rs.getString("EVENT_TITLE"));
-					event.setDescription(rs.getString("EVENT_DESCRIPTION"));
 					event.setLocation(rs.getString("EVENT_LOCATION"));
 					event.setOwner(userDaoImpl.getUserByID(rs.getInt("EVENT_OWNER")));
+					event.setDescription(rs.getString("EVENT_DESCRIPTION"));
 					event.setDate(rs.getTimestamp("EVENT_DATE"));
 					event.setEndDate(rs.getTimestamp("EVENT_END_DATE"));
-					event.setParticipants(eventParticipantsDao.getParticipantsForEvent(eventId));
 
 					return event;
 
@@ -91,13 +91,18 @@ public class EventDaoImpl implements EventsDao {
 	}
 
 	@Override
-	public boolean createEvent(String title, String description, Date eventDate, Date eventEndDate, String location, int ownerId) {
-
-		String sql = "INSERT INTO EVENTS_ (EVENT_TITLE,EVENT_DESCRIPTION,EVENT_DATE,EVENT_END_DATE,EVENT_LOCATION,EVENT_OWNER)"
-				+ "VALUES (?,?,?,?,?,?)";
-
-		int numberOfRows = jdbcTemplate.update(sql, title, description, eventDate, eventEndDate, location, ownerId);
-
+	public boolean createEvent(String title, String description, Date eventDate, Date eventEndDate, String location, int ownerId , int categoryId) {
+		int numberOfRows = 0;
+		String sql = "INSERT INTO EVENTS_ (EVENT_TITLE,EVENT_DESCRIPTION,EVENT_DATE,EVENT_END_DATE,EVENT_LOCATION,EVENT_OWNER,CATEGORY_ID)"
+				+ "VALUES (?,?,?,?,?,?,?)";
+		try{
+		
+		 numberOfRows = jdbcTemplate.update(sql, title, description, eventDate, eventEndDate, location, ownerId , categoryId);
+		
+		}catch(DuplicateKeyException e){
+			e.printStackTrace();
+			return false;
+		}
 		if (numberOfRows > 0) {
 			return true;
 
@@ -191,8 +196,7 @@ public class EventDaoImpl implements EventsDao {
 		}
 		
 	}
-
-    @Override
+	@Override
     public List<Event> getEventsInDateRange(String beginDate, String endDate) {
         //date format should be in format '2016/07/20'
         String sql = "SELECT * FROM EVENTS_ WHERE EVENT_DATE BETWEEN '"+beginDate+"' AND '"+endDate+"'";

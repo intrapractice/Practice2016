@@ -4,6 +4,8 @@ import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
+import com.intrapractice.pojo.Category;
+
 public class Event {
 
     private int id;
@@ -19,6 +21,8 @@ public class Event {
     private String location;
 
     private User owner;
+    
+    private Category category;
 
     private List<User> participants;
 
@@ -105,6 +109,14 @@ public class Event {
     public void setParticipantsCount(int participantsCount) {
         this.participantsCount = participantsCount;
     }
+    
+    public Category getCategory(){
+		return category;
+	}
+	
+	public void setCategory(Category category){
+		this.category = category;
+	}
     
 	public String getEventStatus() {
 		Date eventDate = new Date(date.getTime());

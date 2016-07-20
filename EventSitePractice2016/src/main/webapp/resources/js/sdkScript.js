@@ -1,6 +1,5 @@
 // initialize and setup facebook js sdk
 var email;
-var user;
 window.fbAsyncInit = function() {
 	FB.init({
 	  appId      : '139441019816215',
@@ -12,8 +11,21 @@ window.fbAsyncInit = function() {
 		if (response.status === 'connected') {
 			FB.api('/me', 'GET', {fields: 'email,first_name,last_name,name,id'}, function(response) {
 				var fbName = response.name;
+				email = response.email;
+				$.getJSON( '/EventSitePractice2016/getCurrentUser?token='+response.id)
+				  .done(function( json ) {
+				    	window.userJSON = json;
+				    	window.user=json.id;
+				    	console.log("Windol var " + window.user + " JSON " + json.id);
+				    	$("#hiddenForm").val(window.user);
+				  })
+				  .fail(function( jqxhr, textStatus, error ) {
+					  console.log("error occured");
+				});
+				    	
+					
 				$('.navbar #user').html(fbName);
-				var userId = response.id;
+			    var userId = response.id;
 				FB.api(
 				"/"+userId+"/picture",
 				function (response) {

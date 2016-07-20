@@ -53,12 +53,16 @@ public class RestController {
 	
 	
 	@RequestMapping(value="/createUser", method=RequestMethod.POST)
-	public boolean createUser(HttpServletResponse response, @RequestParam String name, @RequestParam String email, @RequestParam String token) throws IOException{
-		User existingUser = userDao.getUser(email);
+	public String createUser(HttpServletResponse response, @RequestParam String name, @RequestParam String email, @RequestParam String token) throws IOException{
+		System.out.println("name " + name + " token " + token + " email " + email);
+		User existingUser = userDao.getUserByToken(token);
+		System.out.println("Existuser" + existingUser);
 		if(existingUser == null) {
-			return userDao.createUser(name, email, token);
+			boolean createUser = userDao.createUser(name, email, token);
+			System.out.println("Create user " + createUser);
+			return String.valueOf(createUser);
 		} else {
-			return false;
+			return "false";
 		}
 	}
 	
@@ -210,21 +214,41 @@ public class RestController {
 		return	likes;
 	}
 	
-	@RequestMapping(value = "/createCategory", method = RequestMethod.POST)
-	public boolean createCategory(HttpServletResponse response, @RequestParam String categoryTitle) {
-		return categoryDao.createCategory(categoryTitle);
+	@RequestMapping(value = "/createCategory", method = RequestMethod.GET)
+	public String createCategory(HttpServletResponse response, @RequestParam String categoryTitle) {
+		Category cat = categoryDao.getCategoryByName(categoryTitle);
+		if(cat==null){
+			boolean result = categoryDao.createCategory(categoryTitle);
+			if(result){
+				Category cat2 = categoryDao.getCategoryByName(categoryTitle);
+				ObjectMapper mapper = new ObjectMapper();
+		        String jsonInString = null;
+		        try {
+		            File temp = File.createTempFile("temp-file-name3", ".tmp"); 
+		            mapper.writeValue(temp, cat2);
+		            jsonInString = mapper.writeValueAsString(cat2);
+		            System.out.println("------>"+jsonInString);
+		        }catch(Exception e) {
+		            e.printStackTrace();
+		        }
+		        return jsonInString;
+			}
+		}
+		return "";
 	}
 	
+
 	@RequestMapping(value="/getCurrentUser", method=RequestMethod.GET)
-	public String getCurrentUser(HttpServletResponse response, @RequestParam String email) throws IOException{
-	    //TODO: test without writing to file, should return User JSON
+	public String getCurrentUser(HttpServletResponse response, @RequestParam String token) throws IOException{
 	    ObjectMapper mapper = new ObjectMapper();
-        User currentUser = userDao.getUser(email);
+        User currentUser = userDao.getUserByToken(token);
+        System.out.println(currentUser);
         String jsonInString = null;
         try {
             File temp = File.createTempFile("temp-file-name8", ".tmp");
             mapper.writeValue(temp, currentUser);
             jsonInString = mapper.writeValueAsString(currentUser);
+            System.out.println(jsonInString);
         }catch(Exception e) {
             e.printStackTrace();
         }

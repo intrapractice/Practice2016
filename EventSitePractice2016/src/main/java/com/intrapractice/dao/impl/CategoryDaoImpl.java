@@ -15,7 +15,7 @@ import com.intrapractice.dao.CategoryDao;
 import com.intrapractice.pojo.Category;
 
 public class CategoryDaoImpl implements CategoryDao {
-	
+
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
@@ -33,14 +33,14 @@ public class CategoryDaoImpl implements CategoryDao {
 
 				category.setId(rs.getInt("ID"));
 				category.setTitle(rs.getString("CATEGORY_TITLE"));
-		
+
 				return category;
 			}
 
 		});
 		return listCategories;
 	}
-	
+
 	@Override
 	public Category getCategoryById(int categoryId) {
 
@@ -57,7 +57,7 @@ public class CategoryDaoImpl implements CategoryDao {
 
 					category.setId(rs.getInt("ID"));
 					category.setTitle(rs.getString("CATEGORY_TITLE"));
-			
+
 					return category;
 
 				}
@@ -68,9 +68,9 @@ public class CategoryDaoImpl implements CategoryDao {
 		});
 
 	}
-	
+
 	public boolean createCategory(String title) {
-		
+
 		String sql = "INSERT INTO CATEGORIES_ (CATEGORY_TITLE) VALUES (?)";
 
 		int numberOfRows = jdbcTemplate.update(sql, title);
@@ -82,13 +82,13 @@ public class CategoryDaoImpl implements CategoryDao {
 		return false;
 		
 	}
-	
+
 	public boolean updateCategory(String title, int categoryId) {
-		
+
 		String sql = "UPDATE CATEGORIES_ SET CATEGORY_TITLE=? WHERE ID=?";
-		
+
 		int numberOfRows = jdbcTemplate.update(sql, title, categoryId);
-		
+
 		if (numberOfRows > 0) {
 			return true;
 
@@ -96,23 +96,51 @@ public class CategoryDaoImpl implements CategoryDao {
 		return false;
 		
 	}
-	
+
 	public boolean deleteCategoryById(int categoryId) {
 		String sql = "DELETE FROM CATEGORIES_ WHERE ID=" + categoryId;
 		try {
-			
+
 			int rowsAffected = jdbcTemplate.update(sql);
-			
-			if(rowsAffected == 1) {
+
+			if (rowsAffected == 1) {
 				return true;
 			}
-			
+
 			return false;
-		}catch(DataIntegrityViolationException exception) {
+		} catch (DataIntegrityViolationException exception) {
 			exception.printStackTrace();
 			return false;
-			
+
 		}
+	}
+
+	@Override
+	public Category getCategoryByName(String categoryTitle) {
+
+		String sql = "SELECT * FROM CATEGORIES_ WHERE CATEGORY_TITLE LIKE '" + categoryTitle + "'";
+
+		return jdbcTemplate.query(sql, new ResultSetExtractor<Category>() {
+
+			@Override
+			public Category extractData(ResultSet rs) throws SQLException, DataAccessException {
+
+				if (rs.next()) {
+
+					Category category = new Category();
+
+					category.setId(rs.getInt("ID"));
+					category.setTitle(rs.getString("CATEGORY_TITLE"));
+
+					return category;
+
+				}
+
+				return null;
+			}
+
+		});
+
 	}
 
 }

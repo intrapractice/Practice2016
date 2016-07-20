@@ -1,0 +1,449 @@
+@font-face {
+   font-family: "Open Sans Light";
+   src: url("/EventSitePractice2016/resources/fonts/open-sans.light.ttf");
+  }
+  @font-face {
+   font-family: "Open Sans Regular";
+   src: url("/EventSitePractice2016/resources/fonts/open-sans.regular.ttf");
+  }
+  @font-face {
+   font-family: "Open Sans Bold";
+   src: url("/EventSitePractice2016/resources/fonts/open-sans.bold.ttf");
+  }
+  @font-face {
+   font-family: "Open Sans Extrabold";
+   src: url("/EventSitePractice2016/resources/fonts/open-sans.extrabold.ttf");
+  }
+  
+  .container-fluid {
+    height: 15vh;
+    line-height: 10vh;
+    text-align: center;
+    background-color: white;
+    height:7em;
+}
+#logoSize{
+   width: auto;
+   height: 4em;
+   padding-bottom: 1em;
+}
+.container-fluid>.navbar-header{
+   margin-left: 17vw;
+   margin-right: 12vw;
+   padding-left: 1.2em;
+   
+}
+.navbar-nav>li{
+   color: black;
+   text-align: center;
+   font-family: "Open Sans Bold";
+   font-size: 20px;
+   transform: skew(-15deg);
+   padding-top: 1em;
+   text-transform: uppercase;
+   margin-left: 1vw;
+       height: 90%;
+}
+
+.navbar-nav>li a{
+   display: block;
+   text-align: center;
+   font-family: "Open Sans Bold";
+   font-size: 20px;
+   padding: 0.5em 0.5em;
+   padding-top: 1em;
+}
+
+.navbar-nav>li:hover:not(.active) {
+   background-color: #48d0bc;
+  }
+  
+.navbar-brand{
+        height: 90%;
+}
+.navbar-nav{
+    height: 100%;
+    padding-left:2em;
+    margin-bottom: -1em;
+}
+.active {
+   background-color: #48d0bc;
+   color: white;
+}
+
+#bute{
+    width: 40%;
+}
+
+.navbar-nav>#bute:hover{
+    background-color: #ae6ee8;
+    color: white;
+}
+
+.navbar-nav>#bute:hover div, .navbar-nav>#bute:hover i{
+    
+    color: white;
+}
+
+#photo{
+  width: 100%;
+  position: relative;
+}
+
+h1{
+    z-index:100;
+    position:absolute; 
+    color: white;
+    font-family: "Open Sans Bold";
+    font-size: 40x;
+    left: 5.1em;
+    top: 4em;
+}
+
+.container{
+    width: 75%;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+    top: -9em;
+}
+
+#gtitle{
+    text-align: center;
+    border-bottom: 0.1em solid #ebf3f6;
+    padding-bottom: 0.5em;
+}
+
+.button {
+    background-color: #ff3da0;
+    color: white;
+    padding: 1em 7em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 0.8em;
+    margin: 0.4em 0.2em;
+    text-transform: uppercase;
+    border: 0.2em;
+    border-radius: 0.5em;
+    right: 0;
+    font-family: "Open Sans Bold";
+}
+
+.footer {
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: white;
+  text-align: center;
+  position:relative;
+}
+
+.fb, .gp, .tw, .pi{
+    color: grey;
+    border-left: 1px solid lightgrey;
+    padding: 0px 5px;
+}
+
+#intracol, #bulpros{
+    width: 10%;
+}
+
+#tu{
+    width: 1.5%;
+    margin-right: 2em;
+}
+
+#arr{
+    margin-right: 7vw;
+}
+
+@media (min-width: 992px){
+    .container .col-md-4 {
+        width: 31.333333%;
+    }
+    .ml2{
+        margin-left: 2%;
+    }
+}
+@media (max-width: 992px){
+    .ml2{
+        margin-top: 2%;
+    }
+    .button{
+        width: 100%;
+    }
+}
+@media (max-width: 500px){
+    .container {
+        width: 100%;
+    }
+    
+}
+.rightcol{
+    background-color: white;
+}
+
+.leftcol{
+    background-color: white;
+}
+
+.host, #dtitle{
+    border-bottom: 0.1em solid #ebf3f6;
+    padding-bottom: 0.5em;
+}
+
+.col-md-4, .col-md-8{
+    padding-bottom: 2em;
+}
+
+.fa-pencil{
+    color: #48d0bc;
+    margin-left: 0.1em;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+  
+ 
+ head{
+     background-color:blue;
+  }
+  html {
+      background-color:blue;
+      }
+body {
+    font-size: 16px;
+}
+.error{
+       color: #1F3040;
+       font-size: 2.5em;
+       text-align: center; 
+       font-family: 'Open Sans Bold';
+}
+#textbox{
+   width: 100%;
+   height: 3em;
+   font-size: 1em;
+   font-family: "Open Sans Light";
+   border-width: 0px 0px 3px;
+   border-bottom-color: black;
+  }
+  
+#pac-input{
+	width: 21em;
+    margin-top: 0.5em;
+    height: 2em;
+    font-size: 1.5em;
+    font-family: "Open Sans Light";
+    border-width: 0px 0px 3px;
+    border-bottom-color: black;
+    padding-left:1em;
+}
+  #textboxCat{
+   width: 100%;
+   height: 3em;
+   font-size: 1em;
+   font-family: "Open Sans Light";
+   border-width: 0px 0px 3px;
+   border-bottom-color: black;
+   margin-top:0.3em;
+  }
+  
+ #textarea {
+    width: 100%;
+    height: 15em;
+   border-width: 0px 0px 3px;
+   border-bottom-color: black;
+   margin-bottom : 1em;
+   font-family: "Open Sans Light";
+   font-size: 1em;
+   margin-top: 1.5em;
+    }
+  
+  #map-canvas{
+    margin-top:1em;
+    width:100%;
+    height:18em;
+}
+#span{
+    color: #B4BEC0;
+    font-size: 0.75em;
+}
+#spanLoc{
+    color: #1F3040;
+    font-size: 1.5em;
+    font-family: "Open Sans Bold";
+}
+
+.mainCont{
+    margin-right:auto;
+    margin-left:auto;
+    width: 51em;
+    margin-bottom:2em; 
+}
+.headPic{
+}
+.title{
+	padding-left: 9em;
+    font-size: 2em;
+    font-family: "Open Sans Bold";
+    margin-bottom: 0.5em;
+    color:#20384C;
+}
+.firstCont{
+    width: 29em;
+    margin-right : 2em;
+    float: left;
+}
+.secondCont{
+    width: 20em;
+    float: right;
+}
+#headCont{
+    width:100%;
+    border-bottom: 2px none 
+}
+#firstDate{
+   border-top-left-radius: 0.5em;
+   border-top-right-radius: 0.5em;
+   border-bottom-left-radius: 0.5em;
+   border-bottom-right-radius: 0.5em;
+   width: 100%;
+   height: 3em;
+   font-size: 1em;
+   font-family: "Open Sans Bold";
+   margin-bottom: 1em;
+   border-width: 0px 0px 3px;
+   margin-top: 1.1em;
+   color: #A8AEAC;
+   padding-left:1em;
+}
+#secondDate{
+   border-top-left-radius: 0.5em;
+   border-top-right-radius: 0.5em;
+   border-bottom-left-radius: 0.5em;
+   border-bottom-right-radius: 0.5em;
+   width: 100%;
+   height: 3em;
+   font-size: 1em;
+   font-family: "Open Sans Bold";
+   border-width: 0px 0px 3px;   
+   color: #A8AEAC;
+   padding-left:1em;
+}
+#chooseDate{
+    display: block;
+    margin-top: 0em;
+    color: #1F3040;
+    font-size: 1.5em;
+    font-family: "Open Sans Bold";
+}
+#catEvent,#addCat,#delCat{
+    color: #1F3040;
+    font-size: 1.5em;
+    font-family: "Open Sans Bold";
+    display: block;
+    margin-top: 0.60em;
+    margin-bottom: 0.50em;
+    }
+.flatpickr-calendar{
+    font-family: "Open Sans Regular";
+    font-size: 100%;
+    width: 20em;
+    color:#B4BEC0
+}
+#checkDiv{
+    color: #A8AEAC;
+    font-size: 1em;
+    font-family: "Open Sans Bold";
+}
+#smallText{
+    margin-left:2.1em;
+    color: #B4BEC0;
+    font-size: 0.75em;
+}
+.selectpicker{
+   margin-top: 0.7em;
+   width: 100%;
+   height: 3em;
+   font-size: 1em;
+   font-family: "Open Sans Regular";
+   border-width: 0px 0px 3px;
+   border-bottom-color: black;
+   color:#BCBEBD;
+}
+#bottomText{
+    padding-top: 1.5em;
+    display:table;
+    text-align:center;
+    width:100%;
+    margin-top: 3em;
+    margin-bottom: 1.5em;
+    color: #B4BEC0;
+    font-size: 1em;
+}
+#line{
+    width:51em;
+    border-color: #48D0BC;
+    
+}
+#buttons{
+	text-align: right;
+    margin: 0em auto 2em auto;
+    width: 51em;
+    height: 3em;
+   }
+#cancel,#preview,#button{
+    margin-left:1.2em;
+    border:none;
+    background-color: transparent;
+    color: #939B9E;
+    font-family: "Open Sans Bold";
+    font-size: 1.2em;   
+    padding-bottom:0.3em;
+    padding-top:0.3em;
+    padding-left:0.4em;
+    padding-right:0.4em;
+}
+#cancel:hover,#preview:hover,#button:hover{
+    background-color:#48D0BC;
+    margin-left:1.2em;
+    border:none;
+    color: #939B9E;
+    font-family: "Open Sans Bold";
+    font-size: 1.2em;   
+    padding-bottom:0.3em;
+    padding-top:0.3em;
+    padding-left:0.4em;
+    padding-right:0.4em;
+}
+.buttonRemove{
+    background-color: transparent;
+    border:none;
+    color: #939B9E;
+    font-family: "Open Sans Bold";
+    font-size: 1.2em;   
+    margin-top: 0.5em;
+    float:left;
+    padding-bottom:0.3em;
+    padding-top:0.3em;
+    padding-left:0.4em;
+    padding-right:0.4em;
+}
+.buttonRemove:hover{
+    background-color: #48D0BC;
+    border:none;
+    color: #939B9E;
+    font-family: "Open Sans Bold";
+    font-size: 1.2em;   
+    margin-top: 0.5em;
+    float:left;
+    padding-bottom:0.3em;
+    padding-top:0.3em;
+    padding-left:0.4em;
+    padding-right:0.4em;
+}
+    
+    
