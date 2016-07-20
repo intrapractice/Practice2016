@@ -222,7 +222,7 @@
 		.facebook img:active{
 			content: url("../images/fbbuttonactive.png");
 		}
-		.loginPage .footer {
+		#pagefooter {
     		height: 2.5em;
     		background-color: white;
     		text-align: center;
