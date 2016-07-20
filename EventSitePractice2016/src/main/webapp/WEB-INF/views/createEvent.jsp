@@ -6,7 +6,7 @@
    <%@ page import="java.lang.Boolean" %>
 
 <jsp:include page="header.jsp" />
-
+<link rel="stylesheet" type="text/css" href="/EventSitePractice2016/resources/css/CreateEventStyle.css">
     <form:form id="createForm"
      action='<%=(String) request.getAttribute("formURL")%>' method="post" modelAttribute="events" accept-charset="utf-8">
    <div class="mainCont">  
