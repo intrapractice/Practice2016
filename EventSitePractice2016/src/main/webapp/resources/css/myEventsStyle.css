@@ -1,81 +1,297 @@
-	.myEvents {
+.homePageContainer .background {
+	background-color: #EBF3F6;
+}
+
+.homePageContainer .list li a {
+	list-style-type: none;
+	float: right;
+	display: block;
+	color: #1E3346;
+	text-align: center;
+	font-family: 'Open Sans Bold';
+	font-size: 20px;
+	padding: 1em 1em;
+	text-decoration: none;
+	transform: skew(-15deg);
+	padding-top: 3em;
+	font-weight: bold;
+	border-bottom: solid;
+	border-bottom-width: 1em;
+	border-bottom-color: white;
+}
+
+.homePageContainer .list li:first-of-type {
+	float: left;
+}
+
+.homePageContainer .list li {
+	float: right;
+	list-style-type: none;
+}
+
+body .homePageContainer {
+	font-family: "Open Sans Regular";
+	font-size: 16px;
+	margin: 0em;
+	padding: 0em;
+	overflow: hidden;
+	list-style-type: none;
+}
+
+.homePageContainer .head {
+	margin-left: auto;
+	margin-right: auto;
+	width: 70em;
+	height: 7em;
+}
+
+.homePageContainer .container {
+	margin-left: auto;
+	margin-right: auto;
+	width: 61em;
+	padding: 0;
+}
+
+.homePageContainer .list {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+.homePageContainer .list li a:hover {
+	border-bottom: solid;
+	border-bottom-color: #01B49F;
+	border-bottom-width: 1em;
+	color: #1E3346;
+}
+
+.homePageContainer .list li a:active {
+	background-color: #01B49F;
+	color: white;
+}
+
+.homePageContainer #logo {
+	float: left;
+}
+
+.homePageContainer #hero {
+	width: 100%;
+	margin-top: 0em;
+	height: 25em;
+	margin-left: auto;
+	margin-right: auto;
+	overflow: hidden;
+	background: url("../images/hero_img.jpg");
+}
+
+.homePageContainer #create {
+	display: inline;
+	position: absolute;
+	top: 4.5em;
+	color: #EBF3F6;
+	font-family: "Open Sans Bold";
+	font-weight: lighter;
+	font-size: 3.2em;
+}
+
+.homePageContainer #events {
+	display: inline;
+	position: absolute;
+	top: 9em;
+	text-align: center;
+	color: #EBF3F6;
+	font-family: "Open Sans Light";
+	font-size: 2.1em;
+}
+
+.homePageContainer .lupa {
+	width: 6em;
+	padding-left: 2em;
+}
+
+.homePageContainer input[type="text"] {
+	width: 35%;
+	height: 4em;
+	border: none;
+	padding-top: 1.5em;
+	vertical-align: text-bottom;
+}
+
+.homePageContainer .search {
+	position: absolute;
+	z-index: -1;
+}
+
+.homePageContainer #searchbox {
+	position: absolute;
+	z-index: 0;
+}
+
+.homePageContainer .box {
+	display: inline-block;
+	position: relative;
+	border-top: 0em;
+	border-color: white;
+	border-radius: 1em;
+	background-color: white;
+	height: 7em;
+	top: -4em;
+	width: 61em;
+	margin-left: auto;
+	margin-right: auto;
+	line-height: 7em;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
+		rgba(0, 0, 0, 0.19);
+}
+
+.homePageContainer .menu li:hover {
+	border-bottom: solid;
+	border-bottom-color: #AE6EE8;
+	border-bottom-width: 0.5em;
+	color: #AE6EE8;
+}
+
+.homePageContainer .menu li.active {
+	border-bottom-width: 0.5em;
+	border-color: #AE6EE8;
+	background-color: #AE6EE8;
+	color: white;
+}
+
+.homePageContainer .menu li {
+	background-color: white;
+	height: 7em;
+	width: 10em;
+	transform: skew(-15deg);
+	float: right;
+}
+
+.homePageContainer .menu li.active a {
+	color: white;
+	padding-top:3em;
+	padding-right: -1em;
+	background-color:#AE6EE8;
+	border-color:#AE6EE8;
+}
+
+.homePageContainer .menu li a {
+	list-style-type: none;
+	color: #919B9A;
+	float: right;
+	display: block;
+	text-align: center;
+	font-family: 'Open Sans Bold';
+	font-size: 20px;
+	text-decoration: none;
+	padding-top: 3em;
+	font-weight: bold;
+	padding-bottom: 0em;
+	padding-right: 1em;
+	padding-left: 1em;
+	margin-top: -3em;
+	position: relative;
+	z-index: 12;
+	border: none;
+	border-left: 1px solid #919B9A;
+}
+
+.homePageContainer .menu li.last {
+	margin-right: 2em;
+}
+
+.homePageContainer .menu li a:last-of-type:active {
+	border-top-right-radius: 1em;
+}
+
+.homePageContainer .menu {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	font-family: "Open Sans Bold";
+	width: 50em;
+	float: right;
+}
+	
+.myEvents {
 	width: 70em;
     margin-right: auto;
     margin-left: auto;
 	position: relative;
 	top: 2em;
-	}
+}
 
-	.myEvents .event {
+.myEvents .event {
 	width: 33em;
 	height: 25em;
 	margin-top: 2em;
     margin-bottom: 2em;
 	float: left;
-	}
+}
 
-	.myEvents .event:nth-child(even) {
+.myEvents .event:nth-child(even) {
 	float: right;
-	}
+}
 	
-	.myEvents #eventFirstPart {
+.myEvents #eventFirstPart {
 	width: 5em;
 	/*height: 25em;*/
 	float: left;
-	}
+}
 	
-	.myEvents #eventSecondPart {
+.myEvents #eventSecondPart {
 	width: 28em;
 	/*height: 25em;*/
 	float:left;
-	}
+}
 	
-	.myEvents #eventSecondPart:hover {
+.myEvents #eventSecondPart:hover {
 	box-shadow: 0 0 2em #ccc;
-	}
+}
 	
-	.myEvents #eventThirdPart {
+.myEvents #eventThirdPart {
 	width: 28em;
 	height: 10.5em;
 	float: left;
 	background: url("../images/img.jpg");
 	background-size: cover;
 	background-position: center;
-	}
+}
 	
-	.myEvents #eventFourthPart {
+.myEvents #eventFourthPart {
 	width: 28em;
 	/*height: 12.5em;*/
 	padding: 1em;
 	float: left;
-	}
+}
 	
-	.myEvents .eventDate {
+.myEvents .eventDate {
 	text-align: center;
 	margin: 0;
-	}
+}
 	
-	.myEvents .eventDate.month {
+.myEvents .eventDate.month {
 	font-size: 1em;
 	line-height: 1.4em;
-	}
+}
 	
-	.myEvents .eventDate.day {
+.myEvents .eventDate.day {
 	font-size: 3.5em;
 	font-weight: bold;
 	line-height: 0.8em;
-	}
+}
 	
-	.myEvents .eventDateLine {
+.myEvents .eventDateLine {
 	width: 3.5em;
 	margin-top: 1em;
     margin-bottom: 1em;
 	/*color: #01B49F;*/
 	border-style: solid;
     border-color: #01B49F;
-	}
+}
 	
-	.myEvents .eventTitle {
+.myEvents .eventTitle {
 	text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
@@ -84,22 +300,22 @@
 	margin: 0;
 	font-size: 2em;
 	word-wrap: break-word;
-	}
+}
 	
-	.myEvents .eventLocation {
+.myEvents .eventLocation {
 	font-weight: bold;
-	}
+}
 	
-	.myEvents .eventLocation img.eventPin {
+.myEvents .eventLocation img.eventPin {
 	height: 0.8em;
-	}
+}
 	
-	.myEvents .eventTime {
+.myEvents .eventTime {
 	font-weight: bold;
 	margin-bottom: 2em;
-	}
+}
 	
-	.myEvents .eventEdit {
+.myEvents .eventEdit {
 	width: 15em;
 	background-color: #ff3da0;
 	color: white;
@@ -112,10 +328,10 @@
 	right: 0;
 	font-family: "Open Sans Bold";
 	text-decoration: none;
-	}
+}
 	
-	.myEvents .eventLink {
+.myEvents .eventLink {
 	float: right;
 	color: #01B49F;
 	text-decoration: none;
-	}
+}
