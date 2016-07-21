@@ -1,56 +1,341 @@
-ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	width: 100%;
-	height: 46px;
-	background-color: #555;
+@font-face {
+	font-family: "Open Sans Light";
+	src: url(fonts/open-sans.light.ttf);
 }
 
-li {
+@font-face {
+	font-family: "Open Sans Regular";
+	src: url(fonts/open-sans.regular.ttf);
+}
+
+@font-face {
+	font-family: "Open Sans Bold";
+	src: url(fonts/open-sans.bold.ttf);
+}
+
+@font-face {
+	font-family: "Open Sans Extrabold";
+	src: url(fonts/open-sans.extrabold.ttf);
+}
+
+.homePageContainer .background {
+	background-color: #EBF3F6;
+}
+
+.homePageContainer .list li a {
+	list-style-type: none;
+	float: right;
+	display: block;
+	color: #1E3346;
+	text-align: center;
+	font-family: 'Open Sans Bold';
+	font-size: 20px;
+	padding: 1em 1em;
+	text-decoration: none;
+	transform: skew(-15deg);
+	padding-top: 3em;
+	font-weight: bold;
+	border-bottom: solid;
+	border-bottom-width: 1em;
+	border-bottom-color: white;
+}
+
+.homePageContainer .list li:first-of-type {
 	float: left;
 }
 
-li a {
-	display: block;
-	color: white;
-	text-align: center;
-	padding: 14px 16px;
-	text-decoration: none;
+.homePageContainer .list li {
+	float: right;
+	list-style-type: none;
 }
 
-li #logo {
+body .homePageContainer {
+	font-family: "Open Sans Regular";
+	font-size: 16px;
+	margin: 0em;
+	padding: 0em;
+	overflow-x: hidden;
+	list-style-type: none;
+}
+
+.homePageContainer .head {
+	margin-left: auto;
+	margin-right: auto;
+	width: 70em;
+	height: 7em;
+}
+
+.homePageContainer .container {
+	margin-left: auto;
+	margin-right: auto;
+	width: 61em;
 	padding: 0;
 }
 
-li a:hover {
-	background-color: #111;
+.homePageContainer .list {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
 }
 
-.active {
-	background-color: #4CAF50;
+.homePageContainer .list li a:hover {
+	border-bottom: solid;
+	border-bottom-color: #01B49F;
+	border-bottom-width: 1em;
+	color: #1E3346;
 }
 
-code {
-	background-image: url("../images/meetingNoImage.jpg");
-	border-radius: 6px;
-	color: #fff;
+.homePageContainer .list li a:active {
+	background-color: #01B49F;
+	color: white;
+}
+
+.homePageContainer #logo {
+	float: left;
+}
+
+.homePageContainer #hero {
+	width: 118.97em;
+	margin-top: 0em;
+	height: 30.4em;
+	margin-left: auto;
+	margin-right: auto;
+	overflow: hidden;
 	display: block;
-	font: 38px/0px Times New Roman, "Source Code Pro", Inconsolata,
-		"Lucida Console", Terminal, "Courier New", Courier;
-	padding: 24px 15px;
+}
+
+.homePageContainer #create {
+	display: inline;
+	position: absolute;
+	top: 4.5em;
+	color: #EBF3F6;
+	font-family: "Open Sans Bold";
+	font-weight: lighter;
+	font-size: 3.2em;
+}
+
+.homePageContainer #events {
+	display: inline;
+	position: absolute;
+	top: 9em;
 	text-align: center;
-	background-size: 300px;
-	background-repeat: no-repeat;
-	background-position-y: 20%;
-	letter-spacing: .1em;
+	color: #EBF3F6;
+	font-family: "Open Sans Light";
+	font-size: 2.1em;
 }
 
-header, section, aside, footer {
-	margin: 0 1.5% 24px 1.5%;
+.homePageContainer .lupa {
+	width: 4em;
+	padding-left: 2em;
+	padding-bottom: 1 em;
 }
 
-section {
+.homePageContainer input[type="text"] {
+	width: 35%;
+	height: 3em;
+	border: none;
+	padding-top: 1.5em;
+	padding-bottom: 1.5em;
+	vertical-align: text-bottom
+}
+
+.homePageContainer .search {
+	position: absolute;
+	z-index: -1;
+}
+
+.homePageContainer #searchbox {
+	position: absolute;
+	z-index: 0;
+}
+
+.homePageContainer .box {
 	display: inline-block;
-	width: 30%;
+	position: relative;
+	border-top: 0em;
+	border-color: white;
+	border-radius: 1em;
+	background-color: white;
+	height: 7em;
+	top: -29em;
+	width: 61em;
+	margin-left: auto;
+	margin-right: auto;
+	line-height: 7em;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
+		rgba(0, 0, 0, 0.19);
+}
+
+.homePageContainer .menu li:hover {
+	border-bottom: solid;
+	border-bottom-color: #AE6EE8;
+	border-bottom-width: 0.5em;
+	color: #AE6EE8;
+}
+
+.homePageContainer .menu li.active {
+	border-bottom-width: 0.5em;
+	border-color: #AE6EE8;
+	background-color: #AE6EE8;
+	color: white;
+}
+
+.homePageContainer .menu li {
+	background-color: white;
+	height: 7em;
+	width: 10em;
+	transform: skew(-15deg);
+	float: right;
+}
+
+.homePageContainer .menu li.active a {
+	color: white;
+}
+
+.homePageContainer .menu li a {
+	list-style-type: none;
+	color: #919B9A;
+	float: right;
+	display: block;
+	text-align: center;
+	font-family: 'Open Sans Bold';
+	font-size: 20px;
+	text-decoration: none;
+	padding-top: 2.5em;
+	font-weight: bold;
+	padding-bottom: 0em;
+	padding-right: 1em;
+	padding-left: 1em;
+	margin-top: -3em;
+	position: relative;
+	z-index: 12;
+	border: none
+}
+
+.homePageContainer .menu li.last {
+	margin-right: 2em;
+}
+
+.homePageContainer .menu li a:last-of-type:active {
+	border-top-right-radius: 1em;
+}
+
+.homePageContainer .menu {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	font-family: "Open Sans Bold";
+	width: 50em;
+	float: right;
+}
+
+.homePageContainer .preview {
+	background-color: #01B49F;
+	height: 25em;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	overflow: hidden;
+	display: block;
+}
+
+.homePageContainer hr {
+	color: white;
+	width: 70em;
+	display: inline-block;
+	position: relative;
+	top: -18em;
+}
+
+.homePageContainer .content {
+	width: 61em;
+	margin-right: auto;
+	margin-left: auto;
+	position: relative;
+	top: 2em;
+}
+
+.homePageContainer .event {
+	width: 28.5em;
+	height: 25em;
+	margin-top: 2em;
+	margin-bottom: 2em;
+	float: left;
+}
+
+.homePageContainer .event:nth-child(even) {
+	float: right;
+}
+
+.homePageContainer #eventFirstPart {
+	width: 5em;
+	/*height: 25em;*/
+	float: left;
+}
+
+.homePageContainer #eventSecondPart {
+	width: 23.5em;
+	/*height: 25em;*/
+	float: left;
+}
+
+.homePageContainer #eventSecondPart:hover {
+	box-shadow: 0 0 2em #ccc;
+}
+
+.homePageContainer #eventThirdPart {
+	width: 23.5em;
+	height: 10.5em;
+	background: url("../images/img.jpg");
+	background-size: cover;
+	background-position: center;
+}
+
+.homePageContainer #eventFourthPart {
+	width: 23.5em;
+	/*height: 12.5em;*/
+	padding: 1em;
+	float: left;
+}
+
+.homePageContainer .eventDate {
+	text-align: center;
+	margin: 0;
+}
+
+.homePageContainer .eventDate.month {
+	font-size: 1em;
+}
+
+.homePageContainer .eventDate.day {
+	font-size: 3.5em;
+	font-weight: bold;
+}
+
+.homePageContainer .eventTitle {
+	margin: 0;
+	font-size: 2em;
+	word-wrap: break-word;
+}
+
+.homePageContainer .eventLocation {
+	font-weight: bold;
+}
+
+.homePageContainer .eventLocation img.eventPin {
+	height: 0.75em;
+}
+
+.homePageContainer .eventTime {
+	font-weight: bold;
+}
+
+.homePageContainer .noUnderline {
+	text-decoration: none;
+}
+
+.homePageContainer .alignRight {
+	text-align: right;
 }

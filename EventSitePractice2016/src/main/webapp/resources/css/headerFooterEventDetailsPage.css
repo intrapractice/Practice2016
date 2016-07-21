@@ -29,6 +29,7 @@ body .eventDetailsPageV{
 	text-align: center;
 	background-color: white;
 	width: 61em;
+	padding: 0;
 }
 .eventDetailsPageV #logoSize{
    width: auto;
