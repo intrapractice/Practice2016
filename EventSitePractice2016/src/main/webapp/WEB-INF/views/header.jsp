@@ -31,17 +31,17 @@
   <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#"><img id="logoSize" src="/EventSitePractice2016/resources/images/logo.png">
+      <a class="navbar-brand" href="/EventSitePractice2016/"><img id="logoSize" src="/EventSitePractice2016/resources/images/logo.png">
 	  </a>
     </div>
     <ul class="nav navbar-nav">
       <li>
-	    <a id="events" href="#">
+	    <a id="events" href="/EventSitePractice2016/">
 		  <div>Events</div>
 		</a>
 	  </li>
       <li>
-	    <a id="create" href="#">
+	    <a id="create" href="/EventSitePractice2016/CreateEvent">
 		  <div>Create</div>
 		</a>
       </li>
@@ -70,12 +70,12 @@
 	    <img src="/EventSitePractice2016/resources/images/dropdown.png"/>
 	  </button>
 	    <div class="dropdown-content">
-		  <a id="dr1" href="#">Events</a>
-		  <a id="dr2" href="#">Create</a>
+		  <a id="dr1" href="/EventSitePractice2016/">Events</a>
+		  <a id="dr2" href="/EventSitePractice2016/CreateEvent">Create</a>
 		  <a id="dr3" href="#">
 		  <img id="userDrop" src="http://gravatar.com/avatar/a81ed73040d354ca940a27c64001364a?d=mm&s=50&r=G"/>
 		    <div id="usercontainer">
-			  <span id="user">Alexander Dimitrov</span>
+			  <span id="user"></span>
 			  <i class="fa fa-pencil" aria-hidden="true"></i>
 			</div>
 		  </a>

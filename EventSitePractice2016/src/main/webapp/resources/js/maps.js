@@ -14,6 +14,20 @@ function initialize() {
   map.fitBounds(defaultBounds);
   // Create the search box and link it to the UI element.
   var input = document.getElementById('pac-input');
+  var inputValue = document.getElementById('pac-input').value;
+  if(inputValue){
+  	var geocoder = new google.maps.Geocoder();
+  	geocoder.geocode( { 'address': inputValue}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        map.setCenter(results[0].geometry.location);
+        map.setZoom(15);
+        var marker = new google.maps.Marker({
+            map: map,
+            position: results[0].geometry.location
+        });
+      }
+    });
+  }
   map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
   var searchBox = new google.maps.places.SearchBox(input);
   // Listen for the event fired when the user selects an item from the

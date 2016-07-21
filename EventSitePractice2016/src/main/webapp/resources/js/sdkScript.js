@@ -20,6 +20,9 @@ window.fbAsyncInit = function() {
 				    	if(window.location.pathname.indexOf("interests")>-1){
 				    		setLikedCategories();
 				    	}
+				    	if(window.location.pathname.indexOf("/Event/")>-1){
+				    		setLikedEvents();
+				    	}
 				  })
 				  .fail(function( jqxhr, textStatus, error ) {
 					  console.log("error occured");
@@ -27,6 +30,7 @@ window.fbAsyncInit = function() {
 				    	
 					
 				$('.navbar #user').html(fbName);
+				$('#usercontainer #user').html(fbName);
 			    var userId = response.id;
 				FB.api(
 				"/"+userId+"/picture",
@@ -34,6 +38,7 @@ window.fbAsyncInit = function() {
 				  if (response && !response.error) {
 					var pictureURL = response.data.url;
 					$('.navbar #userPicture').attr("src", pictureURL);
+					$('#userDrop').attr("src", pictureURL);
 				  }
 				});
 			});	

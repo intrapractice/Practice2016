@@ -20,6 +20,9 @@ public class UserDaoImpl implements UserDao {
 	@Autowired
     private CategoryLikesDao categoryLikeDao;
 
+	@Autowired
+    private EventLikesDao eventLikeDao;
+	
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
@@ -127,6 +130,7 @@ public class UserDaoImpl implements UserDao {
                     user.setEmail(rs.getString("USER_EMAIL"));
                     user.setToken(rs.getString("USER_TOKEN"));
                     user.setLikedCategories(categoryLikeDao.getCategoriesLikedByUser(userid));
+                    user.setLikedEvents(eventLikeDao.getEventsLikedByUser(userid));
                     return user;
 
                 }

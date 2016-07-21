@@ -14,6 +14,7 @@ import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 
 import com.intrapractice.dao.CategoryDao;
+import com.intrapractice.dao.EventParticipantsDao;
 import com.intrapractice.dao.EventsDao;
 import com.intrapractice.dao.UserDao;
 import com.intrapractice.pojo.Event;
@@ -28,6 +29,9 @@ public class EventDaoImpl implements EventsDao {
 	
 	@Autowired
 	private CategoryDao catedoryDao;
+	
+	@Autowired
+    private EventParticipantsDao eventParticipantsDao;
 
 	@Override
 	public List<Event> getAllEvents() {
@@ -79,6 +83,7 @@ public class EventDaoImpl implements EventsDao {
 					event.setDate(rs.getTimestamp("EVENT_DATE"));
 					event.setEndDate(rs.getTimestamp("EVENT_END_DATE"));
 					event.setCategory(catedoryDao.getCategoryById(rs.getInt("CATEGORY_ID")));
+					event.setParticipants(eventParticipantsDao.getParticipantsForEvent(rs.getInt("ID")));
 					return event;
 
 				}
