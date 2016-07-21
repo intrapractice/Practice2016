@@ -170,7 +170,9 @@ body .homePageContainer {
 .homePageContainer .menu li.active a {
 	color: white;
 	padding-top:3em;
-	padding-right: 1.5em
+	padding-right: -1em;
+	background-color:#AE6EE8;
+	border-color:#AE6EE8;
 }
 
 .homePageContainer .menu li a {
@@ -190,7 +192,8 @@ body .homePageContainer {
 	margin-top: -3em;
 	position: relative;
 	z-index: 12;
-	border: none
+	border: none;
+	border-left: 1px solid #919B9A;
 }
 
 .homePageContainer .menu li.last {
