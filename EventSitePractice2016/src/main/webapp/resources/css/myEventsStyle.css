@@ -57,15 +57,19 @@
 	
 	.myEvents .eventDate.month {
 	font-size: 1em;
+	line-height: 1.4em;
 	}
 	
 	.myEvents .eventDate.day {
 	font-size: 3.5em;
 	font-weight: bold;
+	line-height: 0.8em;
 	}
 	
 	.myEvents .eventDateLine {
 	width: 3.5em;
+	margin-top: 1em;
+    margin-bottom: 1em;
 	/*color: #01B49F;*/
 	border-style: solid;
     border-color: #01B49F;
