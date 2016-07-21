@@ -118,13 +118,13 @@ body .eventDetailsPageV{
 }
 
 .eventDetailsPageV #photo{
-	background: url('/EventSitePractice2016/resources/images/event_img.jpg') no-repeat;
+	background: url('/EventSitePractice2016/resources/images/event_details.jpg') no-repeat;
 	width: 100%;
 	position: relative;
 	background-size: cover;
 	background-origin:content-box;
 	height: 25em;
-	background-position-y: -5em;
+	background-position-y: -28em;
 }
 
 .eventDetailsPageV h1{
