@@ -1,21 +1,21 @@
 @font-face {
 	font-family: "Open Sans Light";
-	src: url(fonts/open-sans.light.ttf);
+	src: url(../fonts/open-sans.light.ttf);
 }
 
 @font-face {
 	font-family: "Open Sans Regular";
-	src: url(fonts/open-sans.regular.ttf);
+	src: url(../fonts/open-sans.regular.ttf);
 }
 
 @font-face {
 	font-family: "Open Sans Bold";
-	src: url(fonts/open-sans.bold.ttf);
+	src: url(../fonts/open-sans.bold.ttf);
 }
 
 @font-face {
 	font-family: "Open Sans Extrabold";
-	src: url(fonts/open-sans.extrabold.ttf);
+	src: url(../fonts/open-sans.extrabold.ttf);
 }
 
 .homePageContainer .background {
@@ -54,7 +54,7 @@ body .homePageContainer {
 	font-size: 16px;
 	margin: 0em;
 	padding: 0em;
-	overflow-x: hidden;
+	overflow: hidden;
 	list-style-type: none;
 }
 
@@ -96,13 +96,13 @@ body .homePageContainer {
 }
 
 .homePageContainer #hero {
-	width: 118.97em;
+	width: 100%;
 	margin-top: 0em;
-	height: 30.4em;
+	height: 25em;
 	margin-left: auto;
 	margin-right: auto;
 	overflow: hidden;
-	display: block;
+	background: url("../images/hero_img.jpg");
 }
 
 .homePageContainer #create {
@@ -126,18 +126,16 @@ body .homePageContainer {
 }
 
 .homePageContainer .lupa {
-	width: 4em;
+	width: 6em;
 	padding-left: 2em;
-	padding-bottom: 1 em;
 }
 
 .homePageContainer input[type="text"] {
 	width: 35%;
-	height: 3em;
+	height: 4em;
 	border: none;
 	padding-top: 1.5em;
-	padding-bottom: 1.5em;
-	vertical-align: text-bottom
+	vertical-align: text-bottom;
 }
 
 .homePageContainer .search {
@@ -191,6 +189,8 @@ body .homePageContainer {
 
 .homePageContainer .menu li.active a {
 	color: white;
+	padding-top:3em;
+	padding-right: 1.5em
 }
 
 .homePageContainer .menu li a {
@@ -202,7 +202,7 @@ body .homePageContainer {
 	font-family: 'Open Sans Bold';
 	font-size: 20px;
 	text-decoration: none;
-	padding-top: 2.5em;
+	padding-top: 3em;
 	font-weight: bold;
 	padding-bottom: 0em;
 	padding-right: 1em;
@@ -315,6 +315,11 @@ body .homePageContainer {
 }
 
 .homePageContainer .eventTitle {
+	text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 26em;
+    max-height: 2.5em;
 	margin: 0;
 	font-size: 2em;
 	word-wrap: break-word;
@@ -330,12 +335,30 @@ body .homePageContainer {
 
 .homePageContainer .eventTime {
 	font-weight: bold;
+	margin-bottom: 2em;
 }
 
 .homePageContainer .noUnderline {
 	text-decoration: none;
 }
 
-.homePageContainer .alignRight {
-	text-align: right;
-}
+	.homePageContainer .eventJoin {
+	width: 15em;
+	background-color: #ff3da0;
+	color: white;
+	padding: 1em 3em;
+	text-align: center;
+	font-size: 0.8em;
+	text-transform: uppercase;
+	border: 0.2em;
+	border-radius: 0.5em;
+	right: 0;
+	font-family: "Open Sans Bold";
+	text-decoration: none;
+	}
+	
+	.homePageContainer .eventLink {
+	float: right;
+	color: #01B49F;
+	text-decoration: none;
+	}
