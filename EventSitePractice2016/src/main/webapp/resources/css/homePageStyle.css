@@ -18,10 +18,6 @@
 	src: url(../fonts/open-sans.extrabold.ttf);
 }
 
-.homePageContainer .background {
-	background-color: #EBF3F6;
-}
-
 .homePageContainer .list li a {
 	list-style-type: none;
 	float: right;
@@ -56,6 +52,7 @@ body .homePageContainer {
 	padding: 0em;
 	overflow: hidden;
 	list-style-type: none;
+	background-color: #EBF3F6;
 }
 
 .homePageContainer .head {
@@ -248,13 +245,7 @@ body .homePageContainer {
 	display: block;
 }
 
-.homePageContainer hr {
-	color: white;
-	width: 70em;
-	display: inline-block;
-	position: relative;
-	top: -18em;
-}
+
 
 .homePageContainer .content {
 	width: 61em;
