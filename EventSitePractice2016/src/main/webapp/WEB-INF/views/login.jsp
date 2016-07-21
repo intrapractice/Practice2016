@@ -30,8 +30,8 @@
 					</div>
 				</div>
 				<div class="dropdown-content">
-					<a href="#">SIGN IN</a>
-					<a href="#">EVENTS</a>
+					<a href="/EventSitePractice2016/login">SIGN IN</a>
+					<a href="/EventSitePractice2016/">EVENTS</a>
 					<a href="http://www.intracol.com/">
 		   			<img id="intra" src="/EventSitePractice2016/resources/images/Intarcol-logo.png">
 		  			</a>
