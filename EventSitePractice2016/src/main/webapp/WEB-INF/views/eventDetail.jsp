@@ -37,10 +37,13 @@ if(event.getEndDate() != null && event.getDate() != null){
 	startMonth = sdf.format(date);
 	sdf = new SimpleDateFormat("dd");
 	startDay = sdf.format(date);
+	endDay = startDay;
+	endMonth = startMonth;
 }
 
 
 %>
+<script src = "/EventSitePractice2016/resources/js/test.js"></script>
 <script>
 var curEventId = <%=event.getId()%>;
 </script>
@@ -63,7 +66,12 @@ var curEventId = <%=event.getId()%>;
 		    </div>
 			  <div class="col-xs-12 col-md-4 ml2">
 		        <div class="join">
-			      <a href="#joinmsg" class="button">Join the event</a>
+			      <button class="button event<%=event.getId()%>">Join the event
+			      		<input type="hidden" value="<%=event.getId()%>" />
+			      </button>
+			      
+			    
+			      
 			    </div>
 		      </div>
 			  
