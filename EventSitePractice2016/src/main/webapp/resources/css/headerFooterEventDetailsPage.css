@@ -18,7 +18,8 @@
 body .eventDetailsPageV{
 	background-color: #ebf3f6;
 	font-size: 16px;
-	font-family: "Open Sans Regular"
+	font-family: "Open Sans Regular";
+	clear: both;
 } 
 
 

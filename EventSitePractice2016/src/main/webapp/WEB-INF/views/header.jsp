@@ -61,7 +61,7 @@
   <div class="userdropdown">
     <div class="userdropdown-content">
       <a id="userdropsettings" href="#">Settings</a>
-      <a href="#">Logout</a>
+      <a href="/EventSitePractice2016/login">Logout</a>
 	</div>
   </div>
   
