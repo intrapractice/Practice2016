@@ -27,10 +27,10 @@
 		      		</div>
 		     		<nav>
 		        		<ul class = "menu">
-		          			<li class="last"><a id= "rounded" class="limenu" href="../EventSitePractice2016/myEvents"><div style="transform: skew(15deg)">MY ЕVENTS</div></a></li>
-		         			<li><a class="limenu" href="../EventSitePractice2016/interests"><div style="transform: skew(15deg)">INTERESTS</div></a></li>
-		           			<li><a class="limenu" href="#location"><div style="transform: skew(15deg)">LOCATIONS</div></a></li>
-		            		<li class = "calendar active" ><a  href="../EventSitePractice2016/" class="active"><div style="transform: skew(15deg)">CALENDAR</div></a></li>
+		          			<li class="last limenu"><a id= "rounded" class="limenu" href="../EventSitePractice2016/myEvents"><div style="transform: skew(15deg)"><span class="small-text">view</span>MY ЕVENTS</div></a></li>
+		         			<li><a class="limenu" href="../EventSitePractice2016/interests"><div style="transform: skew(15deg)"><span class="small-text">check</span>INTERESTS</div></a></li>
+		           			<li><a class="limenu" href="#location"><div style="transform: skew(15deg)"><span class="small-text">events</span>LOCATIONS</div></a></li>
+		            		<li class = "calendar active limenu" ><a  href="../EventSitePractice2016/" class="active"><div style="transform: skew(15deg)"><span class="small-text">view</span>CALENDAR</div></a></li>
 		          		</ul>
 		       		</nav>
 		    	</div>
