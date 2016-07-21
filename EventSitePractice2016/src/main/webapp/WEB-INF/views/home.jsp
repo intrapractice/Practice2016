@@ -7,8 +7,7 @@
 <%@ page import="java.text.SimpleDateFormat" %>
 		
 <html>
-   
-		<link rel="stylesheet" type="text/css" href="resources/css/homePageStyle.css">
+        <link rel="stylesheet" type="text/css" href="resources/css/homePageStyle.css">
 		<script src="resources/js/calendar/flatpickr.min.js"></script>
    		 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link rel="stylesheet" type="text/css" href="resources/css/myEventsStyle.css">
