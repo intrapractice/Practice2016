@@ -38,12 +38,13 @@
 	width: 28em;
 	height: 10.5em;
 	float: left;
-	background: url("../images/img3.jpg");
+	background: url("../images/img.jpg");
 	background-size: cover;
+	background-position: center;
 	}
 	
 	.myEvents #eventFourthPart {
-	width: 26em;
+	width: 28em;
 	/*height: 12.5em;*/
 	padding: 1em;
 	float: left;
@@ -86,18 +87,31 @@
 	}
 	
 	.myEvents .eventLocation img.eventPin {
-	height: 0.75em;
+	height: 0.8em;
 	}
 	
 	.myEvents .eventTime {
 	font-weight: bold;
+	margin-bottom: 2em;
 	}
 	
-	.myEvents .noUnderline {
+	.myEvents .eventEdit {
+	width: 15em;
+	background-color: #ff3da0;
+	color: white;
+	padding: 1em 3em;
+	text-align: center;
+	font-size: 0.8em;
+	text-transform: uppercase;
+	border: 0.2em;
+	border-radius: 0.5em;
+	right: 0;
+	font-family: "Open Sans Bold";
 	text-decoration: none;
 	}
 	
 	.myEvents .eventLink {
-	text-align: right;
+	float: right;
 	color: #01B49F;
+	text-decoration: none;
 	}

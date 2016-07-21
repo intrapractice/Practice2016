@@ -40,7 +40,8 @@
 						<p class="eventLocation"> <img src="resources/images/pin.png" class="eventPin"/> <%= event.getLocation() %> </p>
 						<p class="eventTime"> &#128344; <%= new SimpleDateFormat("HH:mm").format(calDate.getTime()) %> </p>
 						
-						<a href="#event" class="noUnderline"><p class="eventLink">&rarr; View Event Details</p></a>
+						<a href="../EventSitePractice2016/UpdateEvent/<%=event.getId()%>" class="eventEdit">Edit The Event</a>
+						<a href="../EventSitePractice2016/Event/<%=event.getId()%>" class="eventLink">&rarr; View Event Details</a>
 					</div>
 				</div>
 			</div>

@@ -133,6 +133,7 @@ public class EventDaoImpl implements EventsDao {
 	        @Override
 	        public Event mapRow(ResultSet rs, int rowNum) throws SQLException {
 	           Event event = new Event();
+	           event.setId(rs.getInt("ID"));
 	           event.setTitle(rs.getString("EVENT_TITLE"));
 	           event.setDescription(rs.getString("EVENT_DESCRIPTION"));
 	           event.setOwner(userDaoImpl.getUserByID(rs.getInt("EVENT_OWNER")));
