@@ -116,12 +116,12 @@ public class EventDaoImpl implements EventsDao {
 	}
 	
 	@Override
-	public boolean updateEvent(String title, String description, Date eventDate, Date eventEndDate, String location, int eventId) {
+	public boolean updateEvent(String title, String description, Date eventDate, Date eventEndDate, String location, int eventId , int categoryId) {
 		
 		String sql = "UPDATE EVENTS_ SET EVENT_TITLE=?, EVENT_DESCRIPTION=?, EVENT_DATE=?, "
-                + "EVENT_END_DATE=?, EVENT_LOCATION=? WHERE ID=?";
+                + "EVENT_END_DATE=?, EVENT_LOCATION=? , CATEGORY_ID=? WHERE ID=?";
 		
-		int numberOfRows = jdbcTemplate.update(sql, title, description, eventDate, eventEndDate, location, eventId);
+		int numberOfRows = jdbcTemplate.update(sql, title, description, eventDate, eventEndDate, location, categoryId, eventId);
 		
 		if (numberOfRows > 0) {
 			return true;
