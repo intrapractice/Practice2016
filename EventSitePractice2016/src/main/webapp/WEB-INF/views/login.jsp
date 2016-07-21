@@ -23,7 +23,6 @@
 			<li><div><img id="logoSize"   src="/EventSitePractice2016/resources/images/logo.png"/></div></li>
 			<li><a class="active" href="/EventSitePractice2016/login"><div style="transform: skewX(15deg)">SIGN IN</div></a></li>
 			<li><a href="/EventSitePractice2016/"><div style="transform: skewX(15deg)">EVENTS</div></a></li>
-			
 			<div class="dropdown">
 				<div class="dropskew">
 					<div class="dropskew2">
