@@ -306,7 +306,7 @@ body .eventDetailsPageV{
 
 .eventDetailsPageV .fa-pencil{
 	color: #48d0bc;
-	width: 1em;
+	width: 0em;
 	height: 1em;
 	position: relative;
 	top: -0.5em;
