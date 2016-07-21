@@ -21,6 +21,7 @@
     <div class="firstCont">
     <form:input type="text" placeholder="  Event Tittle*" id = "textbox" pattern="[0-9a-zA-Z][a-zA-Z0-9.,!\-\"?_&@+*#%\s]{1,100}" required="true" path="title"/>
     <span id="span">Recommended number of characters: 120 </span>
+    <form:hidden path="id"/>
     <form:textarea type="text" placeholder=" Description*" id = "textarea" path="description" required="true"/> </textarea>
         <span id="spanLoc">CHOOSE A LOCATION* </span>
     <form:input id="pac-input" class="controls" type="text" name="place" required="true" placeholder="Search Box" path="location"/>

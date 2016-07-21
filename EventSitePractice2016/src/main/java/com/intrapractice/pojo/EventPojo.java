@@ -1,6 +1,8 @@
 package com.intrapractice.pojo;
 
 public class EventPojo {
+	
+	private int id;
 
 	private String title;
 
@@ -17,6 +19,14 @@ public class EventPojo {
 	private int userId;
 	
 	private int categoryId;
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public String getTitle() {
 		return title;

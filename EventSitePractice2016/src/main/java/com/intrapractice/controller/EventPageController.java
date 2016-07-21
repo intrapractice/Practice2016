@@ -41,6 +41,8 @@ public class EventPageController {
 		try {
 			eventsDate = dateFormat.parse(events.getDate());
 			eventsEndDate = dateFormat.parse(events.getEndDate());
+			
+			System.out.println("I am here 1");
 
 		} catch (java.text.ParseException e) {
 
@@ -83,6 +85,9 @@ public class EventPageController {
 	@RequestMapping(value = "/UpdateEvent", method = RequestMethod.POST)
 	public ModelAndView updateEvent(@ModelAttribute EventPojo events) {
 
+		System.out.println("I am here");
+		
+
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
 		Date eventsDate = null;
@@ -97,8 +102,10 @@ public class EventPageController {
 
 		}
 		
-		boolean result = eventsDao.createEvent(events.getTitle(), events.getDescription(), eventsDate, eventsEndDate,
-				events.getLocation(), events.getUserId() , events.getCategoryId());
+		boolean result = eventsDao.updateEvent(events.getTitle(), events.getDescription(), eventsDate, eventsEndDate,
+				events.getLocation(), events.getId() , events.getCategoryId());
+		
+		
 
 		if (result) {
 
@@ -115,9 +122,12 @@ public class EventPageController {
 	public ModelAndView newEvent2(@PathVariable int eventId,
 			@RequestParam(required = false, name = "error", defaultValue = "false") boolean error) {
 
+		System.out.println("Hereee second");
+		
 		ModelAndView model = new ModelAndView("createEvent");
 		Event eventById = eventsDao.getEventById(eventId);
 		EventPojo event = new EventPojo();
+		event.setId(eventById.getId());
 		event.setDescription(eventById.getDescription());
 		event.setTitle(eventById.getTitle());
 		event.setUserId(eventById.getOwner().getId());
