@@ -121,16 +121,17 @@ public class RestController {
 	@RequestMapping(value = "/joinedEvents", method=RequestMethod.POST)
 	public @ResponseBody String joinedEvents(HttpServletResponse response, @RequestParam int userId){
 		ObjectMapper mapper = new ObjectMapper();
-		List<Event> listOfEvents = eventsDao.getJoinedEventsByUserId(userId);
+		List<Integer> listOfJoinedEvents = eventsDao.getJoinedEventsByUserId(userId);
 		String joinedEvents = null;
 		try {
-			File temp = File.createTempFile("temp-file-name4", ".tmp"); 
-			mapper.writeValue(temp, listOfEvents);
-			joinedEvents = mapper.writeValueAsString(listOfEvents);
+			File temp = File.createTempFile("temp-file-name5", ".tmp"); 
+			mapper.writeValue(temp, listOfJoinedEvents);
+			joinedEvents = mapper.writeValueAsString(listOfJoinedEvents);
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return joinedEvents;
+		return	joinedEvents;
+	
 		
 	}
 	

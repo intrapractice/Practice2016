@@ -2,8 +2,10 @@ package com.intrapractice.dao.impl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -153,31 +155,22 @@ public class EventDaoImpl implements EventsDao {
 	}
 
 	@Override
-	public List<Event> getJoinedEventsByUserId(int userId) {
-		String sql = "SELECT EVENTS_.EVENT_TITLE, EVENTS_.EVENT_DESCRIPTION, EVENTS_.EVENT_DATE, "
-				+ "EVENTS_.EVENT_END_DATE, EVENTS_.EVENT_OWNER, "
-				+ "EVENTS_.EVENT_LOCATION"
-				+ " FROM EVENTS_ JOIN EVENT_PARTICIPANTS "
-				+ "ON EVENTS_.ID = EVENT_PARTICIPANTS.EVENT_ID"
-				+ " WHERE EVENT_PARTICIPANTS.USER_ID =" + userId;
-				
-		List<Event> listOfJoinedEvents = jdbcTemplate.query(sql, new RowMapper<Event>() {
-			 
-	        @Override
-	        public Event mapRow(ResultSet rs, int rowNum) throws SQLException {
-	           Event event = new Event();
-	           event.setTitle(rs.getString("EVENT_TITLE"));
-	           event.setDescription(rs.getString("EVENT_DESCRIPTION"));
-	           event.setOwner(userDaoImpl.getUserByID(rs.getInt("EVENT_OWNER")));
-	           event.setDate(rs.getTimestamp("EVENT_DATE"));
-	           event.setEndDate(rs.getTimestamp("EVENT_END_DATE"));
-	           event.setLocation(rs.getString("EVENT_LOCATION"));
-	            return event;
-	        }
-	 
-	    });
-		return listOfJoinedEvents;
+	public List<Integer> getJoinedEventsByUserId(int userId) {
+		String sql = "SELECT EVENT_ID "
+				+ " FROM EVENT_PARTICIPANTS"
+				+ " WHERE USER_ID =" + userId;
+
+		
+		List<Map<String,Object>> queryResult = jdbcTemplate.queryForList(sql);
+		List<Integer> listOfEvents = new ArrayList<Integer>();
+		for(Map row : queryResult) {
+			listOfEvents.add((Integer) row.get("EVENT_ID"));
+			System.out.println(row.get("EVENT_ID"));
+		}
+		
+		return listOfEvents;
 	}
+	
 	
 	@Override
 	public boolean deleteEventById(int eventId){
