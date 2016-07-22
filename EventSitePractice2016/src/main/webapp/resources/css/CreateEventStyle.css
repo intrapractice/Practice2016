@@ -238,5 +238,62 @@ body {
     padding-left:0.4em;
     padding-right:0.4em;
 }
+.flatpickr-calendar{
+	width: 22.3em;
+}
+ .flatpickr-day {
+    background: 0 0;
+    border: 1px solid transparent;
+    border-radius: 0em;
+    transform: skew(-15deg);
+    box-sizing: border-box;
+    color: #48D0BC;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 300;
+    width: 3em;
+    height: 34px;
+    line-height: 33px;
+    margin: 0 1px 1px;
+    text-align: center;
+    font-style: normal
+}
 
+.flatpickr-day:focus, .flatpickr-day:hover {
+    outline: 0;
+    background: #48D0BC;
+    border-color: #48D0BC;
+    color: white;
+}
+
+.flatpickr-day.selected, .flatpickr-day.selected:hover
+.flatpickr-day.selected:focus {
+    background: #48D0BC;
+    color: white;
+}
+
+/*  .flatpickr-day.today {
+    border-color: #48D0BC;
+}  */
+
+/* .flatpickr-day.today:focus, .flatpickr-day.today:hover {
+    transform: skew(-15deg);
+    color: #01B49F;
+    background: white;
+    border-color: #AE6EE8;
+} */
+
+.flatpickr-day.selected, .flatpickr-day.selected:focus, .flatpickr-day.selected:hover{
+    background: white;
+    color: white;
+    border-color: white;
+}
+
+.flatpickr-day.disabled, .flatpickr-day.disabled:hover {
+    color: rgba(57, 57, 57, .3);
+    background: 0 0;
+    border-color: transparent;
+    cursor: default;
+    transform: skew(-15deg);
+}
     

@@ -7,6 +7,10 @@
 
 <jsp:include page="header.jsp" />
 
+<script src="/EventSitePractice2016/resources/js/calendar/calendar.js"></script> 
+
+
+
 <link rel="stylesheet" type="text/css" href="/EventSitePractice2016/resources/css/CreateEventStyle.css">
 
 
@@ -61,6 +65,5 @@
     </form:form>
 </div>
         
-<script src="/EventSitePractice2016/resources/js/calendar/calendar.js"></script>
 
 <jsp:include page="footer.jsp" />
