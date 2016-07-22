@@ -16,6 +16,8 @@ String startMonth ="";
 String endMonth = "";
 String startDay = "";
 String endDay = "";
+String sideStartHour = "";
+String sideEndHour = "";
 
 if(event.getEndDate() != null && event.getDate() != null){
 	SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
@@ -29,6 +31,9 @@ if(event.getEndDate() != null && event.getDate() != null){
 	sdf = new SimpleDateFormat("dd");
 	startDay = sdf.format(date);
 	endDay = sdf.format(endDate);
+	sdf = new SimpleDateFormat("HH:mm");
+	sideStartHour = sdf.format(date);
+	sideEndHour = sdf.format(endDate);	
 } else if(event.getDate() != null){
 	SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
 	Date date = new Date(event.getDate().getTime());
@@ -37,6 +42,9 @@ if(event.getEndDate() != null && event.getDate() != null){
 	startMonth = sdf.format(date);
 	sdf = new SimpleDateFormat("dd");
 	startDay = sdf.format(date);
+	sdf = new SimpleDateFormat("HH:mm");
+	sideStartHour = sdf.format(date);
+	sideEndHour = "-";	
 	endDay = startDay;
 	endMonth = startMonth;
 }
@@ -97,6 +105,12 @@ var curEventId = <%=event.getId()%>;
 						  <h6 id="startdate"><%=sideStart%></h6>
 						  <p>end date</p>
 						  <h6 id="enddate"><%=sideEnd%></h6>
+						</div>
+						<div class="times-r">
+							<p>start time</p>
+							<h6 id="startdate"><%=sideStartHour%></h6>
+							<p>end time</p>
+							<h6 id="enddate"><%=sideEndHour%></h6>
 						</div>
 					  </div>
 				  </div>
