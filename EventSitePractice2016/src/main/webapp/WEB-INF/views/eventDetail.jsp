@@ -43,7 +43,7 @@ if(event.getEndDate() != null && event.getDate() != null){
 
 
 %>
-<script src = "/EventSitePractice2016/resources/js/test.js"></script>
+<script src = "/EventSitePractice2016/resources/js/joinEvent.js"></script>
 <script>
 var curEventId = <%=event.getId()%>;
 </script>
