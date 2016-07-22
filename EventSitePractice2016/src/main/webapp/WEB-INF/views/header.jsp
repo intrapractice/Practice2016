@@ -60,7 +60,7 @@
 
   <div class="userdropdown">
     <div class="userdropdown-content">
-      <a id="userdropsettings" href="#">Settings</a>
+      <a id="userdropsettings" href="https://www.facebook.com/settings">Settings</a>
       <a href="/EventSitePractice2016/login">Logout</a>
 	</div>
   </div>
