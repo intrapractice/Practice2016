@@ -58,6 +58,30 @@ function setLikedCategories(){
 	});
 </script>
 
+	
+		   
+<div class="homePageContainer"> 
+	<img id = "hero" src ="resources\images\hero_img.jpg">	
+    <div class = "preview"> 
+   	</div>
+  	<div class ="container">		
+		<h1 id="create" > CREATE & DISCOVER </h1>
+		<h2 id= "events"> Events based on your interests </h2>
+   		<div class="box"> 
+     		<div id="searchbox">  <img class = "lupa" src="resources\images\lupa.png">
+      			<input type= "text" name = "search" placeholder = "Search">
+      		</div>
+     		<nav>
+        		<ul class = "menu">
+          			<li class="last"><a id= "rounded" class="limenu" href="../EventSitePractice2016/myEvents"><div style="transform: skew(15deg)">MY ЕVENTS</div></a></li>
+         			<li class = "active"><a class="limenu" href="../EventSitePractice2016/interests"><div style="transform: skew(15deg)">INTERESTS</div></a></li>
+           			<li><a class="limenu" href="#location"><div style="transform: skew(15deg)">LOCATIONS</div></a></li>
+            		<li class = "calendar" ><a  href="../EventSitePractice2016/" ><div style="transform: skew(15deg)">CALENDAR</div></a></li>
+          		</ul>
+       		</nav>
+    	</div>
+     </div>
+		    
 	<div class="mainContainerHristiyan">
 	
 		<%
@@ -102,5 +126,7 @@ function setLikedCategories(){
 		%>
 
 	</div>
+	
+</div>	
 
 <jsp:include page="footer.jsp" />

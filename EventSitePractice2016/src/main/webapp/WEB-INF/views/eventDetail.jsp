@@ -3,11 +3,47 @@
 <%@ page import="com.intrapractice.pojo.Event" %>
 <%@ page import="com.intrapractice.pojo.User" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.util.Date" %>
+<%@ page import="java.util.Locale" %>
 
 <jsp:include page="header.jsp" />
 <% Event event = (Event) request.getAttribute("event");
-System.out.println("event in jsp is"+event);
+
+String sideStart="";
+String sideEnd ="";
+String startMonth ="";
+String endMonth = "";
+String startDay = "";
+String endDay = "";
+
+if(event.getEndDate() != null && event.getDate() != null){
+	SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+	Date endDate = new Date(event.getEndDate().getTime());
+	Date date = new Date(event.getDate().getTime());
+	sideStart = sdf.format(date);
+	sideEnd = sdf.format(endDate);
+	sdf = new SimpleDateFormat("MMM", Locale.ENGLISH);
+	startMonth = sdf.format(date);
+	endMonth = sdf.format(endDate);
+	sdf = new SimpleDateFormat("dd");
+	startDay = sdf.format(date);
+	endDay = sdf.format(endDate);
+} else if(event.getDate() != null){
+	SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+	Date date = new Date(event.getDate().getTime());
+	sideStart = sdf.format(date);
+	sdf = new SimpleDateFormat("MMM", Locale.ENGLISH);
+	startMonth = sdf.format(date);
+	sdf = new SimpleDateFormat("dd");
+	startDay = sdf.format(date);
+	endDay = startDay;
+	endMonth = startMonth;
+}
+
+
 %>
+<script src = "/EventSitePractice2016/resources/js/test.js"></script>
 <script>
 var curEventId = <%=event.getId()%>;
 </script>
@@ -18,8 +54,8 @@ var curEventId = <%=event.getId()%>;
 		  <h1><%=event.getTitle()%></h1>
 		    <div class="col-xs-12 col-md-8 upleftcol">
 			  <div class="duration">
-			    <div class="month">jun jul</div>
-				<div class="se-dates">25 - 01</div>
+			    <div class="month"><%=startMonth%> <%=endMonth%></div>
+				<div class="se-dates"><%=startDay%> - <%=endDay%></div>
 				<div class="start-end">start end</div>
 			  </div>
 			  <div class="heartImage">
@@ -30,7 +66,12 @@ var curEventId = <%=event.getId()%>;
 		    </div>
 			  <div class="col-xs-12 col-md-4 ml2">
 		        <div class="join">
-			      <a href="#joinmsg" class="button">Join the event</a>
+			      <button class="button event<%=event.getId()%>">Join the event
+			      		<input type="hidden" value="<%=event.getId()%>" />
+			      </button>
+			      
+			    
+			      
 			    </div>
 		      </div>
 			  
@@ -53,9 +94,9 @@ var curEventId = <%=event.getId()%>;
 					  <div class="datetimes">
 					    <div class="dates-l">
 					      <p>start date</p>
-						  <h6 id="startdate">25.06.2016</h6>
+						  <h6 id="startdate"><%=sideStart%></h6>
 						  <p>end date</p>
-						  <h6 id="enddate">01.07.2016</h6>
+						  <h6 id="enddate"><%=sideEnd%></h6>
 						</div>
 					  </div>
 				  </div>

@@ -1,3 +1,244 @@
+@font-face {
+	font-family: "Open Sans Light";
+	src: url(../fonts/open-sans.light.ttf);
+}
+
+@font-face {
+	font-family: "Open Sans Regular";
+	src: url(../fonts/open-sans.regular.ttf);
+}
+
+@font-face {
+	font-family: "Open Sans Bold";
+	src: url(../fonts/open-sans.bold.ttf);
+}
+
+@font-face {
+	font-family: "Open Sans Extrabold";
+	src: url(../fonts/open-sans.extrabold.ttf);
+}
+
+.homePageContainer .list li a {
+	list-style-type: none;
+	float: right;
+	display: block;
+	color: #1E3346;
+	text-align: center;
+	font-family: 'Open Sans Bold';
+	font-size: 20px;
+	padding: 1em 1em;
+	text-decoration: none;
+	transform: skew(-15deg);
+	padding-top: 3em;
+	font-weight: bold;
+	border-bottom: solid;
+	border-bottom-width: 1em;
+	border-bottom-color: white;
+}
+
+.homePageContainer .list li:first-of-type {
+	float: left;
+}
+
+.homePageContainer .list li {
+	float: right;
+	list-style-type: none;
+}
+
+body .homePageContainer {
+	font-family: "Open Sans Regular";
+	font-size: 16px;
+	margin: 0em;
+	padding: 0em;
+	overflow: hidden;
+	list-style-type: none;
+	background-color: #EBF3F6;
+}
+
+.homePageContainer .head {
+	margin-left: auto;
+	margin-right: auto;
+	width: 70em;
+	height: 7em;
+}
+
+.homePageContainer .container {
+	margin-left: auto;
+	margin-right: auto;
+	width: 61em;
+	padding: 0;
+}
+
+.homePageContainer .list {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+.homePageContainer .list li a:hover {
+	border-bottom: solid;
+	border-bottom-color: #01B49F;
+	border-bottom-width: 1em;
+	color: #1E3346;
+}
+
+.homePageContainer .list li a:active {
+	background-color: #01B49F;
+	color: white;
+}
+
+.homePageContainer #logo {
+	float: left;
+}
+
+.homePageContainer #hero {
+	width: 100%;
+	margin-top: 0em;
+	height: 25em;
+	margin-left: auto;
+	margin-right: auto;
+	overflow: hidden;
+	background: url("../images/hero_img.jpg");
+}
+
+.homePageContainer #create {
+	display: inline;
+	position: absolute;
+	top: 4.5em;
+	color: #EBF3F6;
+	font-family: "Open Sans Bold";
+	font-weight: lighter;
+	font-size: 3.2em;
+}
+
+.homePageContainer #events {
+	display: inline;
+	position: absolute;
+	top: 9em;
+	text-align: center;
+	color: #EBF3F6;
+	font-family: "Open Sans Light";
+	font-size: 2.1em;
+}
+
+.homePageContainer .lupa {
+	height: 4em;
+	padding-left: 2em;
+	float: left;
+	margin-top: 1.5em;
+}
+
+.homePageContainer input[type="text"] {
+	width: 11em;
+	height: 4em;
+	border: none;
+	vertical-align: text-bottom;
+	margin-top: 1.5em;
+}
+
+.homePageContainer .search {
+	position: absolute;
+	z-index: -1;
+}
+
+.homePageContainer #searchbox {
+	position: absolute;
+	z-index: 0;
+}
+
+.homePageContainer .box {
+	display: inline-block;
+	position: relative;
+	border-top: 0em;
+	border-color: white;
+	border-radius: 1em;
+	background-color: white;
+	height: 7em;
+	top: -4em;
+	width: 61em;
+	margin-left: auto;
+	margin-right: auto;
+	line-height: 7em;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
+		rgba(0, 0, 0, 0.19);
+}
+
+.homePageContainer .menu li:hover {
+	border-bottom: solid;
+	border-bottom-color: #AE6EE8;
+	border-bottom-width: 0.5em;
+	color: #AE6EE8;
+}
+
+.homePageContainer .menu li.active {
+	border-bottom-width: 0.5em;
+	border-color: #AE6EE8;
+	background-color: #AE6EE8;
+	color: white;
+	
+}
+
+.homePageContainer .menu li {
+	background-color: white;
+	height: 7em;
+	width: 10em;
+	transform: skew(-15deg);
+	float: right;
+}
+
+.homePageContainer .menu li.active a {
+	color: white;
+	padding-top:3em;
+	padding-right: 1.5em;
+	background-color:#AE6EE8;
+	border-color:#AE6EE8;
+}
+
+.homePageContainer .menu li a {
+	list-style-type: none;
+	color: #919B9A;
+	float: right;
+	display: block;
+	text-align: center;
+	font-family: 'Open Sans Bold';
+	font-size: 20px;
+	text-decoration: none;
+	padding-top: 3em;
+	font-weight: bold;
+	padding-bottom: 0em;
+	padding-right: 1em;
+	padding-left: 1em;
+	margin-top: -3em;
+	position: relative;
+	z-index: 12;
+	border: none;
+	border-right: 1px solid #919B9A;
+	border-left: 1px solid #919B9A;
+}
+
+.homePageContainer .menu li.last {
+	margin-right: 2em;
+}
+
+.homePageContainer .menu li.last a {
+	border: none;
+}
+
+.homePageContainer .menu li a:last-of-type:active {
+	border-top-right-radius: 1em;
+}
+
+.homePageContainer .menu {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	font-family: "Open Sans Bold";
+	width: 50em;
+	float: right;
+}
+
 .mainContainerHristiyan {
 	margin-left: auto;
 	margin-right: auto;
