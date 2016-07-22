@@ -5,11 +5,13 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Calendar" %>
 <%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.util.Locale" %>
 		
 <link rel="stylesheet" type="text/css" href="resources/css/homePageStyle.css">
 <script src="resources/js/calendar/flatpickr.min.js"></script>
 <jsp:include page="header.jsp" />
 <link rel="stylesheet" type="text/css" href="resources/css/calendar.css">
+<script src="/EventSitePractice2016/resources/js/userIdScript.js"></script>
 
 <div class="homePageContainer"> 
 	<div id = "hero"></div>
@@ -24,7 +26,7 @@
       		</div>
      		<nav>
         		<ul class = "menu">
-          			<li class="last limenu"><a id= "rounded" class="limenu" href="../EventSitePractice2016/myEvents"><div style="transform: skew(15deg)"><span class="small-text">view</span>MY ЕVENTS</div></a></li>
+          			<li class="last limenu"><a id= "rounded" class="limenu" href="../EventSitePractice2016/myEvents?userId="><div style="transform: skew(15deg)"><span class="small-text">view</span>MY ЕVENTS</div></a></li>
          			<li><a class="limenu" href="../EventSitePractice2016/interests"><div style="transform: skew(15deg)"><span class="small-text">check</span>INTERESTS</div></a></li>
            			<li><a class="limenu" href="#location"><div style="transform: skew(15deg)"><span class="small-text">events</span>LOCATIONS</div></a></li>
             		<li class = "calendar active limenu" ><a  href="../EventSitePractice2016/" class="active"><div style="transform: skew(15deg)"><span class="small-text">view</span>CALENDAR</div></a></li>
@@ -47,7 +49,7 @@
 					<% long timestampDate = event.getDate().getTime(); %>
 					<% Calendar calDate = Calendar.getInstance(); %>
 					<% calDate.setTimeInMillis(timestampDate); %>
-					<p class="eventDate month"> <%= new SimpleDateFormat("MMM").format(calDate.getTime()).toUpperCase() %> </p>
+					<p class="eventDate month"> <%= new SimpleDateFormat("MMM", Locale.ENGLISH).format(calDate.getTime()).toUpperCase() %> </p>
 					<p class="eventDate day"> <%= calDate.get(Calendar.DAY_OF_MONTH) %> </p>
 					
 					<% if (event.getEndDate() != null) { %>
@@ -55,8 +57,8 @@
 						<% Calendar calEndDate = Calendar.getInstance(); %>
 						<% calEndDate.setTimeInMillis(timestampEndDate); %>
 						<% if (calDate.get(Calendar.DAY_OF_MONTH) != calEndDate.get(Calendar.DAY_OF_MONTH)) { %>
-							<hr style="width: 3.5em;">
-							<p class="eventDate month"> <%= new SimpleDateFormat("MMM").format(calEndDate.getTime()).toUpperCase() %> </p>
+							<hr class = "eventDateLine">
+							<p class="eventDate month"> <%= new SimpleDateFormat("MMM", Locale.ENGLISH).format(calEndDate.getTime()).toUpperCase() %> </p>
 							<p class="eventDate day"> <%= calEndDate.get(Calendar.DAY_OF_MONTH) %> </p>
 						<% } %>
 					<% } %>

@@ -4,6 +4,8 @@
 <%@ page import="java.util.List"%>
 <link rel="stylesheet" type="text/css" href="/EventSitePractice2016/resources/css/interests.css">
 <jsp:include page="header.jsp" />
+<script src="/EventSitePractice2016/resources/js/userIdScript.js"></script>
+
 
 <script>
 function likeCategory(categoryId) {
@@ -73,10 +75,10 @@ function setLikedCategories(){
       		</div>
      		<nav>
         		<ul class = "menu">
-          			<li class="last"><a id= "rounded" class="limenu" href="../EventSitePractice2016/myEvents"><div style="transform: skew(15deg)">MY ЕVENTS</div></a></li>
-         			<li class = "active"><a class="limenu" href="../EventSitePractice2016/interests"><div style="transform: skew(15deg)">INTERESTS</div></a></li>
-           			<li><a class="limenu" href="#location"><div style="transform: skew(15deg)">LOCATIONS</div></a></li>
-            		<li class = "calendar" ><a  href="../EventSitePractice2016/" ><div style="transform: skew(15deg)">CALENDAR</div></a></li>
+          			<li class="last"><a id= "rounded" class="limenu" href="../EventSitePractice2016/myEvents?userId="><div style="transform: skew(15deg)"><span class="small-text">view</span>MY ЕVENTS</div></a></li>
+         			<li class = "active"><a class="limenu" href="../EventSitePractice2016/interests"><div style="transform: skew(15deg)"><span class="small-text">check</span>INTERESTS</div></a></li>
+           			<li><a class="limenu" href="#location"><div style="transform: skew(15deg)"><span class="small-text">events</span>LOCATIONS</div></a></li>
+            		<li class = "calendar" ><a  href="../EventSitePractice2016/" ><div style="transform: skew(15deg)"><span class="small-text">view</span>CALENDAR</div></a></li>
           		</ul>
        		</nav>
     	</div>

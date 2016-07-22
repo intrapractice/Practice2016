@@ -275,7 +275,7 @@ body .homePageContainer {
 
 .homePageContainer #eventSecondPart {
 	width: 23.5em;
-	/*height: 25em;*/
+	background: white;
 	float: left;
 }
 
@@ -305,11 +305,13 @@ body .homePageContainer {
 
 .homePageContainer .eventDate.month {
 	font-size: 1em;
+	line-height: 1.4em;
 }
 
 .homePageContainer .eventDate.day {
 	font-size: 3.5em;
 	font-weight: bold;
+	line-height: 0.8em;
 }
 
 .homePageContainer .eventTitle {
@@ -340,8 +342,17 @@ body .homePageContainer {
 	text-decoration: none;
 }
 
+.homePageContainer .eventDateLine {
+	width: 3.5em;
+	margin-top: 1em;
+    margin-bottom: 1em;
+	/*color: #01B49F;*/
+	border-style: solid;
+    border-color: #01B49F;
+}
+
 .homePageContainer .eventJoin {
-	width: 15em;
+	width: 14.4em;
 	background-color: #ff3da0;
 	color: white;
 	padding: 1em 3em;
@@ -359,6 +370,7 @@ body .homePageContainer {
 	float: right;
 	color: #01B49F;
 	text-decoration: none;
+	marign-top: 0.7em;
 }
 	
 	

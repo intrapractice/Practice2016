@@ -36,6 +36,7 @@ body .homePageContainer {
 	padding: 0em;
 	overflow: hidden;
 	list-style-type: none;
+	background: #EBF3F6;
 }
 
 .homePageContainer .head {
@@ -106,15 +107,17 @@ body .homePageContainer {
 }
 
 .homePageContainer .lupa {
-	width: 6em;
+	height: 4em;
 	padding-left: 2em;
+	float:left;
+	margin-top: 1.5em;
 }
 
 .homePageContainer input[type="text"] {
-	width: 35%;
+	width: 11em;
 	height: 4em;
 	border: none;
-	padding-top: 1.5em;
+	margin-top:1.5em;
 	vertical-align: text-bottom;
 }
 
@@ -170,13 +173,15 @@ body .homePageContainer {
 .homePageContainer .menu li.active a {
 	color: white;
 	padding-top:3em;
-	padding-right: 1.5em
+	padding-right: 2.5em;
+	margin-right:-2em;
+	
 }
 
 .homePageContainer .menu li a {
 	list-style-type: none;
 	color: #919B9A;
-	float: right;
+	float: left;
 	display: block;
 	text-align: center;
 	font-family: 'Open Sans Bold';
@@ -190,7 +195,8 @@ body .homePageContainer {
 	margin-top: -3em;
 	position: relative;
 	z-index: 12;
-	border: none
+	border: none;
+	border-left: 1px solid #919B9A;
 }
 
 .homePageContainer .menu li.last {
@@ -261,6 +267,7 @@ body .homePageContainer {
 	/*height: 12.5em;*/
 	padding: 1em;
 	float: left;
+	background:white;
 }
 	
 .myEvents .eventDate {
@@ -331,4 +338,13 @@ body .homePageContainer {
 	float: right;
 	color: #01B49F;
 	text-decoration: none;
+}
+
+.homePageContainer .small-text{
+	font-size: 0.7em;
+	margin-top: -1em;
+	display: block;
+	height: 1em;
+	text-align: left;
+	font-weight: normal;
 }
