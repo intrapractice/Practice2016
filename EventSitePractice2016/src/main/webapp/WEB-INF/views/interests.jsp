@@ -109,6 +109,12 @@ function setLikedCategories(){
                     image = "resources/images/interest8.jpg";
                 }else if(category.getTitle().equals("BBQ")) {
                 	image = "resources/images/interest9.jpg";
+                }else if(category.getTitle().equals("Hiking")) {
+                	image = "resources/images/hiking.jpg";
+                }else if(category.getTitle().equals("Pets")) {
+                	image = "resources/images/pets.jpg";
+                }else if(category.getTitle().equals("University")){
+                	image = "resources/images/university-cat.jpg";
                 }else image = "resources/images/interestDefault.jpg";
 		%>
 		
