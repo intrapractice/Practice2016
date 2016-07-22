@@ -17,7 +17,8 @@ body {
    font-size: 1em;
    font-family: "Open Sans Light";
    border-width: 0px 0px 3px;
-   border-bottom-color: black;
+   border-bottom-color: #b2b2b2;
+   padding: 0 1em;
   }
   
 .createEventClass #pac-input{
@@ -27,7 +28,7 @@ body {
     font-size: 1.5em;
     font-family: "Open Sans Light";
     border-width: 0px 0px 3px;
-    border-bottom-color: black;
+    border-bottom-color: #b2b2b2;
     padding-left:1em;
 }
   .createEventClass #textboxCat{
@@ -36,20 +37,22 @@ body {
    font-size: 1em;
    font-family: "Open Sans Light";
    border-width: 0px 0px 3px;
-   border-bottom-color: black;
    margin-top:0.3em;
+   border-bottom-color: #b2b2b2;
+   padding: 0 1em;
   }
   
  .createEventClass #textarea {
-    width: 100%;
-    height: 15em;
-   border-width: 0px 0px 3px;
-   border-bottom-color: black;
-   margin-bottom : 1em;
-   font-family: "Open Sans Light";
-   font-size: 1em;
-   margin-top: 1.5em;
-    }
+	width: 100%;
+	height: 15em;
+	border-width: 0px 0px 3px;
+	margin-bottom : 1em;
+	font-family: "Open Sans Light";
+	font-size: 1em;
+	margin-top: 1.5em;
+	border-bottom-color: #b2b2b2;
+	padding: 0 1em;
+}
   
   .createEventClass #map-canvas{
     margin-top:1em;
@@ -164,8 +167,9 @@ body {
    font-size: 1em;
    font-family: "Open Sans Regular";
    border-width: 0px 0px 3px;
-   border-bottom-color: black;
    color:#BCBEBD;
+   border-bottom-color: #b2b2b2;
+   padding: 0 1em;
 }
 .createEventClass #bottomText{
     padding-top: 1.5em;

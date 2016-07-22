@@ -42,10 +42,17 @@ public class HomePageController {
 			cal.set(Calendar.MONTH, month);
 		}
 		int year = cal.get(Calendar.YEAR);
-		int month1 = cal.get(Calendar.MONTH) + 1;
-		int nextMonth = month1 + 1;
-		System.out.println("getting events between "+year + "/" + month1 + "/01 and "+year + "/" + nextMonth + "/01");
-		List<Event> events = eventsDao.getEventsInDateRange(year + "/" + month1 + "/01", year + "/" + nextMonth + "/01");
+		int month1 = cal.get(Calendar.MONTH)+1;
+		int nextMonth = 0;
+		int newYear = year;
+		if (month1==12) {
+			nextMonth = 1;
+			newYear = year + 1;
+		} else {
+			nextMonth = month1 + 1;
+		}
+		System.out.println("getting events between "+year + "/" + month1 + "/01 and "+newYear + "/" + nextMonth + "/01");
+		List<Event> events = eventsDao.getEventsInDateRange(year + "/" + month1 + "/01", newYear + "/" + nextMonth + "/01");
 		mav.addObject("events", events);
 System.out.println("events is "+events.size());
 		return mav;
