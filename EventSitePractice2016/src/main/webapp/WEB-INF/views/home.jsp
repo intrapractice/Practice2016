@@ -12,7 +12,7 @@
 <jsp:include page="header.jsp" />
 <link rel="stylesheet" type="text/css" href="resources/css/calendar.css">
 <script src="/EventSitePractice2016/resources/js/userIdScript.js"></script>
-
+<script src = "/EventSitePractice2016/resources/js/joinEvent.js"></script>
 <div class="homePageContainer"> 
 	<div id = "hero"></div>
     <div class = "preview"> 
@@ -70,7 +70,10 @@
 						<p class="eventTitle"> <%= event.getTitle() %> </p>
 						<p class="eventLocation"> <img src="resources/images/pin.png" class="eventPin"/> <%= event.getLocation() %> </p>
 						<p class="eventTime"> &#128344; <%= new SimpleDateFormat("HH:mm").format(calDate.getTime()) %> </p>
-						<a href="../EventSitePractice2016/UpdateEvent/<%=event.getId()%>" class="eventJoin">Join The Event</a>
+						<button class="eventJoin button event<%=event.getId()%>">Join the event
+                            <input type="hidden" value="<%=event.getId()%>" />
+                        </button>
+						
 						<a href="../EventSitePractice2016/Event/<%=event.getId()%>" class="eventLink">&rarr; View Event Details</a>
 					</div>
 				</div>
@@ -78,6 +81,7 @@
 		<% } %>
 		
 	</div>
+	
 </div>
 
 <jsp:include page="footer.jsp" />

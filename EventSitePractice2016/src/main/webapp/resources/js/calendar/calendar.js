@@ -1,1 +1,3 @@
-flatpickr('.flatpickr');
+$(document).ready(function(){
+	flatpickr(".flatpickr");
+});

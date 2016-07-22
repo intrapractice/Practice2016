@@ -53,6 +53,8 @@ public class EventPageController {
 		boolean result = eventsDao.createEvent(events.getTitle(), events.getDescription(), eventsDate, eventsEndDate,
 				events.getLocation(), events.getUserId() ,events.getCategoryId());
 
+		System.out.println("result is : " + result);
+		
 		if (result) {
 
 			System.out.println("Ready");
@@ -88,7 +90,7 @@ public class EventPageController {
 		System.out.println("I am here");
 		
 
-		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
 		Date eventsDate = null;
 		Date eventsEndDate = null;
@@ -135,7 +137,7 @@ public class EventPageController {
 		event.setStatus(eventById.getEventStatus());
 		event.setCategoryId(eventById.getCategory().getId());
 		
-		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		event.setDate(dateFormat.format(eventById.getDate()));
 		event.setEndDate(dateFormat.format(eventById.getEndDate()));
 		
