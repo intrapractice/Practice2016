@@ -213,7 +213,6 @@ body .homePageContainer {
 	position: relative;
 	z-index: 12;
 	border: none;
-	border-right: 1px solid #919B9A;
 	border-left: 1px solid #919B9A;
 }
 
