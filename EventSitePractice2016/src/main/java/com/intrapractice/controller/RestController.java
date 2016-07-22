@@ -118,7 +118,7 @@ public class RestController {
 		
 	}
 	
-	@RequestMapping(value = "/joinedEvents", method=RequestMethod.POST)
+	@RequestMapping(value = "/joinedEvents", method=RequestMethod.GET)
 	public @ResponseBody String joinedEvents(HttpServletResponse response, @RequestParam int userId){
 		ObjectMapper mapper = new ObjectMapper();
 		List<Integer> listOfJoinedEvents = eventsDao.getJoinedEventsByUserId(userId);
