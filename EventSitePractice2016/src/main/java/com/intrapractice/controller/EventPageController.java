@@ -53,6 +53,8 @@ public class EventPageController {
 		boolean result = eventsDao.createEvent(events.getTitle(), events.getDescription(), eventsDate, eventsEndDate,
 				events.getLocation(), events.getUserId() ,events.getCategoryId());
 
+		System.out.println("result is : " + result);
+		
 		if (result) {
 
 			System.out.println("Ready");
