@@ -9,6 +9,7 @@
 		
 <link rel="stylesheet" type="text/css" href="resources/css/homePageStyle.css">
 <script src="resources/js/calendar/flatpickr.min.js"></script>
+<script src="resources/js/home.js"></script>
 <jsp:include page="header.jsp" />
 <link rel="stylesheet" type="text/css" href="resources/css/calendar.css">
 <script src="/EventSitePractice2016/resources/js/userIdScript.js"></script>
@@ -34,7 +35,7 @@
        		</nav>
     	</div>
 
-    <input data-inline id="calendarFlat"></input>
+    <input data-inline id="calendarFlat" onclick = 'getMonthAndYear()'></input>
     <script>flatpickr("#calendarFlat")</script>
     </div>
  
