@@ -136,4 +136,10 @@ System.out.println("events is "+events.size());
 		ModelAndView mav = new ModelAndView("login");
 		return mav;
 	}
+  
+    @RequestMapping(value = "/license")
+	public ModelAndView login(HttpServletResponse response) throws IOException {
+		ModelAndView mav = new ModelAndView("disclaimerEULA");
+		return mav;
+	}
 }
