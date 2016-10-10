@@ -6,13 +6,13 @@ window.fbAsyncInit = function() {
 	  xfbml      : true,
 	  version    : 'v2.6'
 	});
-	
+
 	FB.getLoginStatus(function(response) {
 		if (response.status === 'connected') {
-            var accepted = getCookie("accepted");
-            if(accepted==""){
-              document.location = "/EventSitePractice2016/license/";
-            }
+            var accepted = read_cookie("accepted");
+			if (accepted == null) {
+				document.location = "/EventSitePractice2016/license/";
+		    }
 			FB.api('/me', 'GET', {fields: 'email,first_name,last_name,name,id'}, function(response) {
 				var fbName = response.name;
 				email = response.email;
@@ -31,8 +31,8 @@ window.fbAsyncInit = function() {
 				  .fail(function( jqxhr, textStatus, error ) {
 					  console.log("error occured");
 				});
-				    	
-					
+
+
 				$('.navbar #user').html(fbName);
 				$('#usercontainer #user').html(fbName);
 			    var userId = response.id;
@@ -45,26 +45,31 @@ window.fbAsyncInit = function() {
 					$('#userDrop').attr("src", pictureURL);
 				  }
 				});
-			});	
+			});
 		} else {
 			document.location = "/EventSitePractice2016/login/";
 		}
 	});
 };
 
-function getCookie(cname) {
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
-    for(var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
+function read_cookie (key, skips)
+{
+    if (skips == null)
+            skips = 0;
+    var cookie_string = "" + document . cookie;
+    var cookie_array = cookie_string . split ("; ");
+
+    for (var i = 0; i < cookie_array . length; ++ i)
+    {
+        var single_cookie = cookie_array [i] . split ("=");
+        if (single_cookie . length != 2)
+            continue;
+        var name  = unescape (single_cookie [0]);
+        var value = unescape (single_cookie [1]);
+        if (key == name && skips -- == 0)
+            return value;
         }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
+    return null;
 }
 
 (function(d, s, id){

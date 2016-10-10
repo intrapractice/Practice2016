@@ -29,7 +29,7 @@ function login() {
 // getting basic user info and then posting
 function getInfo() {
 	FB.api('/me', 'GET', {fields: 'email,first_name,last_name,name,id'}, function(response) {
-		$.post("/EventSitePractice2016/createUser?email=" + 
+		$.post("/EventSitePractice2016/createUser?email=" +
 		response.email + "&name=" + response.name + "&token="+response.id, function(data){
 			if (data==="true") {
 				var successImage = "<img id='success' class='centered' src='../resources/images/successTick.jpg'>";
@@ -43,36 +43,46 @@ function getInfo() {
 }
 
 function acceptLicenseAgreement() {
-  console.log('accepted!');
-  setCookie('accepted', true, 1);
+  write_cookie('accepted', true, "/");
+  document.location = "/EventSitePractice2016/";
 }
 
-function setCookie(cname, cvalue, exdays) {
-    var d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    var expires = "expires="+d.toUTCString();
-    document.cookie = cname + "=" + cvalue + "; " + expires;
+function read_cookie (key, skips)
+{
+    if (skips == null)
+            skips = 0;
+    var cookie_string = "" + document . cookie;
+    var cookie_array = cookie_string . split ("; ");
+
+    for (var i = 0; i < cookie_array . length; ++ i)
+    {
+        var single_cookie = cookie_array [i] . split ("=");
+        if (single_cookie . length != 2)
+            continue;
+        var name  = unescape (single_cookie [0]);
+        var value = unescape (single_cookie [1]);
+        if (key == name && skips -- == 0)
+            return value;
+        }
+    return null;
 }
 
-function getCookie(cname) {
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
-    for(var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
+function write_cookie (name, value, path)
+{
+    var expiration_date = new Date ();
+    expiration_date . setYear (expiration_date . getYear () + 1);
+    expiration_date = expiration_date . toGMTString ();
+    var cookie_string = escape (name) + "=" + escape (value) +
+            "; expires=" + expiration_date;
+    if (path != null)
+            cookie_string += "; path=" + path;
+    document . cookie = cookie_string;
 }
 
 function checkCookie() {
-    var accepted = getCookie("accepted");
-    if (accepted == "" && document.location.pathname.indexOf('license') < 0) {
-      document.location = "/EventSitePractice2016/license/";
+	var accepted = read_cookie("accepted");
+    if (accepted == null && document.location.pathname.indexOf('license') < 0) {
+		document.location = "/EventSitePractice2016/license/";
     }
 }
 
