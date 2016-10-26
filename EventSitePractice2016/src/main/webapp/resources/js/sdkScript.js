@@ -50,6 +50,10 @@ window.fbAsyncInit = function() {
 			document.location = "/EventSitePractice2016/login/";
 		}
 	});
+	FB.api('/me', 'GET', {fields: 'email,first_name,last_name,name,id'}, function(response) {
+		if(response.error)
+			document.location = "/EventSitePractice2016/login/";
+	});
 };
 
 function read_cookie (key, skips)
