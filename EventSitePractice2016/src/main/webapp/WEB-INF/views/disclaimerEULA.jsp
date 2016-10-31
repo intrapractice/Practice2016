@@ -68,7 +68,7 @@
                 Technologies Engineers. The design was provided by Bulpros. This system is no intended to be used for commercial purposes. The source code of the project is not proprietary and is publically available on the following URL:
                 <a href="https://github.com/intrapractice/Practice2016" target="_blank">https://github.com/intrapractice/Practice2016</a>
                 <br/>
-                TU Students involved in the development team:<br/>
+                Development team:<br/>
             </p>
             <ol>
                 <li>Angel Botev</li>
@@ -77,6 +77,7 @@
                 <li>Denitza Kavalska</li>
                 <li>Martin Mihaylov</li>
                 <li>Hristian Stoyanov</li>
+				<li>Nikolay Zdravkov</li>
             </ol>
         </div>
         <div id="EULA">

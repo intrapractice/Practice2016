@@ -6,8 +6,9 @@ window.fbAsyncInit = function() {
 	  xfbml      : true,
 	  version    : 'v2.8'
 	});
-
+	var redirect;
 	FB.getLoginStatus(function(response) {
+		clearTimeout(redirect);
 		if (response.status === 'connected') {
             var accepted = read_cookie("accepted");
 			if (accepted == null) {
@@ -51,8 +52,9 @@ window.fbAsyncInit = function() {
 		}
 	});
 	FB.api('/me', 'GET', {fields: 'email,first_name,last_name,name,id'}, function(response) {
-		if(response.error)
-			document.location = "/EventSitePractice2016/login/";
+		if(response.error){
+			redirect = setTimeout(function(){ document.location = "/EventSitePractice2016/login/"; }, 2000);
+		}
 	});
 };
 
